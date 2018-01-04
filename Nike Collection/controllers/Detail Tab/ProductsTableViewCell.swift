@@ -51,6 +51,8 @@ extension ProductsTableViewCell{
         manufacturerLabel.text = product.manufacturer?.name
         priceLabel.text = product.salePrice.currencyFormatter
         userRating.rating = Int(product.rating)
+        
+
     }
     
 }
