@@ -135,6 +135,7 @@
 		A5E546851FBEF0E10047AE62 /* Stepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E546841FBEF0E10047AE62 /* Stepper.swift */; };
 		A5E5468E1FBF75BC0047AE62 /* mortalkombat3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E5468D1FBF75990047AE62 /* mortalkombat3.ttf */; };
 		A5E546901FBFDF750047AE62 /* mortalkombat2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E5468F1FBFDF480047AE62 /* mortalkombat2.ttf */; };
+		A5FC096220110BA000238DF8 /* UIImage_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096120110BA000238DF8 /* UIImage_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -289,6 +290,7 @@
 		A5E546841FBEF0E10047AE62 /* Stepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stepper.swift; sourceTree = "<group>"; };
 		A5E5468D1FBF75990047AE62 /* mortalkombat3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mortalkombat3.ttf; sourceTree = "<group>"; };
 		A5E5468F1FBFDF480047AE62 /* mortalkombat2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mortalkombat2.ttf; sourceTree = "<group>"; };
+		A5FC096120110BA000238DF8 /* UIImage_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +635,7 @@
 		A58EAC271FA6F7C6005DE595 /* Assist Part */ = {
 			isa = PBXGroup;
 			children = (
+				A5FC096020110B5E00238DF8 /* UIImage_Extension */,
 				A5E5468C1FBF02B40047AE62 /* Rating Assist */,
 				A5E5468B1FBF02A00047AE62 /* Bubble Effect Assist */,
 				A5E5468A1FBF02920047AE62 /* NavigationBar Assist */,
@@ -790,6 +793,14 @@
 				A530366E1FBB0A0900820D2F /* UserRating.swift */,
 			);
 			path = "Rating Assist";
+			sourceTree = "<group>";
+		};
+		A5FC096020110B5E00238DF8 /* UIImage_Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A5FC096120110BA000238DF8 /* UIImage_Extension.swift */,
+			);
+			path = UIImage_Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1132,6 +1143,7 @@
 				A530366F1FBB0A0900820D2F /* UserRating.swift in Sources */,
 				A5E546851FBEF0E10047AE62 /* Stepper.swift in Sources */,
 				A5D799CC1FAF680900AE05B2 /* CoreDataDelete.swift in Sources */,
+				A5FC096220110BA000238DF8 /* UIImage_Extension.swift in Sources */,
 				A57B28581FAC8F0600F2F88A /* NikeCollectionMomd.xcdatamodeld in Sources */,
 				A57B29D81FAC966F00F2F88A /* CoreDataSave.swift in Sources */,
 				A57B28551FAC8C6400F2F88A /* CoreDataStack.swift in Sources */,

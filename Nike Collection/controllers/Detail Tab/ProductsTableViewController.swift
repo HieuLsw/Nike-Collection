@@ -154,7 +154,8 @@ tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
              delegate?.product = selectedProduct
     }else{
 cell.contentView.layer.borderWidth = 0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor}
+cell.contentView.layer.borderColor = UIColor.clear.cgColor
+}
 cell.productImageView.layer.borderWidth = 2
 cell.productImageView.layer.cornerRadius = 10
 cell.productImageView.layer.borderColor = UIColor.red.cgColor
@@ -216,6 +217,5 @@ headerTapGesture.addTarget(self, action: #selector(ProductsTableViewController.s
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 selectedProduct = sectionItems[indexPath.section][indexPath.row]
         delegate?.product = selectedProduct
-        //tableView.reloadData()
     }
 }
