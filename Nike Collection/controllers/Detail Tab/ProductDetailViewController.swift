@@ -12,40 +12,30 @@ class ProductDetailViewController: UIViewController {
 
     @IBOutlet weak var detailSummaryView: DetailSummaryView!
     
+    var productTableVC = ProductsTableViewController()
+    
     var product:Product?{
-        didSet{
-            if let currentProduct = product{
-                
-             self.showDetail(forThe: currentProduct)
-                
-            }
-        }
-    }
+        didSet{if let currentProduct = product{
+self.showDetail(forThe: currentProduct)}}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        
-        
-        
-        
+     self.productTableVC.delegate = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-   
 }// ProductDetailViewController class over line
 
 // custom functions
 extension ProductDetailViewController{
     
-    private func showDetail(forThe currentProduct:Product){
-        detailSummaryView.updateView(with: currentProduct)
-    }
-    
+    fileprivate func showDetail(forThe currentProduct:Product){
+        if viewIfLoaded != nil {
+detailSummaryView.updateView(with: currentProduct)}
+    }    
 }
+
+

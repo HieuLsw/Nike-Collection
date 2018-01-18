@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class PromoContentViewController: UIViewController {
 
     @IBOutlet weak var promoImageView: UIImageView!
@@ -17,7 +16,6 @@ class PromoContentViewController: UIViewController {
     
     var imageName: String?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,16 +23,12 @@ class PromoContentViewController: UIViewController {
         
        //set .gif file into image view
        setPromoImageViewContent()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 }//class PromoContentViewController over line
 
 //custom functions:
@@ -48,7 +42,5 @@ extension PromoContentViewController{
             self.promoImageView.setGifImage(gifImage, manager: SwiftyGifManager(memoryLimit:60), loopCount: -1)
             //self.promoImageView.image = gifImage!
         }
-        
     }
- 
 }

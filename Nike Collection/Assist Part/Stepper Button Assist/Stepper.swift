@@ -13,21 +13,18 @@ class Stepper: UIControl {
     // Current value of the stepper. Defaults to 0.
     @objc @IBInspectable var value: Double = 0 {
         didSet {
-            value = min(maximumValue, max(minimumValue, value))
+      value = min(maximumValue, max(minimumValue, value))
             
             let isInteger = floor(value) == value
-            
-            //
-            // If we have items, we will display them as steps
-            //
-            
-            if isInteger && stepValue == 1.0 && items.count > 0 {
+
+    // If we have items, we will display them as steps
+if isInteger && stepValue == 1.0 && items.count > 0 {
                 label.text = items[Int(value)]
-            }
-            else if showIntegerIfDoubleIsInteger && isInteger {
-                label.text = String(stringInterpolationSegment: Int(value))
-            } else {
-                label.text = String(stringInterpolationSegment: value)
+}
+else if showIntegerIfDoubleIsInteger && isInteger {
+label.text = String(stringInterpolationSegment: Int(value))
+} else {
+label.text = String(stringInterpolationSegment: value)
             }
             
             if oldValue != value {
@@ -36,17 +33,17 @@ class Stepper: UIControl {
         }
     }
     
-    // Minimum value. Must be less than maximumValue. Defaults to 0.
+     // Minimum value. Must be less than maximumValue. Defaults to 0.
     @objc @IBInspectable var minimumValue: Double = 0 {
         didSet {
-            value = min(maximumValue, max(minimumValue, value))
+value = min(maximumValue, max(minimumValue, value))
         }
     }
     
-    // Maximum value. Must be more than minimumValue. Defaults to 100.
+  // Maximum value. Must be more than minimumValue. Defaults to 100.
     @objc @IBInspectable var maximumValue: Double = 100 {
         didSet {
-            value = min(maximumValue, max(minimumValue, value))
+    value = min(maximumValue, max(minimumValue, value))
         }
     }
     
@@ -77,7 +74,7 @@ class Stepper: UIControl {
     @objc @IBInspectable var buttonsTextColor: UIColor = UIColor.white {
         didSet {
             for button in [leftButton, rightButton] {
-                button.setTitleColor(buttonsTextColor, for: .normal)
+button.setTitleColor(buttonsTextColor, for: .normal)
             }
         }
     }
@@ -86,7 +83,7 @@ class Stepper: UIControl {
     @objc @IBInspectable var buttonsBackgroundColor: UIColor = UIColor(red:0.21, green:0.5, blue:0.74, alpha:1) {
         didSet {
             for button in [leftButton, rightButton] {
-                button.backgroundColor = buttonsBackgroundColor
+     button.backgroundColor = buttonsBackgroundColor
             }
             backgroundColor = buttonsBackgroundColor
         }
@@ -125,7 +122,6 @@ class Stepper: UIControl {
     @objc @IBInspectable var labelCornerRadius: CGFloat = 0 {
         didSet {
             label.layer.cornerRadius = labelCornerRadius
-            
         }
     }
     
@@ -156,7 +152,7 @@ class Stepper: UIControl {
     // Percentage of the middle label's width. Must be between 0 and 1. Defaults to 0.5. Be sure that it is wide enough to show the value.
     @objc @IBInspectable var labelWidthWeight: CGFloat = 0.5 {
         didSet {
-            labelWidthWeight = min(1, max(0, labelWidthWeight))
+labelWidthWeight = min(1, max(0, labelWidthWeight))
             setNeedsLayout()
         }
     }
@@ -181,17 +177,17 @@ class Stepper: UIControl {
         button.setTitleColor(self.buttonsTextColor, for: .normal)
         button.backgroundColor = self.buttonsBackgroundColor
         button.titleLabel?.font = self.buttonsFont
-        button.addTarget(self, action: #selector(Stepper.leftButtonTouchDown), for: .touchDown)
-        button.addTarget(self, action: #selector(Stepper.buttonTouchUp), for: .touchUpInside)
-        button.addTarget(self, action: #selector(Stepper.buttonTouchUp), for: .touchUpOutside)
-        button.addTarget(self, action: #selector(Stepper.buttonTouchUp), for: .touchCancel)
+button.addTarget(self, action: #selector(Stepper.leftButtonTouchDown), for: .touchDown)
+button.addTarget(self, action: #selector(Stepper.buttonTouchUp), for: .touchUpInside)
+button.addTarget(self, action: #selector(Stepper.buttonTouchUp), for: .touchUpOutside)
+button.addTarget(self, action: #selector(Stepper.buttonTouchUp), for: .touchCancel)
         return button
     }()
     
     lazy var rightButton: UIButton = {
         let button = UIButton()
         button.setTitle(self.rightButtonText, for: .normal)
-        button.setTitleColor(self.buttonsTextColor, for: .normal)
+button.setTitleColor(self.buttonsTextColor, for: .normal)
         button.backgroundColor = self.buttonsBackgroundColor
         button.titleLabel?.font = self.buttonsFont
         button.addTarget(self, action: #selector(Stepper.rightButtonTouchDown), for: .touchDown)
@@ -205,9 +201,9 @@ class Stepper: UIControl {
         let label = UILabel()
         label.textAlignment = .center
         if self.showIntegerIfDoubleIsInteger && floor(self.value) == self.value {
-            label.text = String(stringInterpolationSegment: Int(self.value))
+  label.text = String(stringInterpolationSegment: Int(self.value))
         } else {
-            label.text = String(stringInterpolationSegment: self.value)
+label.text = String(stringInterpolationSegment: self.value)
         }
         label.textColor = self.labelTextColor
         label.backgroundColor = self.labelBackgroundColor
@@ -244,16 +240,12 @@ class Stepper: UIControl {
         }
     }
     
-    
     @objc var items : [String] = [] {
         didSet {
             let isInteger = floor(value) == value
             
-            //
             // If we have items, we will display them as steps
-            //
-            
-            if isInteger && stepValue == 1.0 && items.count > 0 {
+    if isInteger && stepValue == 1.0 && items.count > 0 {
                 
                 var value = Int(self.value)
                 
@@ -262,7 +254,7 @@ class Stepper: UIControl {
                     self.value = Double(value)
                 }
                 else {
-                    label.text = items[value]
+    label.text = items[value]
                 }
             }
         }

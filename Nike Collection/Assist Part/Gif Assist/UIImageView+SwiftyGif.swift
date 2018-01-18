@@ -16,7 +16,6 @@ fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
     }
 }
 
-
 let _gifImageKey = malloc(4)
 let _cacheKey = malloc(4)
 let _currentImageKey = malloc(4)

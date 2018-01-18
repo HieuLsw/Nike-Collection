@@ -21,7 +21,6 @@ class ProductsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userRating: UserRating!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,17 +28,11 @@ class ProductsTableViewCell: UITableViewCell {
 self.selectedBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
         
  self.selectionStyle = .default
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-        self.selectedBackgroundView?.backgroundColor = UIColor.white
-        
     }
-
 }
 
 extension ProductsTableViewCell{
@@ -51,8 +44,5 @@ extension ProductsTableViewCell{
         manufacturerLabel.text = product.manufacturer?.name
         priceLabel.text = product.salePrice.currencyFormatter
         userRating.rating = Int(product.rating)
-        
-
-    }
-    
+    }    
 }

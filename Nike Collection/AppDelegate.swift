@@ -6,8 +6,6 @@
 //  Copyright © 2017 Mac. All rights reserved.
 //
 
-
-
 import UIKit
 import CoreData
 
@@ -20,7 +18,7 @@ class AppDelegate: UIResponder,UIApplicationDelegate {
 var coreDataStack = CoreDataStack()
     
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+// Override point for customization after application launch.
         
         //change bar background color to #000000
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -40,7 +38,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     
         //shows location in console
         print(urls[urls.count-1] as URL)
-        
+    
+    //set gloabl attributes
+    setGloablAttributes()
         return true
     }
 
@@ -65,8 +65,21 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
 
-
+extension AppDelegate{
+    fileprivate func setGloablAttributes(){
+        let tabBarController = window?.rootViewController as! UITabBarController
+        
+let splitVC = tabBarController.viewControllers?[1] as! UISplitViewController
+let masterNavigation = splitVC.viewControllers[0] as! UINavigationController
+let productsTableVC = masterNavigation.topViewController as! ProductsTableViewController
+        
+let detailNavigation = splitVC.viewControllers[1] as! UINavigationController
+let productDetailVC = detailNavigation.topViewController as! ProductDetailViewController
+        
+productsTableVC.delegate = productDetailVC
+    }
 }
 

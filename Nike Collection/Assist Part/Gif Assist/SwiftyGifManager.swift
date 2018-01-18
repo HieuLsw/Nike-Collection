@@ -118,12 +118,10 @@ import Foundation
                 imageView.image = imageView.currentImage
             }
             if imageView.isAnimatingGif() {
-                DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).sync{
+    DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).sync{
                     imageView.updateCurrentImage()
                 }
             }
-
         }
     }
-    
 }

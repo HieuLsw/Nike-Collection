@@ -15,4 +15,10 @@ extension Double {
         
         return formatter.string(from: NSNumber(value: self))!
     }
+    
+    var percentFormatter:String{
+        let formatter = NumberFormatter.init()
+        formatter.numberStyle = .percent
+        return formatter.string(from: NSNumber.init(value: self))!
+    }
 }

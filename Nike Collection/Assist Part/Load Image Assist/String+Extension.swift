@@ -14,7 +14,6 @@ extension String {
             
             // example: "Jordan.jpg" to "Jordan"
         return String(self[..<self.index(of: ".")!])
-            
         }
         return self
     }

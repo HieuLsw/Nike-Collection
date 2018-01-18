@@ -16,14 +16,13 @@ import UIKit
     }
     
     fileprivate func random(min: Double, max: Double) -> Double {
-        return Double(arc4random()) / 0xFFFFFFFF * (max - min) + min
+return Double(arc4random()) / 0xFFFFFFFF * (max - min) + min
     }
     
-
     fileprivate func addAnimationForView(_ view: UIView) {
         
         //create an animation to follow a circular path
-        let pathAnimation = CAKeyframeAnimation(keyPath: "position")
+let pathAnimation = CAKeyframeAnimation(keyPath: "position")
         
         //interpolate the movement to be more smooth
         pathAnimation.calculationMode = kCAAnimationPaced
@@ -41,13 +40,13 @@ import UIKit
         pathAnimation.duration = random(min: 5, max: 8)
         
         
-        //The circle to follow will be inside the circleContainer frame.
-        //it should be a frame around the center of your view to animate.
-        //do not make it to large, a width/height of 3-4 will be enough.
+//The circle to follow will be inside the circleContainer frame.
+//it should be a frame around the center of your view to animate.
+//do not make it to large, a width/height of 3-4 will be enough.
         let curvedPath = CGMutablePath()
         let circleContainer = view.frame.insetBy(dx: 23/50 * view.frame.size.width, dy: 23/50 * view.frame.size.height)
         
-        //    CGPathAddEllipseInRect(curvedPath, nil, circleContainer)
+//CGPathAddEllipseInRect(curvedPath, nil, circleContainer)
         curvedPath.addEllipse(in: circleContainer)
         
         //add the path to the animation
@@ -132,7 +131,6 @@ let backgroundCirclePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: frame.
 backgroundColor.setFill()
         backgroundCirclePath.fill()
         
-        
     // OuterCircle Drawing
 let outerCirclePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
         
@@ -153,7 +151,6 @@ context?.drawLinearGradient(gradientAbove, start: CGPoint(x: 30/60*frame.size.wi
         
         context?.restoreGState()
         
-        
         // OvalBelow Drawing
 let ovalBelowPath = UIBezierPath(ovalIn: CGRect(x: 7/60 * frame.size.width, y: 25.5/60 * frame.size.height, width: 46/60 * frame.size.width, height: 34/60 * frame.size.height))
         
@@ -167,14 +164,12 @@ context?.drawLinearGradient(gradienBelow, start: CGPoint(x: 30/60*frame.size.wid
     }
 }
 
-
 extension UIColor {
     
     fileprivate func interpolate(_ a: CGFloat, b: CGFloat, fraction: CGFloat) -> CGFloat {
         return (a + ((b - a) * fraction))
     }
     
-
      func blendedColorWithFraction(_ fraction: CGFloat, ofColor endColor: UIColor) -> UIColor {
         
         if fraction <= 0.0 { return self }
@@ -194,7 +189,7 @@ extension UIColor {
     if UIColor.instancesRespond(to: #selector(UIColor.getWhite(_:alpha:))) {
         
             //white
-            if getWhite(&a1, alpha: &b1) && endColor.getWhite(&a2, alpha: &b2) {
+if getWhite(&a1, alpha: &b1) && endColor.getWhite(&a2, alpha: &b2) {
     return UIColor(white: interpolate(a1, b: a2, fraction: fraction), alpha: interpolate(b1, b: b2, fraction: fraction))
             }
             

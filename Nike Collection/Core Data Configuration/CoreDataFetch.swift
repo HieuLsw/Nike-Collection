@@ -20,7 +20,6 @@ class CoreDataFetch {
     
    fileprivate let appDelegateFetch = UIApplication.shared.delegate as! AppDelegate
     
-   
      func productsServe(category type: String) -> [Product] {
     
         let managedObjectContexts = appDelegateFetch.coreDataStack.persistentContainer.viewContext
@@ -38,14 +37,11 @@ class CoreDataFetch {
        //print(products)
             
     //if each time items count in console is same, this means the resetdata feature has effect
-            //print(products.count)
-            
+            //print(products.count)            
             return products
         }
         catch let error as NSError {
             fatalError("Error is getting product list: \(error.localizedDescription)")
         }
     }
-    
-    
 }

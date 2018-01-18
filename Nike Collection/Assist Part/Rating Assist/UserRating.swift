@@ -37,7 +37,6 @@ class UserRating:UIView{
         
     }
     
-    
     override func layoutSubviews() {
         
         // Set the button's width and height
@@ -46,8 +45,9 @@ class UserRating:UIView{
         var x = 0
         
         for button in ratingButtons {
+            
             // O O O O O
-            buttonFrame.origin.x = CGFloat(x * (buttonSize + 5))
+        buttonFrame.origin.x = CGFloat(x * (buttonSize + 5))
             button.frame = buttonFrame
             x += 1
         }
@@ -58,6 +58,7 @@ class UserRating:UIView{
 
 }//UserRating class over line
 
+//custom functions
 extension UserRating{
     
     private func updateButtonSelectionStates() {
@@ -65,11 +66,11 @@ extension UserRating{
         
         for button in ratingButtons {
             button.isSelected = x < rating
+            
             // rating == 2
             x += 1
         }
     }
-    
 }
 
 

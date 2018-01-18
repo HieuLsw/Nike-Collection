@@ -59,7 +59,7 @@ appDelegateSave.coreDataStack.saveContext()
         
         
         //As NikeCollectionMomd
-        //Product part ------------------------------------------
+//Product part ------------------------------------------
         
         let product = Product(context: managedObjectContext)
         
@@ -81,77 +81,64 @@ appDelegateSave.coreDataStack.saveContext()
                 
             }
         }
-        //-------------------------------------------------------
-        
-        
-        
-        
-        //Manufacturer part --------------------------------------
+//-------------------------------------------------------
+
+//Manufacturer part --------------------------------------
         let manufacturer = Manufacturer(context: managedObjectContext)
         
         manufacturer.setValue((productData["manufacturerId"] as AnyObject).int16Value, forKey: "id")
         manufacturer.setValue(productData["manufacturerName"] as? String, forKey: "name")
         
         product.setValue(manufacturer, forKey: "manufacturer")
-        //--------------------------------------------------------
+//--------------------------------------------------------
         
-        
-        
-        
-        //ProductImage part --------------------------------------
-        let productImages = product.productImages?.mutableCopy() as! NSMutableSet
+//ProductImage part --------------------------------------
+let productImages = product.productImages?.mutableCopy() as! NSMutableSet
         
         var mainImageName: String?
         
         if let imageNames = productData["images"] {
             
-            _ = (imageNames as! NSArray).map{ imageName in
+_ = (imageNames as! NSArray).map{ imageName in
                 
-                let productImage = ProductImage(context: managedObjectContext)
+let productImage = ProductImage(context: managedObjectContext)
                 
-                let currentImageName = imageName as? String
-                let currentImage = Utility.image(withName: currentImageName, andType: "jpg")
+let currentImageName = imageName as? String
+let currentImage = Utility.image(withName: currentImageName, andType: "jpg")
                 
-                let imageData = NSData.init(data: UIImageJPEGRepresentation(currentImage!, 1.0)!) as Data
+let imageData = NSData.init(data: UIImageJPEGRepresentation(currentImage!, 1.0)!) as Data
+productImage.setValue(imageData, forKey: "image")
+productImage.setValue(currentImageName, forKey: "name")
                 
-                productImage.setValue(imageData, forKey: "image")
-                productImage.setValue(currentImageName, forKey: "name")
-                
-                if mainImageName == nil && currentImageName?.contains("1") == true {
-                    mainImageName = currentImageName
-                }
-                
-                productImages.add(productImage)
-            }
-            
-            product.setValue(productImages.copy() as? NSSet, forKey: "productImages")
+if mainImageName == nil && currentImageName?.contains("1") == true {mainImageName = currentImageName}
+productImages.add(productImage)
+}
+product.setValue(productImages.copy() as? NSSet, forKey: "productImages")
         }
+        
         //print(mainImageName)
-        product.setValue(mainImageName, forKey: "mainimage")
+    product.setValue(mainImageName, forKey: "mainimage")
         
-        //--------------------------------------------------------
+//--------------------------------------------------------
         
+//ProductInfo part ---------------------------------------
+let productInfo = product.productInfo?.mutableCopy() as! NSMutableSet
         
-        
-        
-        //ProductInfo part ---------------------------------------
-        let productInfo = product.productInfo?.mutableCopy() as! NSMutableSet
-        
-        _ = ["description1","description2","description3"].map{ element in
-            if let description = productData[element] {
+_ = ["description1","description2","description3"].map{ element in
+    if let description = productData[element] {
                 
-                let temp = ProductInfo(context: managedObjectContext)
+let temp = ProductInfo(context: managedObjectContext)
                 
-                temp.setValue(description as? String, forKey: "info")
-                temp.setValue("description", forKey: "type")
+temp.setValue(description as? String, forKey: "info")
+    temp.setValue("description", forKey: "type")
                 productInfo.add(temp)
             }
         }
         
-        _ = ["Brand","US Size(Men's)","Condition","modelNumber"].map{element in
+_ = ["Brand","US Size(Men's)","Condition","modelNumber"].map{element in
             if let item = productData[element] {
                 
-                let temp = ProductInfo(context: managedObjectContext)
+    let temp = ProductInfo(context: managedObjectContext)
                 
                 temp.setValue(element, forKey: "title")
                 temp.setValue(item as? String, forKey: "info")
@@ -162,12 +149,8 @@ appDelegateSave.coreDataStack.saveContext()
         
         product.setValue(productInfo.copy() as? NSSet, forKey: "productInfo")
 //-----------------------------------------------------
-        
     }
- 
 }
-   
-  
 }
 
 
