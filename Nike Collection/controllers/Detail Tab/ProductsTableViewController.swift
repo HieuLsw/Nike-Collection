@@ -94,13 +94,16 @@ func tableViewCollapeSection(_ section: Int, imageView: UIImageView) {
 let sectionData = self.sectionItems[section] as NSArray
 self.expandedSectionHeaderNumber = -1
 if (sectionData.count == 0) {return} else {
+    
     UIView.animate(withDuration: 0.4, animations: {
 imageView.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(Double.pi)) / 180.0)})
-            var indexesPath = [IndexPath]()
-            for i in 0 ..< sectionData.count {
+    
+var indexesPath = [IndexPath]()
+for i in 0 ..< sectionData.count {
 let index = IndexPath(row: i, section: section)
 indexesPath.append(index)}
-        self.tableView!.beginUpdates()
+    
+self.tableView!.beginUpdates()
 self.tableView!.deleteRows(at: indexesPath, with: UITableViewRowAnimation.fade)
 self.tableView!.endUpdates()
         }
@@ -138,9 +141,7 @@ extension ProductsTableViewController{
         if (self.expandedSectionHeaderNumber == section) {
   let arrayOfItems = self.sectionItems[section] as NSArray
             return arrayOfItems.count
-        } else {
-            return 0
-        }
+        } else {return 0}
     }
     
 override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,8 +152,7 @@ let currentProduct = section[indexPath.row]
 
     if selectedProduct?.id == currentProduct.id{
 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-             delegate?.product = selectedProduct
-    }else{
+delegate?.product = selectedProduct }else{
 cell.contentView.layer.borderWidth = 0
 cell.contentView.layer.borderColor = UIColor.clear.cgColor
 }

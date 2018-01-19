@@ -80,8 +80,7 @@ priceSavedPercentlabel.text = percentSave
             if product.quantity < 5{
                 qtyLeftLabel.isHidden = false
 let qtyLeftStr = product.quantity == 1 ? "item" : "items"
-qtyLeftLabel.text = "Only \(product.quantity) \(qtyLeftStr) left"
-            }
+qtyLeftLabel.text = "Only \(product.quantity) \(qtyLeftStr) left" }
         }
         else{
             isInStock.textColor = UIColor.red
@@ -96,7 +95,6 @@ qtyLeftLabel.text = "Only \(product.quantity) \(qtyLeftStr) left"
             if let mainImage = allImages.first{
 productImageView.image = Utility.image(withName: mainImage.name, andType: "jpg")
 }
-            
             let imageCount = allImages.count
             var arrButtons = [UIButton]()
             buttonContainerView = UIView()

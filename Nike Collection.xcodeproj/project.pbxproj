@@ -136,6 +136,7 @@
 		A5E5468E1FBF75BC0047AE62 /* mortalkombat3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E5468D1FBF75990047AE62 /* mortalkombat3.ttf */; };
 		A5E546901FBFDF750047AE62 /* mortalkombat2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E5468F1FBFDF480047AE62 /* mortalkombat2.ttf */; };
 		A5FC096220110BA000238DF8 /* UIImage_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096120110BA000238DF8 /* UIImage_Extension.swift */; };
+		A5FC09652011C83F00238DF8 /* ProductInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09642011C83F00238DF8 /* ProductInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,6 +292,7 @@
 		A5E5468D1FBF75990047AE62 /* mortalkombat3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mortalkombat3.ttf; sourceTree = "<group>"; };
 		A5E5468F1FBFDF480047AE62 /* mortalkombat2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mortalkombat2.ttf; sourceTree = "<group>"; };
 		A5FC096120110BA000238DF8 /* UIImage_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extension.swift; sourceTree = "<group>"; };
+		A5FC09642011C83F00238DF8 /* ProductInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 				A53036571FB772F900820D2F /* ProductsTableViewCell.swift */,
 				A5E546801FBEC4C70047AE62 /* ProductDetailViewController.swift */,
 				A5E546821FBEC61C0047AE62 /* DetailSummaryView.swift */,
+				A5FC09632011C80F00238DF8 /* Detail Info */,
 			);
 			path = "Detail Tab";
 			sourceTree = "<group>";
@@ -803,6 +806,14 @@
 			path = UIImage_Extension;
 			sourceTree = "<group>";
 		};
+		A5FC09632011C80F00238DF8 /* Detail Info */ = {
+			isa = PBXGroup;
+			children = (
+				A5FC09642011C83F00238DF8 /* ProductInfoTableViewCell.swift */,
+			);
+			path = "Detail Info";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1158,6 +1169,7 @@
 				A5E546751FBD8F190047AE62 /* Bubble.swift in Sources */,
 				A53036201FB46EF600820D2F /* ProductsTableViewController.swift in Sources */,
 				A57B284B1FAC7CE600F2F88A /* UIImageView+SwiftyGif.swift in Sources */,
+				A5FC09652011C83F00238DF8 /* ProductInfoTableViewCell.swift in Sources */,
 				A5B326F21FB1CA74000852F7 /* UINavigation+Extension.swift in Sources */,
 				A5D799CE1FB0CF1100AE05B2 /* CoreDataFetch.swift in Sources */,
 			);

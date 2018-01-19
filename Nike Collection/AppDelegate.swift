@@ -23,7 +23,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
         //change bar background color to #000000
         UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
-    
         //change status text color to white
      UIApplication.shared.statusBarStyle = .lightContent
     
@@ -65,8 +64,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-}
-
+}//AppDelegate class over line
 
 extension AppDelegate{
     fileprivate func setGloablAttributes(){
