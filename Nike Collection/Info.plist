@@ -37,6 +37,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>MedulaOne-Regular.ttf</string>
 		<string>mortalkombat2.ttf</string>
 		<string>mortalkombat3.ttf</string>
 		<string>Suissnord.ttf</string>

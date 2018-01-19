@@ -24,6 +24,11 @@ class ProductInfoTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        infoTitleLabel.layer.borderWidth = 2
+        infoTitleLabel.layer.borderColor = UIColor.white.cgColor
+productSpecLabel.layer.borderColor = UIColor.white.cgColor
+productSpecLabel.layer.borderWidth = 2
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -137,6 +137,7 @@
 		A5E546901FBFDF750047AE62 /* mortalkombat2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5E5468F1FBFDF480047AE62 /* mortalkombat2.ttf */; };
 		A5FC096220110BA000238DF8 /* UIImage_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096120110BA000238DF8 /* UIImage_Extension.swift */; };
 		A5FC09652011C83F00238DF8 /* ProductInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09642011C83F00238DF8 /* ProductInfoTableViewCell.swift */; };
+		A5FC09672012213900238DF8 /* MedulaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09662012211E00238DF8 /* MedulaOne-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +294,7 @@
 		A5E5468F1FBFDF480047AE62 /* mortalkombat2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = mortalkombat2.ttf; sourceTree = "<group>"; };
 		A5FC096120110BA000238DF8 /* UIImage_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_Extension.swift; sourceTree = "<group>"; };
 		A5FC09642011C83F00238DF8 /* ProductInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoTableViewCell.swift; sourceTree = "<group>"; };
+		A5FC09662012211E00238DF8 /* MedulaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MedulaOne-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 				A5E5468D1FBF75990047AE62 /* mortalkombat3.ttf */,
 				A5E5468F1FBFDF480047AE62 /* mortalkombat2.ttf */,
 				A53036861FBC37E600820D2F /* P22 ToyBox Blocks Regular.ttf */,
+				A5FC09662012211E00238DF8 /* MedulaOne-Regular.ttf */,
 				A53036781FBB63CF00820D2F /* ZiGzAgEo-Reg-FFP.ttf */,
 				A53036881FBC3CE900820D2F /* P22 ToyBox BlocksLine Regular.ttf */,
 				A530367E1FBB6E7600820D2F /* IMPOS-30.ttf */,
@@ -927,6 +930,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5FC09672012213900238DF8 /* MedulaOne-Regular.ttf in Resources */,
 				A5E546901FBFDF750047AE62 /* mortalkombat2.ttf in Resources */,
 				A5E5468E1FBF75BC0047AE62 /* mortalkombat3.ttf in Resources */,
 				A5E5467D1FBEB8650047AE62 /* Suissnord.otf in Resources */,

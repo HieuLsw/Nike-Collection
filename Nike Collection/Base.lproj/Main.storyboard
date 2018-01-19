@@ -15,6 +15,9 @@
         <array key="Honeybee.ttf">
             <string>Honeybee</string>
         </array>
+        <array key="MedulaOne-Regular.ttf">
+            <string>MedulaOne-Regular</string>
+        </array>
         <array key="MosaicCaps.ttf">
             <string>MosaicCaps</string>
         </array>
@@ -542,7 +545,7 @@
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QQJ-e8-AI7">
                                                         <rect key="frame" x="238" y="15" width="488" height="220"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <color key="textColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -569,7 +572,7 @@
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T0u-eW-MZc">
                                                 <rect key="frame" x="246" y="778" width="496" height="300"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="eUD-Rg-DgJ"/>
                                                 </constraints>
@@ -584,25 +587,26 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="duc-2W-VGQ">
                                                                     <rect key="frame" x="15" y="0.0" width="200" height="44"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFE-0A-YnB">
-                                                                            <rect key="frame" x="8" y="15.5" width="31" height="14.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                            <nil key="textColor"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UFE-0A-YnB">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="44"/>
+                                                                            <fontDescription key="fontDescription" name="MedulaOne-Regular" family="Medula One" pointSize="25"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
-                                                                    <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="UFE-0A-YnB" firstAttribute="leading" secondItem="duc-2W-VGQ" secondAttribute="leadingMargin" id="JVH-Tc-330"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="UFE-0A-YnB" secondAttribute="trailing" id="1sO-J5-lIe"/>
+                                                                        <constraint firstItem="UFE-0A-YnB" firstAttribute="leading" secondItem="duc-2W-VGQ" secondAttribute="leading" id="Agg-Z9-oau"/>
+                                                                        <constraint firstItem="UFE-0A-YnB" firstAttribute="top" secondItem="duc-2W-VGQ" secondAttribute="top" id="CEh-OP-NcE"/>
                                                                         <constraint firstAttribute="width" constant="200" id="U3K-7H-jsA"/>
-                                                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UFE-0A-YnB" secondAttribute="trailingMargin" id="l3W-RI-Qe1"/>
-                                                                        <constraint firstItem="UFE-0A-YnB" firstAttribute="centerY" secondItem="duc-2W-VGQ" secondAttribute="centerY" id="sf7-hg-UkF"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="UFE-0A-YnB" secondAttribute="bottom" id="hHs-hd-7Zy"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRP-pa-1kK">
-                                                                    <rect key="frame" x="223" y="0.0" width="258" height="44"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                    <nil key="textColor"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WRP-pa-1kK">
+                                                                    <rect key="frame" x="215" y="0.0" width="266" height="44"/>
+                                                                    <fontDescription key="fontDescription" name="MedulaOne-Regular" family="Medula One" pointSize="25"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
@@ -611,12 +615,13 @@
                                                                 <constraint firstItem="duc-2W-VGQ" firstAttribute="top" secondItem="6T8-FD-UXe" secondAttribute="top" id="JUu-BM-0M3"/>
                                                                 <constraint firstItem="WRP-pa-1kK" firstAttribute="centerY" secondItem="6T8-FD-UXe" secondAttribute="centerY" id="MwV-dc-9On"/>
                                                                 <constraint firstItem="duc-2W-VGQ" firstAttribute="leading" secondItem="6T8-FD-UXe" secondAttribute="leadingMargin" id="S6G-6p-tiR"/>
-                                                                <constraint firstItem="WRP-pa-1kK" firstAttribute="leading" secondItem="duc-2W-VGQ" secondAttribute="trailing" constant="8" id="VYs-hD-60e"/>
+                                                                <constraint firstItem="WRP-pa-1kK" firstAttribute="leading" secondItem="duc-2W-VGQ" secondAttribute="trailing" id="VYs-hD-60e"/>
                                                                 <constraint firstItem="WRP-pa-1kK" firstAttribute="top" secondItem="6T8-FD-UXe" secondAttribute="top" id="kUz-Td-tqI"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="WRP-pa-1kK" secondAttribute="trailing" id="xyI-AM-lks"/>
                                                                 <constraint firstAttribute="bottom" secondItem="duc-2W-VGQ" secondAttribute="bottom" id="yif-YG-fsJ"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <connections>
                                                             <outlet property="infoTitleLabel" destination="UFE-0A-YnB" id="REk-qa-zO7"/>
                                                             <outlet property="productSpecLabel" destination="WRP-pa-1kK" id="q90-Pm-rFI"/>
