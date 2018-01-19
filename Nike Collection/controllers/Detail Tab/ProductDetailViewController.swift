@@ -20,7 +20,9 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
 {didSet{self.tableView.delegate = self
 self.tableView.dataSource = self}}
     
-    var productTableVC = ProductsTableViewController()
+    var specifications = [ProductInfo]()
+    
+    //var productTableVC = ProductsTableViewController()
     
     var product:Product?{
         didSet{if let currentProduct = product{
@@ -28,7 +30,7 @@ self.showDetail(forThe: currentProduct)}}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     self.productTableVC.delegate = self
+     //self.productTableVC.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,25 +44,46 @@ extension ProductDetailViewController{
     
     fileprivate func showDetail(forThe currentProduct:Product){
         if viewIfLoaded != nil {
-detailSummaryView.updateView(with: currentProduct)}
-    }    
-}
+            
+detailSummaryView.updateView(with: currentProduct)
+            
+let productInfo = currentProduct.productInfo?.allObjects as! [ProductInfo]
+specifications = productInfo.filter{ $0.type == "specs"}
+            
+var description = ""
+for currentInfo in productInfo{
+if let info = currentInfo.info, info.count > 0, currentInfo.type == "description"{
+description = description + info + "\n\n"}}
+productDescriptionLabel.text = description
+productDescriptionImageView.image = Utility.image(withName: currentProduct.mainimage, andType: "jpg")
+tableView.reloadData()}}}
 
 //UITableViewDataSource
 extension ProductDetailViewController{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return specifications.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellProductInfo", for: indexPath)
+let cell = tableView.dequeueReusableCell(withIdentifier: "cellProductInfo", for: indexPath) as! ProductInfoTableViewCell
+        cell.productInfo = specifications[indexPath.row]
         return cell
     }
 }
 
-
+//UITableViewDelegate
+extension ProductDetailViewController{
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+}

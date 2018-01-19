@@ -13,6 +13,14 @@ class ProductInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var infoTitleLabel: UILabel!
     @IBOutlet weak var productSpecLabel: UILabel!
     
+    var productInfo:ProductInfo?{
+        didSet{
+            if let currentInfo = productInfo{
+                configueCell(with: currentInfo)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,4 +32,12 @@ class ProductInfoTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}//ProductInfoTableViewCell class over line
+
+//custom functions
+extension ProductInfoTableViewCell{
+    internal func configueCell(with productInfo:ProductInfo){
+        infoTitleLabel.text = productInfo.title
+        productSpecLabel.text = productInfo.info
+    }
 }

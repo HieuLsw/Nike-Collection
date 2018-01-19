@@ -11,27 +11,16 @@ import UIKit
 class DetailSummaryView: UIView{
     
     @IBOutlet weak var manufacturer: UILabel!
-    
     @IBOutlet weak var productNameLabel: UILabel!
-    
     @IBOutlet weak var listPriceLabel: UILabel!
-    
     @IBOutlet weak var dealPriceLabel: UILabel!
-    
     @IBOutlet weak var priceSaveDollarLabel: UILabel!
-    
     @IBOutlet weak var priceSavedPercentlabel: UILabel!
-    
     @IBOutlet weak var isInStock: UILabel!
-    
     @IBOutlet weak var qtyLeftLabel: UILabel!
-    
     @IBOutlet weak var quantityControl: Stepper!
-    
     @IBOutlet weak var addToCartButton: UIButton!
-    
-    @IBOutlet weak var productImageView: UIImageView!
-    
+    @IBOutlet weak var productImageView: UIImageView!    
     @IBOutlet weak var userRating: UserRating!
     
     //assist view
@@ -138,3 +127,5 @@ let image = Utility.image(withName: imageName, andType: "jpg")
         }
     }
 }
+
+
