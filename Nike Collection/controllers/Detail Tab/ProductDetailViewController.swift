@@ -9,34 +9,51 @@
 import UIKit
 
 class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-
     @IBOutlet weak var detailSummaryView: DetailSummaryView!
-    
     @IBOutlet weak var productDescriptionImageView: UIImageView!
-    
     @IBOutlet weak var productDescriptionLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
 {didSet{self.tableView.delegate = self
 self.tableView.dataSource = self}}
     
-    var specifications = [ProductInfo]()
+@IBOutlet weak var shoppingCartButton: UIButton!
+@IBOutlet weak var cartItemCountLabel: UILabel!
     
-    //var productTableVC = ProductsTableViewController()
-    
-    var product:Product?{
+var quantity = 1
+var shoppingCart = ShoppingCart.sharedInstance
+var specifications = [ProductInfo]()
+var product:Product?{
         didSet{if let currentProduct = product{
 self.showDetail(forThe: currentProduct)}}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     //self.productTableVC.delegate = self
+     
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func addToCart(_ sender: Any) {
+        
+        if let producct = product{
+            
+  shoppingCart.add(product: producct, qty: self.quantity)
+self.quantity = 1
+            
+UIView.animate(withDuration: 0.5, animations: {[weak self] in
+ self?.shoppingCartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi, 0.0, 1.0, 0.0)})
+
+UIView.animate(withDuration: 0.5, animations: { [weak self] in
+self?.shoppingCartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi * 2, 0.0, 1.0, 0.0)}, completion: { (succes: Bool) in
+DispatchQueue.main.async { [unowned self] in
+self.cartItemCountLabel.text = "\(self.shoppingCart.totalItem())"}})
+            
+        }
+    }
+    
 }// ProductDetailViewController class over line
 
 // custom functions

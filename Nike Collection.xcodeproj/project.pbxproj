@@ -139,6 +139,7 @@
 		A5FC09652011C83F00238DF8 /* ProductInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09642011C83F00238DF8 /* ProductInfoTableViewCell.swift */; };
 		A5FC09672012213900238DF8 /* MedulaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09662012211E00238DF8 /* MedulaOne-Regular.ttf */; };
 		A5FC096A20123BC700238DF8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096920123BC700238DF8 /* ShoppingCart.swift */; };
+		A5FC096D20124F4C00238DF8 /* shopping-cart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A5FC096C20124F4C00238DF8 /* shopping-cart.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -297,6 +298,7 @@
 		A5FC09642011C83F00238DF8 /* ProductInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A5FC09662012211E00238DF8 /* MedulaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MedulaOne-Regular.ttf"; sourceTree = "<group>"; };
 		A5FC096920123BC700238DF8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
+		A5FC096C20124F4C00238DF8 /* shopping-cart.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "shopping-cart.pdf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -377,6 +379,7 @@
 		A57B29181FAC924300F2F88A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A5FC096B20124F1E00238DF8 /* Top Items */,
 				A57B296A1FAC924300F2F88A /* Jackets */,
 				A57B29451FAC924300F2F88A /* Shoes */,
 				A57B29321FAC924300F2F88A /* Shorts */,
@@ -828,6 +831,14 @@
 			path = "Top Items";
 			sourceTree = "<group>";
 		};
+		A5FC096B20124F1E00238DF8 /* Top Items */ = {
+			isa = PBXGroup;
+			children = (
+				A5FC096C20124F4C00238DF8 /* shopping-cart.pdf */,
+			);
+			path = "Top Items";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1015,6 +1026,7 @@
 				A57B29BA1FAC924400F2F88A /* Jordan XX8 Bamboo 2.jpg in Resources */,
 				A57B29C91FAC924400F2F88A /* Jordan Lamb 2.jpg in Resources */,
 				A5D6325B1F84B66100B80078 /* Main.storyboard in Resources */,
+				A5FC096D20124F4C00238DF8 /* shopping-cart.pdf in Resources */,
 				A57B29CC1FAC924400F2F88A /* Jordan Lamb 5.jpg in Resources */,
 				A57B299C1FAC924400F2F88A /* Jordan New Orleans 1.jpg in Resources */,
 				A57B29A01FAC924400F2F88A /* Jordan New Orleans 5.jpg in Resources */,

@@ -8,6 +8,7 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -249,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-94" y="216"/>
+            <point key="canvasLocation" x="-693" y="44"/>
         </scene>
         <!--Promo Content View Controller-->
         <scene sceneID="jrT-4P-qrz">
@@ -281,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RsO-aQ-xfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="1"/>
+            <point key="canvasLocation" x="-693" y="1237"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="Dmy-PM-G7W">
@@ -289,7 +290,7 @@
                 <pageViewController storyboardIdentifier="promoPageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pUf-tM-mfW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wLg-K9-QRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="377"/>
+            <point key="canvasLocation" x="-693" y="822"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="go6-GR-KFB">
@@ -316,18 +317,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDu-CN-SB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751" y="112"/>
+            <point key="canvasLocation" x="-693" y="-1406"/>
         </scene>
         <!--Product Detail-->
         <scene sceneID="2m5-y5-l8m">
             <objects>
                 <viewController id="Aoe-e1-1ja" customClass="ProductDetailViewController" customModule="Nike_Collection" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GW2-2S-97A" userLabel="Container View">
-                        <rect key="frame" x="0.0" y="0.0" width="749.5" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="749.5" height="1136"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="go1-tU-eOL">
-                                <rect key="frame" x="0.0" y="64" width="749.5" height="1087"/>
+                                <rect key="frame" x="0.0" y="0.0" width="749.5" height="1087"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5PB-7h-lJB" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="749.5" height="1050"/>
@@ -389,7 +390,7 @@
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$999,999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hg-JA-M1S">
                                                                         <rect key="frame" x="0.0" y="0.0" width="77" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$999,999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fd-pH-98A">
@@ -430,7 +431,7 @@
                                                             <constraint firstAttribute="height" constant="21" id="kIq-Le-xq2"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.82745098039999998" green="1" blue="0.80784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="textColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qtyLeft!!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-sx-Cqd">
@@ -476,6 +477,9 @@
                                                         <state key="normal" title="Add to cart">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="addToCart:" destination="Aoe-e1-1ja" eventType="touchUpInside" id="5tE-v3-0Eq"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -669,18 +673,52 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ihz-bA-zHe"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Product Detail" id="bah-N0-Xef"/>
+                    <navigationItem key="navigationItem" title="Product Detail" id="bah-N0-Xef">
+                        <barButtonItem key="rightBarButtonItem" title=" " style="done" id="8tt-dR-oAs">
+                            <view key="customView" contentMode="scaleToFill" id="N2K-AD-o1I">
+                                <rect key="frame" x="563.5" y="5.5" width="166" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJo-sO-yzN">
+                                        <rect key="frame" x="121" y="2" width="35" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="fAH-oA-5FW"/>
+                                            <constraint firstAttribute="height" constant="30" id="rK0-Hy-eG3"/>
+                                        </constraints>
+                                        <state key="normal" image="shopping-cart"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiQ-Wi-v4I">
+                                        <rect key="frame" x="122" y="2" width="35" height="13"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="eJo-sO-yzN" firstAttribute="centerY" secondItem="N2K-AD-o1I" secondAttribute="centerY" id="KWW-CO-Ewe"/>
+                                    <constraint firstItem="OiQ-Wi-v4I" firstAttribute="height" secondItem="eJo-sO-yzN" secondAttribute="height" multiplier="1:2.3" id="M2g-qp-Xm5"/>
+                                    <constraint firstAttribute="trailing" secondItem="eJo-sO-yzN" secondAttribute="trailing" constant="10" id="Olz-GN-Xrp"/>
+                                    <constraint firstItem="OiQ-Wi-v4I" firstAttribute="width" secondItem="eJo-sO-yzN" secondAttribute="width" id="TXf-pd-5dc"/>
+                                    <constraint firstItem="OiQ-Wi-v4I" firstAttribute="centerX" secondItem="eJo-sO-yzN" secondAttribute="centerX" constant="1" id="cym-i7-5hJ"/>
+                                    <constraint firstItem="OiQ-Wi-v4I" firstAttribute="top" secondItem="eJo-sO-yzN" secondAttribute="top" id="naG-l4-TwM"/>
+                                </constraints>
+                            </view>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="1070" height="1200"/>
                     <connections>
+                        <outlet property="cartItemCountLabel" destination="OiQ-Wi-v4I" id="bSj-PB-XZO"/>
                         <outlet property="detailSummaryView" destination="8aH-L7-gh0" id="Ffh-oU-k9t"/>
                         <outlet property="productDescriptionImageView" destination="Xyv-F8-HkJ" id="xl9-vs-ckY"/>
                         <outlet property="productDescriptionLabel" destination="QQJ-e8-AI7" id="uQJ-IV-AZM"/>
+                        <outlet property="shoppingCartButton" destination="eJo-sO-yzN" id="Auu-Tl-VNu"/>
                         <outlet property="tableView" destination="T0u-eW-MZc" id="Non-Ot-f0m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmh-WU-PdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="784.5703125" y="1954.6875"/>
+            <point key="canvasLocation" x="-4046" y="959"/>
         </scene>
         <!--Products-->
         <scene sceneID="wzJ-gX-pMK">
@@ -778,7 +816,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZ3-uR-cOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771" y="1087"/>
+            <point key="canvasLocation" x="-2242" y="761"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6dh-iF-L0p">
@@ -787,6 +825,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ybn-RS-xPO">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="BarTintColor"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Impossible-0minus30" family="Impossible - 0 minus 30" pointSize="29"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -798,7 +837,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ub6-nb-kMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-68" y="1087"/>
+            <point key="canvasLocation" x="-2063" y="-332"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="PRa-U3-PqR">
@@ -812,7 +851,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qa0-8M-Voy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1592" y="1515"/>
+            <point key="canvasLocation" x="-2973" y="-1406"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8em-LE-o1y">
@@ -831,16 +870,21 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHa-tU-Sli" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2017" y="400"/>
+            <point key="canvasLocation" x="-1746" y="-2585"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cas-YK-5h3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V4O-hz-CSo" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XHa-NU-9x9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="XHa-NU-9x9">
                         <rect key="frame" x="0.0" y="20" width="703.5" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="MedulaOne-Regular" family="Medula One" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -849,7 +893,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9P-be-EnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69" y="1839"/>
+            <point key="canvasLocation" x="-4046" y="-332"/>
         </scene>
     </scenes>
     <resources>
@@ -858,5 +902,9 @@
         <image name="Home Filled" width="50" height="50"/>
         <image name="Home Outline" width="32" height="32"/>
         <image name="J" width="16" height="16"/>
+        <image name="shopping-cart" width="44" height="44"/>
+        <namedColor name="BarTintColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

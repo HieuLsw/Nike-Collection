@@ -19,9 +19,6 @@ var coreDataStack = CoreDataStack()
     
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 // Override point for customization after application launch.
-        
-        //change bar background color to #000000
-        UINavigationBar.appearance().barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
         //change status text color to white
      UIApplication.shared.statusBarStyle = .lightContent

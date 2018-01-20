@@ -65,7 +65,6 @@ totalCost += Double(item.qty) * item.product.salePrice
         return totalCost
     }
     
-    
     private func find(product: Product) -> Int? {
 let index = items.index(where: { $0.product == product })
         return index

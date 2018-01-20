@@ -134,7 +134,7 @@ bestCollection = CoreDataFetch.fetchResult.productsServe(category: "Shoes")
 
  //set navigation bar colorful 
     private func gradientNavigationBar(){
-navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.400000006, green: 0, blue: 0.400000006, alpha: 1),#colorLiteral(red: 0, green: 0, blue: 0.5019999743, alpha: 1),#colorLiteral(red: 0, green: 0.5019999743, blue: 0, alpha: 1)])
+navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0, green: 0.7647058824, blue: 1, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 0.1098039216, alpha: 1)])
   
     }
     

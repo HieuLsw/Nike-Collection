@@ -188,19 +188,15 @@ extension ProductsTableViewController{
         
         //recast view as a UITableViewHeaderFooterView
         let header = view as! UITableViewHeaderFooterView
-        
 header.contentView.backgroundColor = UIColor(hex: "408000")
-        
-        header.textLabel?.textColor = UIColor.white
+header.textLabel?.textColor = UIColor.white
         
         let font = UIFont(name: "ZiGzAgEo", size: 20)!
         let fontMetrics = UIFontMetrics(forTextStyle: .body)
-        
 header.textLabel?.font = fontMetrics.scaledFont(for: font)
        
 if let viewWithTag = self.view.viewWithTag(kHeaderSectionTag + section) {viewWithTag.removeFromSuperview()}
-        
-        let headerFrame = self.view.frame.size
+let headerFrame = self.view.frame.size
 let theImageView = UIImageView(frame: CGRect(x: headerFrame.width - 32, y: 13, width: 18, height: 18))
         
         theImageView.image = #imageLiteral(resourceName: "DownArrow")
