@@ -713,12 +713,34 @@
                         <outlet property="productDescriptionImageView" destination="Xyv-F8-HkJ" id="xl9-vs-ckY"/>
                         <outlet property="productDescriptionLabel" destination="QQJ-e8-AI7" id="uQJ-IV-AZM"/>
                         <outlet property="shoppingCartButton" destination="eJo-sO-yzN" id="Auu-Tl-VNu"/>
+                        <outlet property="stateView" destination="6ZL-jc-kfQ" id="j1u-yC-ZCg"/>
                         <outlet property="tableView" destination="T0u-eW-MZc" id="Non-Ot-f0m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xmh-WU-PdD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="6ZL-jc-kfQ">
+                    <rect key="frame" x="0.0" y="0.0" width="434" height="253"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike Collection" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsY-si-AQJ">
+                            <rect key="frame" x="154" y="105.5" width="128" height="42"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="n0N-M6-MYk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstItem="YsY-si-AQJ" firstAttribute="centerY" secondItem="6ZL-jc-kfQ" secondAttribute="centerY" id="ugM-3V-bIa"/>
+                        <constraint firstItem="YsY-si-AQJ" firstAttribute="centerX" secondItem="6ZL-jc-kfQ" secondAttribute="centerX" id="vN4-XA-VBl"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="t6v-K6-T3d"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-4046" y="959"/>
+            <point key="canvasLocation" x="-4031" y="1226"/>
         </scene>
         <!--Products-->
         <scene sceneID="wzJ-gX-pMK">
@@ -893,7 +915,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9P-be-EnC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4046" y="-332"/>
+            <point key="canvasLocation" x="-4026" y="-456"/>
         </scene>
     </scenes>
     <resources>

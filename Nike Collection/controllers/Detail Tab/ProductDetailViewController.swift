@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
     @IBOutlet weak var detailSummaryView: DetailSummaryView!
     @IBOutlet weak var productDescriptionImageView: UIImageView!
     @IBOutlet weak var productDescriptionLabel: UILabel!
@@ -18,7 +18,10 @@ self.tableView.dataSource = self}}
     
 @IBOutlet weak var shoppingCartButton: UIButton!
 @IBOutlet weak var cartItemCountLabel: UILabel!
+ 
+@IBOutlet weak var stateView: UIView!
     
+var productTable = ProductsTableViewController()
 var quantity = 1
 var shoppingCart = ShoppingCart.sharedInstance
 var specifications = [ProductInfo]()
@@ -29,6 +32,8 @@ self.showDetail(forThe: currentProduct)}}}
     override func viewDidLoad() {
         super.viewDidLoad()
      
+    //configue state view
+     configueStateView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,14 +64,28 @@ self.cartItemCountLabel.text = "\(self.shoppingCart.totalItem())"}})
 // custom functions
 extension ProductDetailViewController{
     
-    fileprivate func showDetail(forThe currentProduct:Product){
+    fileprivate func configueStateView(){
+        self.view.addSubview(stateView)
+        stateView.translatesAutoresizingMaskIntoConstraints = false
+        stateView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+        stateView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        stateView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        stateView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    }
+    
+   internal func openState() {
+        self.stateView.isHidden = true
+    }
+    
+    internal func closeState() {
+        self.stateView.isHidden = false
+    }
+    
+fileprivate func showDetail(forThe currentProduct:Product){
         if viewIfLoaded != nil {
-            
 detailSummaryView.updateView(with: currentProduct)
-            
 let productInfo = currentProduct.productInfo?.allObjects as! [ProductInfo]
 specifications = productInfo.filter{ $0.type == "specs"}
-            
 var description = ""
 for currentInfo in productInfo{
 if let info = currentInfo.info, info.count > 0, currentInfo.type == "description"{
@@ -104,3 +123,10 @@ extension ProductDetailViewController{
         return 100
     }
 }
+
+
+
+
+
+
+

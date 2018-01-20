@@ -10,29 +10,27 @@ import UIKit
 import CoreData
 
 class ProductsTableViewController: UITableViewController{
-
+    
     //just a num as section tag
-    let kHeaderSectionTag = 6900
+   private let kHeaderSectionTag = 6900
     
     //also just a header num
-    var expandedSectionHeaderNumber = 0
+   private var expandedSectionHeaderNumber = -1
     
     //section view
-    var expandedSectionHeader: UITableViewHeaderFooterView!
+   private var expandedSectionHeader: UITableViewHeaderFooterView!
     
     //as section title
-    var sectionNames = [String]()
+   private var sectionNames = [String]()
     
     //as section cells
-    var sectionItems = [[Product]]()
+   private var sectionItems = [[Product]]()
     
     //selected cell
-    var selectedProduct: Product?
+   private var selectedProduct: Product?
     
     //share class
     weak var delegate: ProductDetailViewController?
-    
-    var detailView = DetailSummaryView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +66,7 @@ sectionItems = sectionNames.map{ (element) -> [Product] in
 return CoreDataFetch.fetchResult.productsServe(category: element)}
 
         // init the selectedProduct
-selectedProduct = CoreDataFetch.fetchResult.productsServe(category: "Jackets").first
+//selectedProduct = CoreDataFetch.fetchResult.productsServe(category: "Jackets").first
     }
     
     @objc func sectionHeaderWasTouched(_ sender: UITapGestureRecognizer) {
@@ -91,6 +89,9 @@ tableViewExpandSection(section, imageView: eImageView!)
     }
     
 func tableViewCollapeSection(_ section: Int, imageView: UIImageView) {
+    
+    delegate?.closeState()
+    
 let sectionData = self.sectionItems[section] as NSArray
 self.expandedSectionHeaderNumber = -1
 if (sectionData.count == 0) {return} else {
@@ -99,10 +100,12 @@ if (sectionData.count == 0) {return} else {
 imageView.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(Double.pi)) / 180.0)})
     
 var indexesPath = [IndexPath]()
+    
 for i in 0 ..< sectionData.count {
 let index = IndexPath(row: i, section: section)
-indexesPath.append(index)}
-    
+indexesPath.append(index)
+}
+
 self.tableView!.beginUpdates()
 self.tableView!.deleteRows(at: indexesPath, with: UITableViewRowAnimation.fade)
 self.tableView!.endUpdates()
@@ -110,26 +113,27 @@ self.tableView!.endUpdates()
     }
     
     func tableViewExpandSection(_ section: Int, imageView: UIImageView) {
-        
+delegate?.openState()
 let sectionData = self.sectionItems[section] as NSArray
-        
         if (sectionData.count == 0) {
-            self.expandedSectionHeaderNumber = -1
-            return
+self.expandedSectionHeaderNumber = -1;return
         } else {
+            
 UIView.animate(withDuration: 0.4, animations: {
 imageView.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(Double.pi)) / 180.0)})
+            
             var indexesPath = [IndexPath]()
 for i in 0 ..< sectionData.count {
     let index = IndexPath(row: i, section: section)
+    self.tableView.deselectRow(at: index, animated: true)
 indexesPath.append(index)}
 self.expandedSectionHeaderNumber = section
 self.tableView!.beginUpdates()
 self.tableView!.insertRows(at: indexesPath, with: UITableViewRowAnimation.fade)
-        self.tableView!.endUpdates()}}
+self.tableView!.endUpdates()}}
 }
 
-//table view data source
+//UITableViewDataSource
 extension ProductsTableViewController{
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -163,10 +167,6 @@ cell.configureCell(with: section[indexPath.row])
         
         return cell
     }
-}
-
-//UITableViewDelegate
-extension ProductsTableViewController{
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
@@ -183,6 +183,10 @@ extension ProductsTableViewController{
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat{
         return 0
     }
+}
+
+//UITableViewDelegate
+extension ProductsTableViewController{
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
@@ -202,16 +206,18 @@ let theImageView = UIImageView(frame: CGRect(x: headerFrame.width - 32, y: 13, w
         theImageView.image = #imageLiteral(resourceName: "DownArrow")
         theImageView.tag = kHeaderSectionTag + section
         header.addSubview(theImageView)
-        
-        // make headers touchable
+
+// make headers touchable
 header.tag = section
 let headerTapGesture = UITapGestureRecognizer()
 headerTapGesture.addTarget(self, action: #selector(ProductsTableViewController.sectionHeaderWasTouched(_:)))
         header.addGestureRecognizer(headerTapGesture)
     }
-  
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 selectedProduct = sectionItems[indexPath.section][indexPath.row]
         delegate?.product = selectedProduct
+        delegate?.openState()
     }
+
 }

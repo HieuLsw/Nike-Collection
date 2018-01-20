@@ -24,10 +24,9 @@ class ProductsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-self.selectedBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
-        
- self.selectionStyle = .default
+ 
+        //configue section
+configueSection()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,6 +36,13 @@ self.selectedBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .ex
 
 extension ProductsTableViewCell{
     
+    fileprivate func configueSection(){
+        self.selectedBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        
+        self.selectionStyle = .default
+    }
+    
+
     internal func configureCell(with product: Product) {
         
         productImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
