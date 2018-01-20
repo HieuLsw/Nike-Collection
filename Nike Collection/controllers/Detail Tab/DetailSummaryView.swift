@@ -47,6 +47,7 @@ buttonContainerView?.removeFromSuperview()
         qtyLeftLabel.isHidden = true
         addToCartButton.isEnabled = true
         addToCartButton.alpha = 1.0
+quantityControl.maximumValue = Double(product.quantity)
         
         //product info
          manufacturer.text = product.manufacturer?.name
