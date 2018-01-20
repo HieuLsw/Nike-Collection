@@ -11,6 +11,9 @@ import CoreData
 
 class ProductsTableViewController: UITableViewController{
     
+    //home products
+    var products: [Product]?
+    
     //just a num as section tag
    private let kHeaderSectionTag = 6900
     
@@ -27,7 +30,7 @@ class ProductsTableViewController: UITableViewController{
    private var sectionItems = [[Product]]()
     
     //selected cell
-   private var selectedProduct: Product?
+    var selectedProduct: Product?
     
     //start state
    private var isFirstTimeToOpenApp = true

@@ -75,6 +75,10 @@ let detailNavigation = splitVC.viewControllers[1] as! UINavigationController
 let productDetailVC = detailNavigation.topViewController as! ProductDetailViewController
         
 productsTableVC.delegate = productDetailVC
+
+        let homeNavigation = tabBarController.viewControllers?[0] as! UINavigationController
+        let homeVC = homeNavigation.topViewController as! HomeViewController
+        homeVC.productNB = productsTableVC
     }
 }
 

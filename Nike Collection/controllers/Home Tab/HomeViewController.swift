@@ -8,18 +8,22 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UIPageViewControllerDataSource,UICollectionViewDataSource {
+class HomeViewController: UIViewController,UIPageViewControllerDataSource,UICollectionViewDataSource,UICollectionViewDelegate {
     
     @IBOutlet weak var pageView: UIView!
     
     @IBOutlet weak var pageControl: UIPageControl!
 
     @IBOutlet weak var newestCollectionView: UICollectionView!{
-        didSet{self.newestCollectionView.dataSource = self}
+        didSet{self.newestCollectionView.dataSource = self
+            self.newestCollectionView.delegate = self
+        }
     }
     
     @IBOutlet weak var bestCollectionView: UICollectionView!{
-        didSet{self.bestCollectionView.dataSource = self}
+        didSet{self.bestCollectionView.dataSource = self
+            self.bestCollectionView.delegate = self
+        }
     }
     
     // aim to get promoPageVC in Storyboard
@@ -34,7 +38,10 @@ class HomeViewController: UIViewController,UIPageViewControllerDataSource,UIColl
     //newest and best colleciton view needs array
     var newestCollection = [Product]()
     var bestCollection = [Product]()
-    
+   fileprivate var selectedProduct: Product?
+    var productsInSelectedCategory: [Product]?
+    var productNB: ProductsTableViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -234,6 +241,31 @@ cell.layer.cornerRadius = cell.bounds.size.width / 2
            default: return UICollectionViewCell()
         }
     }
+}
+
+//UICollectionViewDelegate
+extension HomeViewController{
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case self.newestCollectionView:
+            selectedProduct = newestCollection[indexPath.row]
+            productsInSelectedCategory = newestCollection
+            
+        case self.bestCollectionView:
+            selectedProduct = bestCollection[indexPath.row]
+            productsInSelectedCategory = bestCollection
+            
+        default:
+            print("Nothing is picked")
+        }
+        
+        self.productNB?.products = productsInSelectedCategory
+        self.productNB?.selectedProduct = selectedProduct
+        
+        self.parent?.tabBarController?.selectedIndex = 1
+    }
+    
 }
 
 
