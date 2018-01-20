@@ -45,7 +45,7 @@ extension ProductsTableViewCell{
 
     internal func configureCell(with product: Product) {
         
-        productImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
+productImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
         productNameLabel.text = product.name
         manufacturerLabel.text = product.manufacturer?.name
         priceLabel.text = product.salePrice.currencyFormatter

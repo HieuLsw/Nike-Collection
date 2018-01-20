@@ -44,9 +44,8 @@ self.showDetail(forThe: currentProduct)}}}
     @IBAction func addToCart(_ sender: Any) {
         
         if let producct = product{
-            
+   self.quantity = Int(detailSummaryView.quantityControl.value)
   shoppingCart.add(product: producct, qty: self.quantity)
-self.quantity = 1
             
 UIView.animate(withDuration: 0.5, animations: {[weak self] in
  self?.shoppingCartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi, 0.0, 1.0, 0.0)})

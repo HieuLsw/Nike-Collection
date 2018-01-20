@@ -29,6 +29,9 @@ class ProductsTableViewController: UITableViewController{
     //selected cell
    private var selectedProduct: Product?
     
+    //start state
+   private var isFirstTimeToOpenApp = true
+    
     //share class
     weak var delegate: ProductDetailViewController?
     
@@ -113,7 +116,6 @@ self.tableView!.endUpdates()
     }
     
     func tableViewExpandSection(_ section: Int, imageView: UIImageView) {
-delegate?.openState()
 let sectionData = self.sectionItems[section] as NSArray
         if (sectionData.count == 0) {
 self.expandedSectionHeaderNumber = -1;return
@@ -130,7 +132,14 @@ indexesPath.append(index)}
 self.expandedSectionHeaderNumber = section
 self.tableView!.beginUpdates()
 self.tableView!.insertRows(at: indexesPath, with: UITableViewRowAnimation.fade)
-self.tableView!.endUpdates()}}
+self.tableView!.endUpdates()
+}
+        if isFirstTimeToOpenApp {
+            isFirstTimeToOpenApp = false
+            return
+        }
+        else {delegate?.openState()}
+    }
 }
 
 //UITableViewDataSource
