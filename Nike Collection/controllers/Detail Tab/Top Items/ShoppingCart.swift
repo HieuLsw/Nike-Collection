@@ -25,10 +25,7 @@ extension ShoppingCart{
         if let index = find(product: product) {
             
 // If already exists in the shopping cart, add the qty to the current qty
-            let newQty = items[index].qty + qty
-            
-            items[index] = (product, newQty)
-        }else {
+let newQty = items[index].qty + qty;items[index] = (product, newQty)}else {
             
 // If not yet exists in the shopping cart, add the product with the qty to items array
             items.append((product, qty))

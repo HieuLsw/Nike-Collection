@@ -136,13 +136,11 @@ self.pageViewController?.setViewControllers([nextControler], direction: UIPageVi
     private func collectionViewDataInit(){
 newestCollection = CoreDataFetch.fetchResult.productsServe(category: "Souvenirs")
 bestCollection = CoreDataFetch.fetchResult.productsServe(category: "Shoes")
-
     }
 
  //set navigation bar colorful 
     private func gradientNavigationBar(){
-navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0, green: 0.7647058824, blue: 1, alpha: 1),#colorLiteral(red: 1, green: 1, blue: 0.1098039216, alpha: 1)])
-  
+navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.7529411765, green: 0.1411764706, blue: 0.1450980392, alpha: 1),#colorLiteral(red: 0.9411764706, green: 0.7960784314, blue: 0.2078431373, alpha: 1)])
     }
     
 }

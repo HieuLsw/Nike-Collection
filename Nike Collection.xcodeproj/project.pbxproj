@@ -140,6 +140,7 @@
 		A5FC09672012213900238DF8 /* MedulaOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09662012211E00238DF8 /* MedulaOne-Regular.ttf */; };
 		A5FC096A20123BC700238DF8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096920123BC700238DF8 /* ShoppingCart.swift */; };
 		A5FC096D20124F4C00238DF8 /* shopping-cart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A5FC096C20124F4C00238DF8 /* shopping-cart.pdf */; };
+		A5FC09702013651F00238DF8 /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096F2013651F00238DF8 /* CartTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +300,7 @@
 		A5FC09662012211E00238DF8 /* MedulaOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MedulaOne-Regular.ttf"; sourceTree = "<group>"; };
 		A5FC096920123BC700238DF8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		A5FC096C20124F4C00238DF8 /* shopping-cart.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "shopping-cart.pdf"; sourceTree = "<group>"; };
+		A5FC096F2013651F00238DF8 /* CartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +337,7 @@
 				A5E546821FBEC61C0047AE62 /* DetailSummaryView.swift */,
 				A5FC09632011C80F00238DF8 /* Detail Info */,
 				A5FC096820123B6B00238DF8 /* Top Items */,
+				A5FC096E2013649900238DF8 /* Cart CheckOut */,
 			);
 			path = "Detail Tab";
 			sourceTree = "<group>";
@@ -839,6 +842,14 @@
 			path = "Top Items";
 			sourceTree = "<group>";
 		};
+		A5FC096E2013649900238DF8 /* Cart CheckOut */ = {
+			isa = PBXGroup;
+			children = (
+				A5FC096F2013651F00238DF8 /* CartTableViewController.swift */,
+			);
+			path = "Cart CheckOut";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1183,6 +1194,7 @@
 				A5D799CC1FAF680900AE05B2 /* CoreDataDelete.swift in Sources */,
 				A5FC096220110BA000238DF8 /* UIImage_Extension.swift in Sources */,
 				A57B28581FAC8F0600F2F88A /* NikeCollectionMomd.xcdatamodeld in Sources */,
+				A5FC09702013651F00238DF8 /* CartTableViewController.swift in Sources */,
 				A57B29D81FAC966F00F2F88A /* CoreDataSave.swift in Sources */,
 				A57B28551FAC8C6400F2F88A /* CoreDataStack.swift in Sources */,
 				A57B29DC1FAC99B500F2F88A /* String+Extension.swift in Sources */,

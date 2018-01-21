@@ -18,7 +18,7 @@ class ProductsTableViewController: UITableViewController{
    private let kHeaderSectionTag = 6900
     
     //also just a header num
-   private var expandedSectionHeaderNumber = -1
+   private var expandedSectionHeaderNumber = 0
     
     //section view
    private var expandedSectionHeader: UITableViewHeaderFooterView!
@@ -31,9 +31,6 @@ class ProductsTableViewController: UITableViewController{
     
     //selected cell
     var selectedProduct: Product?
-    
-    //start state
-   private var isFirstTimeToOpenApp = true
     
     //share class
     weak var delegate: ProductDetailViewController?
@@ -72,8 +69,8 @@ sectionItems = sectionNames.map{ (element) -> [Product] in
 return CoreDataFetch.fetchResult.productsServe(category: element)}
 
         // init the selectedProduct
-//selectedProduct = CoreDataFetch.fetchResult.productsServe(category: "Jackets").first
-    }
+selectedProduct = CoreDataFetch.fetchResult.productsServe(category: "Jackets").first
+}
     
     @objc func sectionHeaderWasTouched(_ sender: UITapGestureRecognizer) {
 let headerView = sender.view as! UITableViewHeaderFooterView
@@ -95,8 +92,6 @@ tableViewExpandSection(section, imageView: eImageView!)
     }
     
 func tableViewCollapeSection(_ section: Int, imageView: UIImageView) {
-    
-    delegate?.closeState()
     
 let sectionData = self.sectionItems[section] as NSArray
 self.expandedSectionHeaderNumber = -1
@@ -137,11 +132,7 @@ self.tableView!.beginUpdates()
 self.tableView!.insertRows(at: indexesPath, with: UITableViewRowAnimation.fade)
 self.tableView!.endUpdates()
 }
-        if isFirstTimeToOpenApp {
-            isFirstTimeToOpenApp = false
-            return
-        }
-        else {delegate?.openState()}
+       
     }
 }
 
@@ -169,12 +160,12 @@ let currentProduct = section[indexPath.row]
     if selectedProduct?.id == currentProduct.id{
 tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
 delegate?.product = selectedProduct }else{
-cell.contentView.layer.borderWidth = 0
-cell.contentView.layer.borderColor = UIColor.clear.cgColor
+    cell.contentView.layer.borderWidth = 0
+    cell.contentView.layer.borderColor = UIColor.clear.cgColor
 }
-cell.productImageView.layer.borderWidth = 2
+ cell.productImageView.layer.borderWidth = 2
 cell.productImageView.layer.cornerRadius = 10
-cell.productImageView.layer.borderColor = UIColor.red.cgColor
+ cell.productImageView.layer.borderColor = UIColor.red.cgColor
 cell.configureCell(with: section[indexPath.row])
         
         return cell
@@ -203,20 +194,20 @@ extension ProductsTableViewController{
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         
         //recast view as a UITableViewHeaderFooterView
-        let header = view as! UITableViewHeaderFooterView
+let header = view as! UITableViewHeaderFooterView
 header.contentView.backgroundColor = UIColor(hex: "408000")
-header.textLabel?.textColor = UIColor.white
+       header.textLabel?.textColor = UIColor.white
         
         let font = UIFont(name: "ZiGzAgEo", size: 20)!
-        let fontMetrics = UIFontMetrics(forTextStyle: .body)
+ let fontMetrics = UIFontMetrics(forTextStyle: .body)
 header.textLabel?.font = fontMetrics.scaledFont(for: font)
        
 if let viewWithTag = self.view.viewWithTag(kHeaderSectionTag + section) {viewWithTag.removeFromSuperview()}
 let headerFrame = self.view.frame.size
 let theImageView = UIImageView(frame: CGRect(x: headerFrame.width - 32, y: 13, width: 18, height: 18))
         
-        theImageView.image = #imageLiteral(resourceName: "DownArrow")
-        theImageView.tag = kHeaderSectionTag + section
+    theImageView.image = #imageLiteral(resourceName: "DownArrow")
+      theImageView.tag = kHeaderSectionTag + section
         header.addSubview(theImageView)
 
 // make headers touchable
@@ -224,12 +215,11 @@ header.tag = section
 let headerTapGesture = UITapGestureRecognizer()
 headerTapGesture.addTarget(self, action: #selector(ProductsTableViewController.sectionHeaderWasTouched(_:)))
         header.addGestureRecognizer(headerTapGesture)
-    }
+}
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 selectedProduct = sectionItems[indexPath.section][indexPath.row]
         delegate?.product = selectedProduct
-        delegate?.openState()
     }
 
 }

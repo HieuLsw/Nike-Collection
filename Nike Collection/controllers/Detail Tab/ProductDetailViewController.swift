@@ -18,8 +18,6 @@ self.tableView.dataSource = self}}
     
 @IBOutlet weak var shoppingCartButton: UIButton!
 @IBOutlet weak var cartItemCountLabel: UILabel!
- 
-@IBOutlet weak var stateView: UIView!
     
 var productTable = ProductsTableViewController()
 var quantity = 1
@@ -31,10 +29,7 @@ self.showDetail(forThe: currentProduct)}}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
-    //configue state view
-     configueStateView()
-    }
+}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,28 +52,13 @@ self.cartItemCountLabel.text = "\(self.shoppingCart.totalItem())"}})
             
         }
     }
+  
+   
     
 }// ProductDetailViewController class over line
 
 // custom functions
 extension ProductDetailViewController{
-    
-    fileprivate func configueStateView(){
-        self.view.addSubview(stateView)
-        stateView.translatesAutoresizingMaskIntoConstraints = false
-        stateView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        stateView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        stateView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-        stateView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    }
-    
-   internal func openState() {
-        self.stateView.isHidden = true
-    }
-    
-    internal func closeState() {
-        self.stateView.isHidden = false
-    }
     
 fileprivate func showDetail(forThe currentProduct:Product){
         if viewIfLoaded != nil {

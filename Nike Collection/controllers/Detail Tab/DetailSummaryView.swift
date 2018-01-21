@@ -106,7 +106,7 @@ button.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
 }else {
                     
     //  |0| |1|
-button.frame = CGRect(x: arrButtons[x-1].frame.maxX + 10, y: arrButtons[x-1].frame.minY, width: 50.0, height: 50.0)
+button.frame = CGRect(x: arrButtons[x-1].frame.maxX + 16, y: arrButtons[x-1].frame.minY, width: 50.0, height: 50.0)
 }
                 
     arrButtons.append(button)

@@ -74,7 +74,7 @@ let pathAnimation = CAKeyframeAnimation(keyPath: "position")
         scaleX.keyTimes = [0.0, NSNumber(value: scaleXTime / 2), NSNumber(value: scaleXTime)]
         scaleX.repeatCount = Float.infinity
         
-        //play animation backwards on repeat (not really needed since it scales back to 1)
+//play animation backwards on repeat (not really needed since it scales back to 1)
         scaleX.autoreverses = true
         
         //ease in/out animation for more natural look
@@ -89,14 +89,14 @@ let pathAnimation = CAKeyframeAnimation(keyPath: "position")
         let scaleY = CAKeyframeAnimation(keyPath: "transform.scale.y")
         
         scaleY.duration = 2.5
-        scaleY.values = [1.0, 1.05, 1.0]
+          scaleY.values = [1.0, 1.05, 1.0]
         
-        let scaleYTime = random(min: 1, max: 3)
+         let scaleYTime = random(min: 1, max: 3)
         
         scaleY.keyTimes = [0.0, NSNumber(value: scaleYTime / 2), NSNumber(value: scaleYTime)]
-        scaleY.repeatCount = Float.infinity
-        scaleY.autoreverses = true
-        scaleX.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
+     scaleY.repeatCount = Float.infinity
+    scaleY.autoreverses = true
+  scaleX.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseInEaseOut)
         
         view.layer.add(scaleY, forKey: "scaleYAnimation")
     
@@ -112,11 +112,11 @@ let pathAnimation = CAKeyframeAnimation(keyPath: "position")
         let context = UIGraphicsGetCurrentContext()
         
         // Color Declarations
-        let white = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
-        let whiteTransparent = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.000)
-        let black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
-        let grey = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.727)
-        let backgroundColor = self.backgroundColor ?? UIColor.clear
+               let white = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 1.000)
+    let whiteTransparent = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.000)
+               let black = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
+                let grey = UIColor(red: 1.000, green: 1.000, blue: 1.000, alpha: 0.727)
+     let backgroundColor = self.backgroundColor ?? UIColor.clear
         
 // Gradient Declarations
 let gradientAbove = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: [white.cgColor, white.blendedColorWithFraction(0.5, ofColor: whiteTransparent).cgColor, whiteTransparent.cgColor, whiteTransparent.cgColor] as CFArray, locations: [0, 0.21, 0.64, 1])!
