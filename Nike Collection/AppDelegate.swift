@@ -76,9 +76,9 @@ let productDetailVC = detailNavigation.topViewController as! ProductDetailViewCo
         
 productsTableVC.delegate = productDetailVC
 
-        let homeNavigation = tabBarController.viewControllers?[0] as! UINavigationController
-        let homeVC = homeNavigation.topViewController as! HomeViewController
-        homeVC.productNB = productsTableVC
+let homeNavigation = tabBarController.viewControllers?[0] as! UINavigationController
+let homeVC = homeNavigation.topViewController as! HomeViewController
+homeVC.productNB = productsTableVC
     }
 }
 

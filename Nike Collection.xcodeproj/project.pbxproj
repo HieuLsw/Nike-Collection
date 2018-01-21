@@ -141,6 +141,8 @@
 		A5FC096A20123BC700238DF8 /* ShoppingCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096920123BC700238DF8 /* ShoppingCart.swift */; };
 		A5FC096D20124F4C00238DF8 /* shopping-cart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A5FC096C20124F4C00238DF8 /* shopping-cart.pdf */; };
 		A5FC09702013651F00238DF8 /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096F2013651F00238DF8 /* CartTableViewController.swift */; };
+		A5FC09742014BFC500238DF8 /* ItemInCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09722014BFC500238DF8 /* ItemInCartTableViewCell.swift */; };
+		A5FC09752014BFC500238DF8 /* ItemInCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09732014BFC500238DF8 /* ItemInCartTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,6 +303,8 @@
 		A5FC096920123BC700238DF8 /* ShoppingCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCart.swift; sourceTree = "<group>"; };
 		A5FC096C20124F4C00238DF8 /* shopping-cart.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "shopping-cart.pdf"; sourceTree = "<group>"; };
 		A5FC096F2013651F00238DF8 /* CartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
+		A5FC09722014BFC500238DF8 /* ItemInCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInCartTableViewCell.swift; sourceTree = "<group>"; };
+		A5FC09732014BFC500238DF8 /* ItemInCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemInCartTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +342,7 @@
 				A5FC09632011C80F00238DF8 /* Detail Info */,
 				A5FC096820123B6B00238DF8 /* Top Items */,
 				A5FC096E2013649900238DF8 /* Cart CheckOut */,
+				A5FC09712014BECC00238DF8 /* Cart Items */,
 			);
 			path = "Detail Tab";
 			sourceTree = "<group>";
@@ -850,6 +855,15 @@
 			path = "Cart CheckOut";
 			sourceTree = "<group>";
 		};
+		A5FC09712014BECC00238DF8 /* Cart Items */ = {
+			isa = PBXGroup;
+			children = (
+				A5FC09722014BFC500238DF8 /* ItemInCartTableViewCell.swift */,
+				A5FC09732014BFC500238DF8 /* ItemInCartTableViewCell.xib */,
+			);
+			path = "Cart Items";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1010,6 +1024,7 @@
 				A57B29D41FAC924400F2F88A /* Jordan II Jacket 2.jpg in Resources */,
 				A57B29C11FAC924400F2F88A /* Jordan XXIII Trophy Room White 4.jpg in Resources */,
 				A57B299A1FAC924400F2F88A /* Jordan 97-98 Short 2.jpg in Resources */,
+				A5FC09752014BFC500238DF8 /* ItemInCartTableViewCell.xib in Resources */,
 				A57B29D51FAC924400F2F88A /* Jordan II Jacket 5.jpg in Resources */,
 				A57B29B01FAC924400F2F88A /* Jordan XXIII Trophy Room Black 5.jpg in Resources */,
 				A57B29A91FAC924400F2F88A /* Jordan XX9 MTM 4.jpg in Resources */,
@@ -1200,6 +1215,7 @@
 				A57B29DC1FAC99B500F2F88A /* String+Extension.swift in Sources */,
 				A5D632561F84B66100B80078 /* AppDelegate.swift in Sources */,
 				A5D6328A1F84F52D00B80078 /* HomeViewController.swift in Sources */,
+				A5FC09742014BFC500238DF8 /* ItemInCartTableViewCell.swift in Sources */,
 				A5E546831FBEC61C0047AE62 /* DetailSummaryView.swift in Sources */,
 				A57B29DA1FAC997A00F2F88A /* Utility.swift in Sources */,
 				A5E546811FBEC4C70047AE62 /* ProductDetailViewController.swift in Sources */,
