@@ -145,6 +145,7 @@
 		A5FC09752014BFC500238DF8 /* ItemInCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09732014BFC500238DF8 /* ItemInCartTableViewCell.xib */; };
 		A5FC09842015D57D00238DF8 /* MagnifyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09832015D57D00238DF8 /* MagnifyingView.swift */; };
 		A5FC09862015D5B400238DF8 /* MagnifyingGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09852015D5B400238DF8 /* MagnifyingGlass.swift */; };
+		A5FC09892015F88500238DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09882015F88500238DF8 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +310,7 @@
 		A5FC09732014BFC500238DF8 /* ItemInCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemInCartTableViewCell.xib; sourceTree = "<group>"; };
 		A5FC09832015D57D00238DF8 /* MagnifyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingView.swift; sourceTree = "<group>"; };
 		A5FC09852015D5B400238DF8 /* MagnifyingGlass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlass.swift; sourceTree = "<group>"; };
+		A5FC09882015F88500238DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +345,7 @@
 				A53036571FB772F900820D2F /* ProductsTableViewCell.swift */,
 				A5E546801FBEC4C70047AE62 /* ProductDetailViewController.swift */,
 				A5E546821FBEC61C0047AE62 /* DetailSummaryView.swift */,
+				A5FC09872015F85700238DF8 /* Login */,
 				A5FC09632011C80F00238DF8 /* Detail Info */,
 				A5FC096820123B6B00238DF8 /* Top Items */,
 				A5FC096E2013649900238DF8 /* Cart CheckOut */,
@@ -878,6 +881,14 @@
 			path = "Magnify Glass";
 			sourceTree = "<group>";
 		};
+		A5FC09872015F85700238DF8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A5FC09882015F88500238DF8 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1234,6 +1245,7 @@
 				A5E546831FBEC61C0047AE62 /* DetailSummaryView.swift in Sources */,
 				A5FC09862015D5B400238DF8 /* MagnifyingGlass.swift in Sources */,
 				A57B29DA1FAC997A00F2F88A /* Utility.swift in Sources */,
+				A5FC09892015F88500238DF8 /* LoginViewController.swift in Sources */,
 				A5E546811FBEC4C70047AE62 /* ProductDetailViewController.swift in Sources */,
 				A57B284C1FAC7CE600F2F88A /* UIImage+SwiftyGif.swift in Sources */,
 				A57B284D1FAC7CE600F2F88A /* SwiftyGifManager.swift in Sources */,
