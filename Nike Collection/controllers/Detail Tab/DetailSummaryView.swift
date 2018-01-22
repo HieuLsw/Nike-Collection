@@ -20,7 +20,7 @@ class DetailSummaryView: UIView{
     @IBOutlet weak var qtyLeftLabel: UILabel!
     @IBOutlet weak var quantityControl: Stepper!
     @IBOutlet weak var addToCartButton: UIButton!
-    @IBOutlet weak var productImageView: UIImageView!    
+    @IBOutlet weak var productImageView: MagnifyingView!
     @IBOutlet weak var userRating: UserRating!
     
     //assist view
@@ -28,6 +28,9 @@ class DetailSummaryView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+    let mag = MagnifyingGlass.init(frame: CGRect.init(x: self.productImageView.frame.origin.x, y: self.productImageView.frame.origin.y, width: 100, height: 100))
+    mag.scale = 2.0
+    self.productImageView.magnifyingGlass = mag
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -102,11 +105,11 @@ button.imageEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
                 button.layer.cornerRadius = 5
                 
 if x == 0 {
-button.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
+button.frame = CGRect(x: self.productImageView.frame.origin.x, y: 0, width: 50.0, height: 50.0)
 }else {
                     
     //  |0| |1|
-button.frame = CGRect(x: arrButtons[x-1].frame.maxX + 16, y: arrButtons[x-1].frame.minY, width: 50.0, height: 50.0)
+button.frame = CGRect(x: arrButtons[x-1].frame.maxX + 10, y: arrButtons[x-1].frame.minY, width: 50.0, height: 50.0)
 }
                 
     arrButtons.append(button)

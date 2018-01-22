@@ -37,6 +37,7 @@ class ProductsTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fetchData()
     }
     
