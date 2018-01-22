@@ -16,10 +16,15 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
 {didSet{self.tableView.delegate = self
 self.tableView.dataSource = self}}
     
-@IBOutlet weak var shoppingCartButton: UIButton!
-@IBOutlet weak var cartItemCountLabel: UILabel!
+//@IBOutlet weak var shoppingCartButton: UIButton!
+//@IBOutlet weak var cartItemCountLabel: UILabel!
     
-var productTable = ProductsTableViewController()
+    @IBOutlet weak var shoppingCartButton: UIBarButtonItem!
+    
+    let cartButton = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 35, height: 30))
+    let cartLabel = UILabel.init(frame: CGRect.init(x: 22, y: 2, width: 16, height: 16))
+    let cartView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
+    var productTable = ProductsTableViewController()
 var quantity = 1
 var shoppingCart = ShoppingCart.sharedInstance
 var specifications = [ProductInfo]()
@@ -29,6 +34,9 @@ self.showDetail(forThe: currentProduct)}}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //set cart view
+        setCartView()
 }
     
     override func didReceiveMemoryWarning() {
@@ -43,22 +51,33 @@ self.showDetail(forThe: currentProduct)}}}
   shoppingCart.add(product: producct, qty: self.quantity)
             
 UIView.animate(withDuration: 0.5, animations: {[weak self] in
- self?.shoppingCartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi, 0.0, 1.0, 0.0)})
+ self?.cartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi, 0.0, 1.0, 0.0)})
 
 UIView.animate(withDuration: 0.5, animations: { [weak self] in
-self?.shoppingCartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi * 2, 0.0, 1.0, 0.0)}, completion: { (succes: Bool) in
+self?.cartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi * 2, 0.0, 1.0, 0.0)}, completion: { (succes: Bool) in
 DispatchQueue.main.async { [unowned self] in
-self.cartItemCountLabel.text = "\(self.shoppingCart.totalItem())"}})
-            
+self.cartLabel.text = "\(self.shoppingCart.totalItem())"}})
         }
     }
-  
-   
     
 }// ProductDetailViewController class over line
 
 // custom functions
 extension ProductDetailViewController{
+    
+    private func setCartView(){
+        cartButton.setBackgroundImage(#imageLiteral(resourceName: "shopping-cart"), for: .normal)
+        cartButton.addTarget(self, action: #selector(viewCart(sender:)), for: .touchUpInside)
+        cartLabel.text = "0"
+        cartLabel.textColor = UIColor.white
+        cartLabel.textAlignment = .center
+        cartLabel.font = UIFont.init(name: "System", size: 14.0)
+        cartLabel.numberOfLines = 1
+        cartLabel.adjustsFontSizeToFitWidth = true
+        cartView.addSubview(cartButton)
+        cartView.addSubview(cartLabel)
+        shoppingCartButton.customView = cartView
+    }
     
 fileprivate func showDetail(forThe currentProduct:Product){
         if viewIfLoaded != nil {
@@ -71,7 +90,15 @@ if let info = currentInfo.info, info.count > 0, currentInfo.type == "description
 description = description + info + "\n\n"}}
 productDescriptionLabel.text = description
 productDescriptionImageView.image = Utility.image(withName: currentProduct.mainimage, andType: "jpg")
-tableView.reloadData()}}}
+tableView.reloadData()}}
+}
+
+//custom functions selectors
+extension ProductDetailViewController{
+    @objc fileprivate func viewCart(sender:UIButton){
+        performSegue(withIdentifier: "segueToViewCart", sender: self)
+    }
+}
 
 //UITableViewDataSource
 extension ProductDetailViewController{

@@ -674,42 +674,18 @@
                         <viewLayoutGuide key="safeArea" id="Ihz-bA-zHe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Product Detail" id="bah-N0-Xef">
-                        <barButtonItem key="rightBarButtonItem" title=" " style="done" id="8tt-dR-oAs">
-                            <view key="customView" contentMode="scaleToFill" id="N2K-AD-o1I">
-                                <rect key="frame" x="563.5" y="5.5" width="166" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eJo-sO-yzN">
-                                        <rect key="frame" x="123" y="2" width="35" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="13"/>
-                                        <state key="normal" backgroundImage="shopping-cart">
-                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="IyY-1n-6pb" kind="presentation" modalPresentationStyle="formSheet" id="X8r-F7-4BT"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiQ-Wi-v4I">
-                                        <rect key="frame" x="123" y="2" width="35" height="13"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                        <barButtonItem key="rightBarButtonItem" title="Cart" id="CoZ-rS-K2M">
+                            <connections>
+                                <segue destination="IyY-1n-6pb" kind="presentation" identifier="segueToViewCart" modalPresentationStyle="formSheet" id="rId-Gq-fdL"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="1070" height="1200"/>
                     <connections>
-                        <outlet property="cartItemCountLabel" destination="OiQ-Wi-v4I" id="bSj-PB-XZO"/>
                         <outlet property="detailSummaryView" destination="8aH-L7-gh0" id="Ffh-oU-k9t"/>
                         <outlet property="productDescriptionImageView" destination="Xyv-F8-HkJ" id="xl9-vs-ckY"/>
                         <outlet property="productDescriptionLabel" destination="QQJ-e8-AI7" id="uQJ-IV-AZM"/>
-                        <outlet property="shoppingCartButton" destination="eJo-sO-yzN" id="Auu-Tl-VNu"/>
+                        <outlet property="shoppingCartButton" destination="CoZ-rS-K2M" id="USz-X1-RSM"/>
                         <outlet property="tableView" destination="T0u-eW-MZc" id="Non-Ot-f0m"/>
                     </connections>
                 </viewController>
@@ -982,7 +958,6 @@
         <image name="Home Filled" width="50" height="50"/>
         <image name="Home Outline" width="32" height="32"/>
         <image name="J" width="16" height="16"/>
-        <image name="shopping-cart" width="44" height="44"/>
         <namedColor name="BarTintColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
