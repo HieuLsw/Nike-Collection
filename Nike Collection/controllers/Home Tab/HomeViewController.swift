@@ -44,8 +44,6 @@ class HomeViewController: UIViewController,UIPageViewControllerDataSource,UIColl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         //set page slide automatically 3.0 seconds
         pageSlideRunTimes()
@@ -134,8 +132,8 @@ self.pageViewController?.setViewControllers([nextControler], direction: UIPageVi
    
 //set newest and best arrays data
     private func collectionViewDataInit(){
-newestCollection = CoreDataFetch.fetchResult.productsServe(category: "Souvenirs")
-bestCollection = CoreDataFetch.fetchResult.productsServe(category: "Shoes")
+newestCollection = CoreDataFetch.productsServe(category: "Souvenirs")
+bestCollection = CoreDataFetch.productsServe(category: "Shoes")
     }
 
  //set navigation bar colorful 

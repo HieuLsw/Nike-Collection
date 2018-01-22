@@ -67,10 +67,10 @@ extension ProductsTableViewController{
     private func fetchData(){
         sectionNames = ["Jackets","Shoes","Souvenirs","Shorts"]
 sectionItems = sectionNames.map{ (element) -> [Product] in
-return CoreDataFetch.fetchResult.productsServe(category: element)}
+return CoreDataFetch.productsServe(category: element)}
 
         // init the selectedProduct
-selectedProduct = CoreDataFetch.fetchResult.productsServe(category: "Jackets").first
+selectedProduct = CoreDataFetch.productsServe(category: "Jackets").first
 }
     
     @objc func sectionHeaderWasTouched(_ sender: UITapGestureRecognizer) {

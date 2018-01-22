@@ -10,15 +10,8 @@ import UIKit
 import CoreData
 
 class CoreDataDelete{
-    
-    //use LoadProducts name call this var can return a instance of LoadProducts in this all module
-    class var shared: CoreDataDelete{
-        let resetCoreData = CoreDataDelete()
-        return resetCoreData
-    }
-    
 
-    func resetRequest(){
+  static func resetRequest(){
         
         //get Core Data stack instance
     let appDelegateDelete = UIApplication.shared.delegate as!
@@ -27,13 +20,6 @@ class CoreDataDelete{
  
     let fetchResultArrs = [Product.self,Manufacturer.self,ProductInfo.self,ProductImage.self].map {$0.fetchRequest()}
     
-        /*
-        let productRequest: NSFetchRequest<Product> = Product.fetchRequest()
-        let manufacturerRequest: NSFetchRequest<Manufacturer> = Manufacturer.fetchRequest()
-        let productInfoRequest: NSFetchRequest<ProductInfo> = ProductInfo.fetchRequest()
-        let productImageRequest: NSFetchRequest<ProductImage> = ProductImage.fetchRequest()
-        */
-
         do{
             
 _ =  try fetchResultArrs.map{ (element) in

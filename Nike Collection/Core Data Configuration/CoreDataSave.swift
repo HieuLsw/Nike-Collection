@@ -11,17 +11,9 @@ import CoreData
 
 
 class CoreDataSave{
-   
-//use LoadProducts name call this var can return a instance of LoadProducts in this all module
-    class var shared: CoreDataSave{
-        let loadProducts = CoreDataSave()
-        return loadProducts
-    }
- 
-   
     
   // load json data and save them into Core Data
- func loadProducts() {
+static func loadProducts() {
     
     //get instance of viewContext, it means all momd
     let appDelegateSave = UIApplication.shared.delegate as! AppDelegate
@@ -69,10 +61,10 @@ appDelegateSave.coreDataStack.saveContext()
             product.setValue(item as? String, forKey: element)
         }
         
-        _ = ["regularPrice","salePrice","quantity","rating"].enumerated().map{(offset,element) in
+_ = ["regularPrice","salePrice","quantity","rating"].enumerated().map{(offset,element) in
             if offset > 1 {
                 if let item = productData[element] {
-                    product.setValue((item as AnyObject).int16Value, forKey: element)
+        product.setValue((item as AnyObject).int16Value, forKey: element)
                 }
             }else {
                 if let item = productData[element] {

@@ -827,6 +827,9 @@
                                 <state key="normal" title="Create a new account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="k3s-tk-cgn" kind="show" identifier="segueShipAddress" id="4MH-6R-USx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -874,6 +877,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kii-8V-2v2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3327" y="4023"/>
+        </scene>
+        <!--Address View Controller-->
+        <scene sceneID="CBG-kc-GaI">
+            <objects>
+                <viewController id="k3s-tk-cgn" customClass="AddressViewController" customModule="Nike_Collection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QX4-mU-uqD">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ORr-G2-lzC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fLj-bx-KbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3328" y="4811"/>
         </scene>
         <!--Products-->
         <scene sceneID="wzJ-gX-pMK">

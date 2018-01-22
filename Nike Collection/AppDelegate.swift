@@ -24,10 +24,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
      UIApplication.shared.statusBarStyle = .lightContent
     
     //reset Core Data, for fetch an smanageobj as each entity in one time
-      CoreDataDelete.shared.resetRequest()
+      CoreDataDelete.resetRequest()
         
         //save json data to Core Data
-        CoreDataSave.shared.loadProducts()
+        CoreDataSave.loadProducts()
     
         //Core Data files save location
    let urls = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)

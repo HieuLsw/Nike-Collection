@@ -12,19 +12,10 @@ import UIKit
 
 class CoreDataFetch {
     
-   class var fetchResult:CoreDataFetch{
-    
-        let fetchresult = CoreDataFetch()
-        return fetchresult
-    }
-    
-   fileprivate let appDelegateFetch = UIApplication.shared.delegate as! AppDelegate
-    
-     func productsServe(category type: String) -> [Product] {
-    
-        let managedObjectContexts = appDelegateFetch.coreDataStack.persistentContainer.viewContext
+   static func productsServe(category type: String) -> [Product] {
         
-        
+        let appDelegateFetch = UIApplication.shared.delegate as! AppDelegate
+  let managedObjectContexts = appDelegateFetch.coreDataStack.persistentContainer.viewContext
         let request: NSFetchRequest<Product> = Product.fetchRequest()
         
         request.predicate = NSPredicate(format: "type == %@", type)
@@ -32,16 +23,25 @@ class CoreDataFetch {
         do {
             
    let products = try managedObjectContexts.fetch(request)
-      
-    //check if core data has saved successfullly
-       //print(products)
-            
-    //if each time items count in console is same, this means the resetdata feature has effect
-            //print(products.count)            
             return products
         }
         catch let error as NSError {
-            fatalError("Error is getting product list: \(error.localizedDescription)")
+fatalError("Error is getting product list: \(error.localizedDescription)")
+        }
+    }
+    
+   static func verify(username: String, password: String) -> Customer? {
+        let appDelegateFetch = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContexts = appDelegateFetch.coreDataStack.persistentContainer.viewContext
+        let request: NSFetchRequest<Customer> = Customer.fetchRequest()
+    request.predicate = NSPredicate(format: "email = %@ AND password = %@", username, password)
+        do {
+            let result = try managedObjectContexts.fetch(request)
+            if result.count > 0 {return result.first}
+            return nil
+        }
+        catch let error as NSError {
+fatalError("Error verifying customer login: \(error.localizedDescription)")
         }
     }
 }
