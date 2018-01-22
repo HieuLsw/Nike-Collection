@@ -8,11 +8,12 @@
 
 import UIKit
 
-class CartTableViewController: UITableViewController {
+class CartTableViewController: UITableViewController,ShoppingCartDelegate {
     
 @IBOutlet weak var checkOutButton: UIBarButtonItem!
 
     var shoppingCart = ShoppingCart.sharedInstance
+    weak var cartDelegate: ShoppingCartDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +66,7 @@ extension CartTableViewController{
             let item = shoppingCart.items[indexPath.row]
             
 let cell = tableView.dequeueReusableCell(withIdentifier: "cellItemInCart", for: indexPath) as! ItemInCartTableViewCell
-cell.item = item;cell.itemIndexPath = indexPath
+cell.item = item;cell.itemIndexPath = indexPath;cell.delegate = self
             return cell
             
 case 1:tableView.rowHeight = 40
@@ -93,6 +94,33 @@ override func tableView(_ tableView: UITableView, titleForHeaderInSection sectio
         default:
             return ""
         }
+    }
+    
+}
+
+//ShoppingCartDelegate
+extension CartTableViewController{
+    func updateTotalCartItem(){
+        
+// Invoke delegate in ProductDetailViewController to update the number of item in cart
+cartDelegate?.updateTotalCartItem()
+checkOutButton.isEnabled = shoppingCart.totalItem() > 0 ? true : false
+tableView.reloadData()
+    }
+    
+    func confirmRemoval(forProduct product: Product, itemIndexPath: IndexPath) {
+        let alertController = UIAlertController(title: "Remove Item", message: "Remove \(product.name!.uppercased()) from your shopping cart?", preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+let removeAction = UIAlertAction(title: "Remove", style: UIAlertActionStyle.destructive) { [weak self] (action: UIAlertAction) in
+            self?.shoppingCart.delete(product: product)
+            self?.tableView.deleteRows(at: [itemIndexPath], with: UITableViewRowAnimation.fade)
+            self?.tableView.reloadData();self?.updateTotalCartItem()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        alertController.addAction(removeAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }

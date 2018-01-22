@@ -13,6 +13,7 @@ class ItemInCartTableViewCell: UITableViewCell,UITextFieldDelegate {
 @IBOutlet weak var productImageView: UIImageView!
 @IBOutlet weak var productNameLabel: UILabel!
 @IBOutlet weak var qtyTextField: UITextField!
+{didSet{self.qtyTextField.delegate = self}}
 @IBOutlet weak var priceLabel: UILabel!
   
     var shoppingCart = ShoppingCart.sharedInstance
@@ -24,18 +25,24 @@ class ItemInCartTableViewCell: UITableViewCell,UITextFieldDelegate {
         }
     }
     var itemIndexPath: IndexPath?
+    weak var delegate:ShoppingCartDelegate?
     
 override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    
-     qtyTextField.delegate = self
 }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    @IBAction func didTapRemove(_ sender: Any) {
+        
+        if let product = item?.product,let itemIndexPath = itemIndexPath{
+delegate?.confirmRemoval!(forProduct: product, itemIndexPath: itemIndexPath)
+        }
     }
     
 }//ItemInCartTableViewCell class over line
@@ -54,9 +61,14 @@ productImageView.image = Utility.image(withName: currentItem.product.mainimage, 
 extension ItemInCartTableViewCell{
     func textFieldDidEndEditing(_ textField: UITextField) {
 if let qty = qtyTextField.text, let currentItem = self.item {
-            shoppingCart.update(product: currentItem.product, qty: Int(qty)!)}}
+            shoppingCart.update(product: currentItem.product, qty: Int(qty)!)
+    delegate?.updateTotalCartItem()
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder();return true
     }
 }
+
+

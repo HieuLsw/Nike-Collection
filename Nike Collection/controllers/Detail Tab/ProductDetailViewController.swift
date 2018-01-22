@@ -21,9 +21,9 @@ self.tableView.dataSource = self}}
     
     @IBOutlet weak var shoppingCartButton: UIBarButtonItem!
     
-    let cartButton = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 35, height: 30))
-    let cartLabel = UILabel.init(frame: CGRect.init(x: 22, y: 2, width: 16, height: 16))
-    let cartView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
+let cartButton = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 35, height: 30))
+let cartLabel = UILabel.init(frame: CGRect.init(x: 22, y: 2, width: 16, height: 16))
+let cartView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
     var productTable = ProductsTableViewController()
 var quantity = 1
 var shoppingCart = ShoppingCart.sharedInstance
