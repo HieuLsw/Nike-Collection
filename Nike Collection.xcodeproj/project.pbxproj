@@ -146,6 +146,7 @@
 		A5FC09892015F88500238DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09882015F88500238DF8 /* LoginViewController.swift */; };
 		A5FC098C201654A200238DF8 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC098B201654A200238DF8 /* AddressViewController.swift */; };
 		A5FC099D2016FA6300238DF8 /* MagnifyingGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC099C2016FA6300238DF8 /* MagnifyingGlassView.swift */; };
+		A5FC099F201738C100238DF8 /* CustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC099E201738C100238DF8 /* CustomerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -311,6 +312,7 @@
 		A5FC09882015F88500238DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5FC098B201654A200238DF8 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		A5FC099C2016FA6300238DF8 /* MagnifyingGlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlassView.swift; sourceTree = "<group>"; };
+		A5FC099E201738C100238DF8 /* CustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -893,6 +895,7 @@
 			isa = PBXGroup;
 			children = (
 				A5FC098B201654A200238DF8 /* AddressViewController.swift */,
+				A5FC099E201738C100238DF8 /* CustomerViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -1250,6 +1253,7 @@
 				A5D632561F84B66100B80078 /* AppDelegate.swift in Sources */,
 				A5D6328A1F84F52D00B80078 /* HomeViewController.swift in Sources */,
 				A5FC09742014BFC500238DF8 /* ItemInCartTableViewCell.swift in Sources */,
+				A5FC099F201738C100238DF8 /* CustomerViewController.swift in Sources */,
 				A5E546831FBEC61C0047AE62 /* DetailSummaryView.swift in Sources */,
 				A57B29DA1FAC997A00F2F88A /* Utility.swift in Sources */,
 				A5FC09892015F88500238DF8 /* LoginViewController.swift in Sources */,

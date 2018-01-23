@@ -44,4 +44,22 @@ fatalError("Error is getting product list: \(error.localizedDescription)")
 fatalError("Error verifying customer login: \(error.localizedDescription)")
         }
     }
+    
+ static func addCustomer(name: String, email:String, password: String) -> Customer{
+   
+    let appDelegateFetch = UIApplication.shared.delegate as! AppDelegate
+    let managedObjectContexts = appDelegateFetch.coreDataStack.persistentContainer.viewContext
+    let customer = Customer(context: managedObjectContexts)
+    customer.name = name
+    customer.email = email
+    customer.password = password
+    do {
+        try managedObjectContext.save()
+        return customer
+    }
+    catch let error as NSError {
+        fatalError("Error create a new customer: \(error.localizedDescription)")
+    }
+    }
+    
 }
