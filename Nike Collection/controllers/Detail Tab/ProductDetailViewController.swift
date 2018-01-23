@@ -69,7 +69,7 @@ self.cartLabel.text = "\(self.shoppingCart.totalItem())"}})
 extension ProductDetailViewController{
     
     private func gradientNavigationBar(){
-navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.7529411765, green: 0.1411764706, blue: 0.1450980392, alpha: 1),#colorLiteral(red: 0.9411764706, green: 0.7960784314, blue: 0.2078431373, alpha: 1)])
+navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.4039215686, green: 0.6980392157, blue: 0.4352941176, alpha: 1),#colorLiteral(red: 0.2980392157, green: 0.6352941176, blue: 0.8039215686, alpha: 1)])
     }
     
     private func setCartView(){
