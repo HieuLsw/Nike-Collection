@@ -21,7 +21,7 @@
         <relationship name="orderHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="OrderHistory" inverseName="creditCard" inverseEntity="OrderHistory" syncable="YES"/>
     </entity>
     <entity name="Customer" representedClassName="Customer" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
@@ -67,13 +67,13 @@
         <relationship name="product" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Product" inverseName="productInfo" inverseEntity="Product" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Address" positionX="-450" positionY="261" width="128" height="150"/>
+        <element name="CreditCard" positionX="-65" positionY="342" width="128" height="180"/>
+        <element name="Customer" positionX="-290" positionY="162" width="128" height="150"/>
         <element name="Manufacturer" positionX="-243" positionY="-162" width="128" height="90"/>
+        <element name="OrderHistory" positionX="142" positionY="243" width="128" height="105"/>
         <element name="Product" positionX="-72" positionY="5" width="128" height="238"/>
         <element name="ProductImage" positionX="-344" positionY="-9" width="128" height="88"/>
         <element name="ProductInfo" positionX="151" positionY="36" width="128" height="105"/>
-        <element name="Customer" positionX="-290" positionY="162" width="128" height="148"/>
-        <element name="Address" positionX="-450" positionY="261" width="128" height="150"/>
-        <element name="CreditCard" positionX="-65" positionY="342" width="128" height="180"/>
-        <element name="OrderHistory" positionX="142" positionY="243" width="128" height="105"/>
     </elements>
 </model>

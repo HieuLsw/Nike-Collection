@@ -54,7 +54,7 @@ fatalError("Error verifying customer login: \(error.localizedDescription)")
     customer.email = email
     customer.password = password
     do {
-        try managedObjectContext.save()
+        try managedObjectContexts.save()
         return customer
     }
     catch let error as NSError {
