@@ -10,7 +10,7 @@ import UIKit
 
 class AddressViewController: UIViewController {
     
-             var customer: Customer?
+    var customer: Customer?
     
     override func viewDidLoad() {
         super.viewDidLoad()

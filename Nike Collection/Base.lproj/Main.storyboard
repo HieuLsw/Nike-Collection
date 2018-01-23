@@ -842,9 +842,6 @@
                                 <state key="normal" title="Create a new account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <segue destination="k3s-tk-cgn" kind="show" identifier="segueShipAddress" id="4MH-6R-USx"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -887,6 +884,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="6PM-GG-SkF" id="eZ0-j7-0dG"/>
                         <outlet property="passwordTextField" destination="cfb-6Y-Bcr" id="DYR-Hg-yw8"/>
+                        <segue destination="k3s-tk-cgn" kind="show" identifier="segueShipAddress" id="Yvc-UF-srY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kii-8V-2v2" userLabel="First Responder" sceneMemberID="firstResponder"/>

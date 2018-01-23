@@ -85,9 +85,9 @@ extension HomeViewController{
         let firstControlller = getViewControlller(atIndex: 0)
         
         //set the page content initialization
-        pageVC.setViewControllers([firstControlller], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
-     // if play Double sides , there will need two controllers in controller array
+pageVC.setViewControllers([firstControlller], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
         
+     // if play Double sides , there will need two controllers in controller array
         //assign to pageViewController property
         self.pageViewController = pageVC
         
@@ -106,9 +106,7 @@ self.pageViewController?.didMove(toParentViewController: self)
         
         promoContentVC.imageName = arrPageImage[index]
         promoContentVC.pageIndex = index
-        
         return promoContentVC
-        
     }
     
     //make page slide by itself

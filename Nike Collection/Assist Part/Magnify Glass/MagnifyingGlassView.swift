@@ -57,11 +57,13 @@ class MagnifyingGlassView: UIView {
         return nil
     }
     
-}
+}//MagnifyingGlassView class over line
 
+//custom functions
 extension MagnifyingGlassView{
     
   fileprivate func setupViews() {
+    
         //Set up the indicator
         indicatorView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width/scale, height: self.frame.size.height/scale)
         indicatorView.layer.borderColor = UIColor.lightGray.cgColor
