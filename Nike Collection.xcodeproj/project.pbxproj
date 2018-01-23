@@ -143,10 +143,9 @@
 		A5FC09702013651F00238DF8 /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC096F2013651F00238DF8 /* CartTableViewController.swift */; };
 		A5FC09742014BFC500238DF8 /* ItemInCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09722014BFC500238DF8 /* ItemInCartTableViewCell.swift */; };
 		A5FC09752014BFC500238DF8 /* ItemInCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5FC09732014BFC500238DF8 /* ItemInCartTableViewCell.xib */; };
-		A5FC09842015D57D00238DF8 /* MagnifyingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09832015D57D00238DF8 /* MagnifyingView.swift */; };
-		A5FC09862015D5B400238DF8 /* MagnifyingGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09852015D5B400238DF8 /* MagnifyingGlass.swift */; };
 		A5FC09892015F88500238DF8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC09882015F88500238DF8 /* LoginViewController.swift */; };
 		A5FC098C201654A200238DF8 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC098B201654A200238DF8 /* AddressViewController.swift */; };
+		A5FC099D2016FA6300238DF8 /* MagnifyingGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FC099C2016FA6300238DF8 /* MagnifyingGlassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,10 +308,9 @@
 		A5FC096F2013651F00238DF8 /* CartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
 		A5FC09722014BFC500238DF8 /* ItemInCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemInCartTableViewCell.swift; sourceTree = "<group>"; };
 		A5FC09732014BFC500238DF8 /* ItemInCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemInCartTableViewCell.xib; sourceTree = "<group>"; };
-		A5FC09832015D57D00238DF8 /* MagnifyingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingView.swift; sourceTree = "<group>"; };
-		A5FC09852015D5B400238DF8 /* MagnifyingGlass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlass.swift; sourceTree = "<group>"; };
 		A5FC09882015F88500238DF8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A5FC098B201654A200238DF8 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		A5FC099C2016FA6300238DF8 /* MagnifyingGlassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnifyingGlassView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -878,8 +876,7 @@
 		A5FC09822015D52A00238DF8 /* Magnify Glass */ = {
 			isa = PBXGroup;
 			children = (
-				A5FC09852015D5B400238DF8 /* MagnifyingGlass.swift */,
-				A5FC09832015D57D00238DF8 /* MagnifyingView.swift */,
+				A5FC099C2016FA6300238DF8 /* MagnifyingGlassView.swift */,
 			);
 			path = "Magnify Glass";
 			sourceTree = "<group>";
@@ -1254,7 +1251,6 @@
 				A5D6328A1F84F52D00B80078 /* HomeViewController.swift in Sources */,
 				A5FC09742014BFC500238DF8 /* ItemInCartTableViewCell.swift in Sources */,
 				A5E546831FBEC61C0047AE62 /* DetailSummaryView.swift in Sources */,
-				A5FC09862015D5B400238DF8 /* MagnifyingGlass.swift in Sources */,
 				A57B29DA1FAC997A00F2F88A /* Utility.swift in Sources */,
 				A5FC09892015F88500238DF8 /* LoginViewController.swift in Sources */,
 				A5E546811FBEC4C70047AE62 /* ProductDetailViewController.swift in Sources */,
@@ -1262,12 +1258,12 @@
 				A57B284C1FAC7CE600F2F88A /* UIImage+SwiftyGif.swift in Sources */,
 				A57B284D1FAC7CE600F2F88A /* SwiftyGifManager.swift in Sources */,
 				A5E546751FBD8F190047AE62 /* Bubble.swift in Sources */,
-				A5FC09842015D57D00238DF8 /* MagnifyingView.swift in Sources */,
 				A53036201FB46EF600820D2F /* ProductsTableViewController.swift in Sources */,
 				A57B284B1FAC7CE600F2F88A /* UIImageView+SwiftyGif.swift in Sources */,
 				A5FC09652011C83F00238DF8 /* ProductInfoTableViewCell.swift in Sources */,
 				A5B326F21FB1CA74000852F7 /* UINavigation+Extension.swift in Sources */,
 				A5D799CE1FB0CF1100AE05B2 /* CoreDataFetch.swift in Sources */,
+				A5FC099D2016FA6300238DF8 /* MagnifyingGlassView.swift in Sources */,
 				A5FC096A20123BC700238DF8 /* ShoppingCart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

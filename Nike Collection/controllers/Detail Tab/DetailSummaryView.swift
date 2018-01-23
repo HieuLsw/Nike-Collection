@@ -20,22 +20,30 @@ class DetailSummaryView: UIView{
     @IBOutlet weak var qtyLeftLabel: UILabel!
     @IBOutlet weak var quantityControl: Stepper!
     @IBOutlet weak var addToCartButton: UIButton!
-    @IBOutlet weak var productImageView: MagnifyingView!
+    @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var userRating: UserRating!
     
     //assist view
     var buttonContainerView: UIView?
+    var magnifyingGlassView: MagnifyingGlassView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    let mag = MagnifyingGlass.init(frame: CGRect.init(x: self.productImageView.frame.origin.x, y: self.productImageView.frame.origin.y, width: 100, height: 100))
-    mag.scale = 2.0
-    self.productImageView.magnifyingGlass = mag
+        MagnifyingGlassView.setTargetView(targetView: self.productImageView)
+        MagnifyingGlassView.setScale(scale: 5)
+    MagnifyingGlassView.setContentFrame(frame: CGRect.init(origin: self.productImageView.bounds.origin, size: CGSize.init(width: 200, height: 200)))
+        MagnifyingGlassView.setIndicatorColor(color: UIColor.green)
+        MagnifyingGlassView.setShadowColor(color: UIColor.black)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    @IBAction func magniftGlassSwitch(_ sender: UIButton) {
+        showAction(sender: sender)
+    }
+    
 }//DetailSummaryView class over line
 
 //custom functions
@@ -122,13 +130,31 @@ buttonContainerView?.frame = CGRect(x: 20, y: Int(productImageView.frame.maxY + 
             self.addSubview(buttonContainerView!)
         }
     }
+}
+
+//custom functions selectors
+extension DetailSummaryView{
     
- @objc fileprivate func buttonAction(_ sender: UIButton) {
+    @objc fileprivate func buttonAction(_ sender: UIButton) {
         if let imageName = sender.currentTitle {
-let image = Utility.image(withName: imageName, andType: "jpg")
+            let image = Utility.image(withName: imageName, andType: "jpg")
             productImageView.image = image
             productImageView.contentMode = .scaleAspectFit
         }
+    }
+    
+    @objc func showAction(sender: UIButton) {
+        MagnifyingGlassView.show(animated: true)
+        sender.setTitle("👁", for: .normal)
+        sender.removeTarget(self, action: #selector(showAction(sender:)), for: .touchUpInside)
+        sender.addTarget(self, action: #selector(hideAction(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func hideAction(sender: UIButton) {
+        MagnifyingGlassView.dismiss(animated: true)
+        sender.setTitle("🔍", for: .normal)
+        sender.removeTarget(self, action: #selector(hideAction(sender:)), for: .touchUpInside)
+        sender.addTarget(self, action: #selector(showAction(sender:)), for: .touchUpInside)
     }
 }
 

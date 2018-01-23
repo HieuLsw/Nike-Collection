@@ -37,6 +37,9 @@ self.showDetail(forThe: currentProduct)}}}
         
         //set cart view
         setCartView()
+        
+        //set gradient navigation bar
+        gradientNavigationBar()
 }
     
     override func didReceiveMemoryWarning() {
@@ -65,11 +68,15 @@ self.cartLabel.text = "\(self.shoppingCart.totalItem())"}})
 // custom functions
 extension ProductDetailViewController{
     
+    private func gradientNavigationBar(){
+navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.7529411765, green: 0.1411764706, blue: 0.1450980392, alpha: 1),#colorLiteral(red: 0.9411764706, green: 0.7960784314, blue: 0.2078431373, alpha: 1)])
+    }
+    
     private func setCartView(){
         cartButton.setBackgroundImage(#imageLiteral(resourceName: "shopping-cart"), for: .normal)
         cartButton.addTarget(self, action: #selector(viewCart(sender:)), for: .touchUpInside)
         cartLabel.text = "0"
-        cartLabel.textColor = UIColor.white
+        cartLabel.textColor = UIColor.black
         cartLabel.textAlignment = .center
         cartLabel.font = UIFont.init(name: "System", size: 14.0)
         cartLabel.numberOfLines = 1
