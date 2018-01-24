@@ -1163,16 +1163,16 @@
                     </view>
                     <size key="freeformSize" width="1024" height="900"/>
                     <connections>
-                        <outlet property="address1TextField" destination="jZI-cC-Q7M" id="xik-8F-abj"/>
-                        <outlet property="address2TextField" destination="Xxn-3N-2b5" id="sfu-42-wOt"/>
                         <outlet property="addressPickerView" destination="r5m-Th-WPu" id="BUT-hE-RIH"/>
-                        <outlet property="cityTextField" destination="ehK-FK-Zn4" id="dbd-aB-NdX"/>
-                        <outlet property="fullnameTextField" destination="v8X-ge-1yF" id="qEA-Cu-KqN"/>
                         <outlet property="noAddressLabel" destination="dRF-G2-LYj" id="f0O-4N-g8d"/>
-                        <outlet property="phoneNumberTextField" destination="qfR-1e-He3" id="B1R-oV-cSM"/>
                         <outlet property="scrollView" destination="bZ9-eI-Hwt" id="MDW-Yj-r5N"/>
-                        <outlet property="stateTextField" destination="8B7-YP-0Xv" id="qsi-OU-QXa"/>
-                        <outlet property="zipTextField" destination="ufj-x4-Llh" id="d59-4P-XKo"/>
+                        <outletCollection property="textFields" destination="v8X-ge-1yF" collectionClass="NSMutableArray" id="lnf-fX-EWO"/>
+                        <outletCollection property="textFields" destination="jZI-cC-Q7M" collectionClass="NSMutableArray" id="p2U-op-9Sd"/>
+                        <outletCollection property="textFields" destination="Xxn-3N-2b5" collectionClass="NSMutableArray" id="2Ky-gf-wft"/>
+                        <outletCollection property="textFields" destination="ehK-FK-Zn4" collectionClass="NSMutableArray" id="8T7-pj-KAp"/>
+                        <outletCollection property="textFields" destination="8B7-YP-0Xv" collectionClass="NSMutableArray" id="VrR-HM-jIU"/>
+                        <outletCollection property="textFields" destination="ufj-x4-Llh" collectionClass="NSMutableArray" id="xEq-28-INH"/>
+                        <outletCollection property="textFields" destination="qfR-1e-He3" collectionClass="NSMutableArray" id="pbj-yj-iLW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLj-bx-KbS" userLabel="First Responder" sceneMemberID="firstResponder"/>

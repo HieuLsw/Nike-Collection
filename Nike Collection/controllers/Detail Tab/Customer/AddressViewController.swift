@@ -8,24 +8,20 @@
 
 import UIKit
 
-class AddressViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+class AddressViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var addressPickerView: UIPickerView!
 {didSet{self.addressPickerView.delegate = self
 self.addressPickerView.dataSource = self}}
-    @IBOutlet weak var fullnameTextField: UITextField!
-    @IBOutlet weak var address1TextField: UITextField!
-    @IBOutlet weak var address2TextField: UITextField!
-    @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var stateTextField: UITextField!
-    @IBOutlet weak var zipTextField: UITextField!
-    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet var textFields: [UITextField]!
+{didSet{_ = self.textFields.map { $0.delegate = self}}}
     @IBOutlet weak var noAddressLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var customer: Customer?
     var addresses = [Address]()
     var selectedAddress:Address?
+    var activeTextField:UITextField?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +34,16 @@ self.addressPickerView.dataSource = self}}
         
         //set inital state
         setInitalState()
+        
+        //register for notifications
+        registerForNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        //remove notifications
+        removeNotifications()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +69,38 @@ extension AddressViewController{
     }
 }
 
+//observers
+extension AddressViewController{
+    private func registerForNotifications(){
+   let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(keyboardIsOn(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(keyboardIsOff(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+    }
+    
+    private func removeNotifications(){
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+}
+
+//observers selectors
+extension AddressViewController{
+    @objc private func keyboardIsOn(sender: Notification){
+        let info = sender.userInfo! as NSDictionary
+        let value = info.value(forKey: UIKeyboardFrameBeginUserInfoKey) as! NSValue
+        let keyboardSize = value.cgRectValue.size
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height - 90, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    @objc private func keyboardIsOff(sender: Notification){
+        scrollView.setContentOffset(CGPoint.init(x: 0, y: -50), animated: true)
+        scrollView.isScrollEnabled = false
+    }
+}
+
 //UIPickerViewDataSource
 extension AddressViewController{
     
@@ -84,5 +122,19 @@ return "\(address.address1!) \(address.address2!) \(address.city!) \(address.sta
 extension AddressViewController{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedAddress = addresses[row]
+    }
+}
+
+//UITextFieldDelegate
+extension AddressViewController{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+        scrollView.isScrollEnabled = true
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        activeTextField = nil
+        return true
     }
 }
