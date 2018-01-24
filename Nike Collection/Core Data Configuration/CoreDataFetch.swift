@@ -89,5 +89,37 @@ static func addAddress(forCustomer customer: Customer,address1: String,address2:
 fatalError("Error adding customer address: \(error.localizedDescription)")
         }
     }
+  
+    static func addCreditCard(forCustomer customer:Customer, nameOnCard:String,cardNumber: String,expMonth:Int,expYear:Int) -> CreditCard{
+        let appDelegateFetch = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContexts = appDelegateFetch.coreDataStack.persistentContainer.viewContext
+      let creditCard = CreditCard(context: managedObjectContexts)
+        creditCard.nameOnCard = nameOnCard
+        creditCard.cardNumber = cardNumber
+        creditCard.expMonth = Int16(expMonth)
+        creditCard.expYear = Int16(expYear)
+        switch "\(cardNumber.first!)" {
+        case "3":
+            creditCard.type = CreditCardType.Amex.rawValue
+        case "4":
+            creditCard.type = CreditCardType.Visa.rawValue
+        case "5":
+            creditCard.type = CreditCardType.MC.rawValue
+        case "6":
+            creditCard.type = CreditCardType.Discover.rawValue
+        default:
+            creditCard.type = CreditCardType.Unknown.rawValue
+        }
+        
+        let creditCards = customer.mutableCopy() as! NSMutableSet
+        creditCards.add(creditCard)
+        customer.creditCard = creditCards.copy() as? NSSet
+        
+        do {
+            try managedObjectContexts.save();return creditCard
+        } catch let error as NSError {
+fatalError("Error adding credit card: \(error.localizedDescription)")
+        }
+    }
     
 }
