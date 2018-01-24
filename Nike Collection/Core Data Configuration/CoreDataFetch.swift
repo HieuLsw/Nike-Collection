@@ -67,4 +67,27 @@ static func addressList(forCustomer customer:Customer) -> [Address]{
 let addresses = customer.address?.mutableCopy() as! NSMutableSet
 return addresses.allObjects as! [Address]
     }
+    
+static func addAddress(forCustomer customer: Customer,address1: String,address2: String,city: String,state: String,zip: String,phone: String) -> Address{
+        let appDelegateFetch = UIApplication.shared.delegate as! AppDelegate
+        let managedObjectContexts = appDelegateFetch.coreDataStack.persistentContainer.viewContext
+        let address = Address(context: managedObjectContexts)
+        address.address1 = address1
+        address.address2 = address2
+        address.state = state
+        address.city = city
+        address.zip = zip
+        
+        let addresses = customer.address?.mutableCopy() as! NSMutableSet
+        addresses.add(address)
+        customer.address = addresses.copy() as? NSSet
+        customer.phone = phone
+        
+        do {
+            try managedObjectContexts.save();return address
+        } catch let error as NSError {
+fatalError("Error adding customer address: \(error.localizedDescription)")
+        }
+    }
+    
 }

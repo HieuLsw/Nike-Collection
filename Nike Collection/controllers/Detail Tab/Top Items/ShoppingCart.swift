@@ -16,6 +16,9 @@ import Foundation
 class ShoppingCart {
     
     var items = [(product: Product, qty: Int)]()
+    var customer: Customer?
+    var creditCard: CreditCard?
+    var shippingAddress: Address?
     static let sharedInstance = ShoppingCart()
     private init() {}
     
@@ -24,7 +27,7 @@ class ShoppingCart {
 //custom functions
 extension ShoppingCart{
     
-     internal func add(product: Product, qty: Int) {
+      func add(product: Product, qty: Int) {
         
 // Check if a product already exists in the shopping cart
         if let index = find(product: product) {
@@ -37,19 +40,19 @@ let newQty = items[index].qty + qty;items[index] = (product, newQty)}else {
         }
     }
     
-    internal func update(product: Product, qty: Int) {
+     func update(product: Product, qty: Int) {
         if let index = find(product: product) {
             items[index] = (product, qty)
         }
     }
     
-    internal func delete(product: Product) {
+     func delete(product: Product) {
         if let index = find(product: product) {
             items.remove(at: index)
         }
     }
     
-    internal func totalItem() -> Int {
+     func totalItem() -> Int {
         var totalItem = 0
         
         for item in items {
@@ -58,13 +61,21 @@ let newQty = items[index].qty + qty;items[index] = (product, newQty)}else {
         return totalItem
     }
     
-    internal func totalItemCost() -> Double {
+     func totalItemCost() -> Double {
         var totalCost: Double = 0.0
         
         for item in items {
 totalCost += Double(item.qty) * item.product.salePrice
         }
         return totalCost
+    }
+    
+    func assignCart(toCustomer customer: Customer) {
+        self.customer = customer
+    }
+    
+    func assignShipping(address: Address) {
+        self.shippingAddress = address
     }
     
     private func find(product: Product) -> Int? {

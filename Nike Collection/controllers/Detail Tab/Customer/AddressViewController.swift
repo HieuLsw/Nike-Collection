@@ -22,6 +22,7 @@ self.addressPickerView.dataSource = self}}
     var addresses = [Address]()
     var selectedAddress:Address?
     var activeTextField:UITextField?
+    var shoppingCart = ShoppingCart.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,31 @@ self.addressPickerView.dataSource = self}}
         removeNotifications()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier{
+            switch identifier{
+            case "segueToPayment":
+                if let customer = customer{
+shoppingCart.assignCart(toCustomer: customer)
+                    var address:Address
+                    
+        if !(textFields[1].text?.isEmpty)!{
+address = CoreDataFetch.addAddress(forCustomer: customer, address1:textFields[1].text! , address2: textFields[2].text!, city: textFields[3].text!, state: textFields[4].text!, zip: textFields[5].text!, phone: textFields[6].text!)
+            shoppingCart.assignShipping(address: address)
+        }else {
+            if selectedAddress == nil{
+            selectedAddress = addresses[self.addressPickerView.selectedRow(inComponent: 0)]
+            }
+            shoppingCart.assignShipping(address: selectedAddress!)
+                    }
+    let paymentController = segue.destination as! PaymentViewController
+paymentController.customer = customer
+                    }
+                 default: break
+                }
+            }
+        }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -10,6 +10,8 @@ import UIKit
 
 class PaymentViewController: UIViewController {
 
+    var customer: Customer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
