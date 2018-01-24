@@ -17,6 +17,7 @@
 		A53036821FBB6F3A00820D2F /* MosaicCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A530367D1FBB6CAA00820D2F /* MosaicCaps.ttf */; };
 		A53036871FBC380500820D2F /* P22 ToyBox Blocks Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A53036861FBC37E600820D2F /* P22 ToyBox Blocks Regular.ttf */; };
 		A53036891FBC3D8900820D2F /* P22 ToyBox BlocksLine Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A53036881FBC3CE900820D2F /* P22 ToyBox BlocksLine Regular.ttf */; };
+		A549341520187A1B00E64DB1 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A549341420187A1B00E64DB1 /* PaymentViewController.swift */; };
 		A57B28451FAC7C2C00F2F88A /* Fuck.gif in Resources */ = {isa = PBXBuildFile; fileRef = A58EAC251FA6EEA6005DE595 /* Fuck.gif */; };
 		A57B28461FAC7C2C00F2F88A /* Lebron.gif in Resources */ = {isa = PBXBuildFile; fileRef = A5844C9D1FA80C31005E7DFE /* Lebron.gif */; };
 		A57B28471FAC7C2C00F2F88A /* Jordan.gif in Resources */ = {isa = PBXBuildFile; fileRef = A58EAC231FA6EA4B005DE595 /* Jordan.gif */; };
@@ -177,6 +178,7 @@
 		A530367F1FBB6E8600820D2F /* Honeybee.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Honeybee.ttf; sourceTree = "<group>"; };
 		A53036861FBC37E600820D2F /* P22 ToyBox Blocks Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P22 ToyBox Blocks Regular.ttf"; sourceTree = "<group>"; };
 		A53036881FBC3CE900820D2F /* P22 ToyBox BlocksLine Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "P22 ToyBox BlocksLine Regular.ttf"; sourceTree = "<group>"; };
+		A549341420187A1B00E64DB1 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		A57B28481FAC7CE500F2F88A /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A57B28491FAC7CE600F2F88A /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A57B284A1FAC7CE600F2F88A /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
@@ -896,6 +898,7 @@
 			children = (
 				A5FC098B201654A200238DF8 /* AddressViewController.swift */,
 				A5FC099E201738C100238DF8 /* CustomerViewController.swift */,
+				A549341420187A1B00E64DB1 /* PaymentViewController.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -1242,6 +1245,7 @@
 				A5D799D11FB0D50100AE05B2 /* ProductCollectionViewCell.swift in Sources */,
 				A57B284F1FAC827800F2F88A /* UIView+Extension.swift in Sources */,
 				A530366F1FBB0A0900820D2F /* UserRating.swift in Sources */,
+				A549341520187A1B00E64DB1 /* PaymentViewController.swift in Sources */,
 				A5E546851FBEF0E10047AE62 /* Stepper.swift in Sources */,
 				A5D799CC1FAF680900AE05B2 /* CoreDataDelete.swift in Sources */,
 				A5FC096220110BA000238DF8 /* UIImage_Extension.swift in Sources */,
