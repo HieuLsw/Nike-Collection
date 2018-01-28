@@ -60,7 +60,7 @@ address = CoreDataFetch.addAddress(forCustomer: customer, address1:textFields[1]
             shoppingCart.assignShipping(address: address)
         }else {
             if selectedAddress == nil{
-            selectedAddress = addresses[self.addressPickerView.selectedRow(inComponent: 0)]
+        selectedAddress = addresses[self.addressPickerView.selectedRow(inComponent: 0)]
             }
             shoppingCart.assignShipping(address: selectedAddress!)
                     }
