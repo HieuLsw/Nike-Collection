@@ -21,7 +21,7 @@ let imagePath = Bundle.main.path(forResource: name?.stripFileExtension(), ofType
   
     class func currentYear() -> Int{
         let calendar = Calendar.current
-        let currentYear = calendar.component(Calendar.Component.year, from: Date.init())
+let currentYear = calendar.component(Calendar.Component.year, from: Date.init())
         return currentYear
     }
     

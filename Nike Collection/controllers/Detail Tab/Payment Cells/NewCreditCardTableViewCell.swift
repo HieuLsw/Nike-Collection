@@ -16,11 +16,11 @@ enum CreditCardType: String{
     case Unknown = "unknown"
 }
 
-protocol CreditCardDelegate: class {
+protocol CreditCardDelegate: class{
     func add(card: CreditCard)
 }
 
-class NewCreditCardTableViewCell: UITableViewCell {
+class NewCreditCardTableViewCell: UITableViewCell{
 
     @IBOutlet weak var nameOnCardTextField: UITextField!
     @IBOutlet weak var cardNumberTextField: UITextField!
