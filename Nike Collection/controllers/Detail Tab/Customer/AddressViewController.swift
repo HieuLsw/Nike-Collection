@@ -11,10 +11,10 @@ import UIKit
 class AddressViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var addressPickerView: UIPickerView!
-{didSet{self.addressPickerView.delegate = self
-self.addressPickerView.dataSource = self}}
+        {didSet{self.addressPickerView.delegate = self
+            self.addressPickerView.dataSource = self}}
     @IBOutlet var textFields: [UITextField]!
-{didSet{_ = self.textFields.map { $0.delegate = self}}}
+        {didSet{_ = self.textFields.map { $0.delegate = self}}}
     @IBOutlet weak var noAddressLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -26,10 +26,10 @@ self.addressPickerView.dataSource = self}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -52,31 +52,31 @@ self.addressPickerView.dataSource = self}}
             switch identifier{
             case "segueToPayment":
                 if let customer = customer{
-shoppingCart.assignCart(toCustomer: customer)
+                    shoppingCart.assignCart(toCustomer: customer)
                     var address:Address
                     
-        if !(textFields[1].text?.isEmpty)!{
-address = CoreDataFetch.addAddress(forCustomer: customer, address1:textFields[1].text! , address2: textFields[2].text!, city: textFields[3].text!, state: textFields[4].text!, zip: textFields[5].text!, phone: textFields[6].text!)
-            shoppingCart.assignShipping(address: address)
-        }else {
-            if selectedAddress == nil{
-        selectedAddress = addresses[self.addressPickerView.selectedRow(inComponent: 0)]
-            }
-            shoppingCart.assignShipping(address: selectedAddress!)
+                    if !(textFields[1].text?.isEmpty)!{
+                        address = CoreDataFetch.addAddress(forCustomer: customer, address1:textFields[1].text! , address2: textFields[2].text!, city: textFields[3].text!, state: textFields[4].text!, zip: textFields[5].text!, phone: textFields[6].text!)
+                        shoppingCart.assignShipping(address: address)
+                    }else {
+                        if selectedAddress == nil{
+                            selectedAddress = addresses[self.addressPickerView.selectedRow(inComponent: 0)]
+                        }
+                        shoppingCart.assignShipping(address: selectedAddress!)
                     }
-    let paymentController = segue.destination as! PaymentViewController
-paymentController.customer = customer
-                    }
-                 default: break
+                    let paymentController = segue.destination as! PaymentViewController
+                    paymentController.customer = customer
                 }
+            default: break
             }
         }
-
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }//AddressViewController class over line
 
 //custom functions
@@ -98,7 +98,7 @@ extension AddressViewController{
 //observers
 extension AddressViewController{
     private func registerForNotifications(){
-   let notificationCenter = NotificationCenter.default
+        let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardIsOn(sender:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardIsOff(sender:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
@@ -140,7 +140,7 @@ extension AddressViewController{
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let address = addresses[row]
-return "\(address.address1!) \(address.address2!) \(address.city!) \(address.state!) \(address.zip!)"
+        return "\(address.address1!) \(address.address2!) \(address.city!) \(address.state!) \(address.zip!)"
     }
 }
 

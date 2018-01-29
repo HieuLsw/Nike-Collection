@@ -13,7 +13,7 @@ class HomeViewController: UIViewController,UIPageViewControllerDataSource,UIColl
     @IBOutlet weak var pageView: UIView!
     
     @IBOutlet weak var pageControl: UIPageControl!
-
+    
     @IBOutlet weak var newestCollectionView: UICollectionView!{
         didSet{self.newestCollectionView.dataSource = self
             self.newestCollectionView.delegate = self
@@ -38,10 +38,10 @@ class HomeViewController: UIViewController,UIPageViewControllerDataSource,UIColl
     //newest and best colleciton view needs array
     var newestCollection = [Product]()
     var bestCollection = [Product]()
-   fileprivate var selectedProduct: Product?
+    fileprivate var selectedProduct: Product?
     var productsInSelectedCategory: [Product]?
     var productNB: ProductsTableViewController?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,19 +51,19 @@ class HomeViewController: UIViewController,UIPageViewControllerDataSource,UIColl
         //set container view
         setPageViewController()
         
-//set newest and best arrays data and send datasource to self
+        //set newest and best arrays data and send datasource to self
         collectionViewDataInit()
         
         //set navigation bar colorful 
         gradientNavigationBar()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }//class HomeViewController over line
 
 //custom functions
@@ -74,7 +74,7 @@ extension HomeViewController{
         
         Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(HomeViewController.loadNextController), userInfo: nil, repeats: true)
     }
-  
+    
     //set container view
     fileprivate func setPageViewController(){
         
@@ -85,19 +85,19 @@ extension HomeViewController{
         let firstControlller = getViewControlller(atIndex: 0)
         
         //set the page content initialization
-pageVC.setViewControllers([firstControlller], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        pageVC.setViewControllers([firstControlller], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
         
-     // if play Double sides , there will need two controllers in controller array
+        // if play Double sides , there will need two controllers in controller array
         //assign to pageViewController property
         self.pageViewController = pageVC
         
         //add to pageViewController to HomeViewController
         self.addChildViewController(pageViewController!)
         
-       //add the pageViewController as the subClass of HomeViewController
-self.pageView.addSubview(self.pageViewController!.view)
-self.pageViewController?.didMove(toParentViewController: self)
-}
+        //add the pageViewController as the subClass of HomeViewController
+        self.pageView.addSubview(self.pageViewController!.view)
+        self.pageViewController?.didMove(toParentViewController: self)
+    }
     
     //get gif pics
     fileprivate func getViewControlller(atIndex index: Int) -> PromoContentViewController{
@@ -119,24 +119,24 @@ self.pageViewController?.didMove(toParentViewController: self)
             currentIndex = 0
         }
         
-let nextControler = getViewControlller(atIndex: currentIndex)
+        let nextControler = getViewControlller(atIndex: currentIndex)
         
         //set the viewContrller to display
-self.pageViewController?.setViewControllers([nextControler], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
-       
+        self.pageViewController?.setViewControllers([nextControler], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
+        
         //currentPage equals to currentIndex
         self.pageControl.currentPage = currentIndex
     }
-   
-//set newest and best arrays data
+    
+    //set newest and best arrays data
     private func collectionViewDataInit(){
-newestCollection = CoreDataFetch.productsServe(category: "Souvenirs")
-bestCollection = CoreDataFetch.productsServe(category: "Shoes")
+        newestCollection = CoreDataFetch.productsServe(category: "Souvenirs")
+        bestCollection = CoreDataFetch.productsServe(category: "Shoes")
     }
-
- //set navigation bar colorful 
+    
+    //set navigation bar colorful
     private func gradientNavigationBar(){
-navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.7529411765, green: 0.1411764706, blue: 0.1450980392, alpha: 1),#colorLiteral(red: 0.9411764706, green: 0.7960784314, blue: 0.2078431373, alpha: 1)])
+        navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.7529411765, green: 0.1411764706, blue: 0.1450980392, alpha: 1),#colorLiteral(red: 0.9411764706, green: 0.7960784314, blue: 0.2078431373, alpha: 1)])
     }
     
 }
@@ -144,7 +144,7 @@ navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral
 //UIPageViewControllerDataSource
 extension HomeViewController{
     
-//viewControllerBefore - the silde order is from right to left
+    //viewControllerBefore - the silde order is from right to left
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let pageContentVC = viewController as! PromoContentViewController
         var index = pageContentVC.pageIndex
@@ -210,12 +210,12 @@ extension HomeViewController{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newestItems", for: indexPath) as! ProductCollectionViewCell
             let product = newestCollection[indexPath.row]
             
-    cell.productsImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
-    cell.layer.cornerRadius = cell.bounds.size.width / 2
+            cell.productsImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
+            cell.layer.cornerRadius = cell.bounds.size.width / 2
             
             cell.layer.borderWidth = 5
             cell.layer.borderColor = UIColor.randomColor().cgColor
-          
+            
             return cell
             
         case self.bestCollectionView:
@@ -223,16 +223,16 @@ extension HomeViewController{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bestItems", for: indexPath) as! ProductCollectionViewCell
             let product = bestCollection[indexPath.row]
             
-cell.productsImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
+            cell.productsImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
             
-cell.layer.cornerRadius = cell.bounds.size.width / 2
+            cell.layer.cornerRadius = cell.bounds.size.width / 2
             
             cell.layer.borderWidth = 5
-     cell.layer.borderColor = UIColor.randomColor().cgColor
-     
+            cell.layer.borderColor = UIColor.randomColor().cgColor
+            
             return cell
             
-           default: return UICollectionViewCell()
+        default: return UICollectionViewCell()
         }
     }
 }

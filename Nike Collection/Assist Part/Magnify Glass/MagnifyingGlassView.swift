@@ -62,8 +62,8 @@ class MagnifyingGlassView: UIView {
 //custom functions
 extension MagnifyingGlassView{
     
-  fileprivate func setupViews() {
-    
+    fileprivate func setupViews() {
+        
         //Set up the indicator
         indicatorView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width/scale, height: self.frame.size.height/scale)
         indicatorView.layer.borderColor = UIColor.lightGray.cgColor
@@ -84,14 +84,14 @@ extension MagnifyingGlassView{
         glassView.layer.addSublayer(shadowLayer)
         
         //Set up the image display
-magnifyingImageView.frame = CGRect(x: 0, y: 0, width: glassView.frame.size.width, height: glassView.frame.size.height)
+        magnifyingImageView.frame = CGRect(x: 0, y: 0, width: glassView.frame.size.width, height: glassView.frame.size.height)
         magnifyingImageView.contentMode = UIViewContentMode.scaleToFill
         magnifyingImageView.autoresizingMask = UIViewAutoresizing.flexibleWidth
         magnifyingImageView.clipsToBounds = true
         glassView.addSubview(magnifyingImageView)
         
         //Set up gesture recognizer
-    panGestureRecognizer.addTarget(self, action: #selector(panAction(sender:)))
+        panGestureRecognizer.addTarget(self, action: #selector(panAction(sender:)))
         indicatorView.addGestureRecognizer(panGestureRecognizer)
         panGestureRecognizer.isEnabled = true
     }
@@ -178,10 +178,10 @@ magnifyingImageView.frame = CGRect(x: 0, y: 0, width: glassView.frame.size.width
     
     //Hit Test
     fileprivate func distanceFromPoint(point1: CGPoint, toPoint point2: CGPoint) -> CGFloat {
- let dx = point1.x - point2.x;let dy = point1.y - point2.y
+        let dx = point1.x - point2.x;let dy = point1.y - point2.y
         return sqrt(dx*dx + dy*dy)
     }
-  
+    
     class func setTargetView(targetView: UIView){
         MagnifyingGlassView.sharedInstance.targetView = targetView
     }
@@ -191,8 +191,8 @@ magnifyingImageView.frame = CGRect(x: 0, y: 0, width: glassView.frame.size.width
     }
     
     class func allowDragging(allowDragging: Bool, animated: Bool) {
-MagnifyingGlassView.sharedInstance.panGestureRecognizer.isEnabled = allowDragging
-          MagnifyingGlassView.sharedInstance.layoutSubviews(animated: animated)
+        MagnifyingGlassView.sharedInstance.panGestureRecognizer.isEnabled = allowDragging
+        MagnifyingGlassView.sharedInstance.layoutSubviews(animated: animated)
     }
     
     class func setContentFrame(frame: CGRect) {
@@ -208,27 +208,27 @@ MagnifyingGlassView.sharedInstance.panGestureRecognizer.isEnabled = allowDraggin
     }
     
     class func setIndicatorColor(color: UIColor) {
-   MagnifyingGlassView.sharedInstance.indicatorView.layer.borderColor = color.cgColor
+        MagnifyingGlassView.sharedInstance.indicatorView.layer.borderColor = color.cgColor
     }
     
     class func setShadowColor(color: UIColor) {
-MagnifyingGlassView.sharedInstance.shadowLayer.shadowColor = color.cgColor
+        MagnifyingGlassView.sharedInstance.shadowLayer.shadowColor = color.cgColor
     }
     
     class func show(animated: Bool) {
         MagnifyingGlassView.sharedInstance.layoutSubviews(animated: false)
-MagnifyingGlassView.sharedInstance.targetView.addSubview(MagnifyingGlassView.sharedInstance)
+        MagnifyingGlassView.sharedInstance.targetView.addSubview(MagnifyingGlassView.sharedInstance)
         if(animated) {
             MagnifyingGlassView.sharedInstance.alpha = 0
-UIView.animate(withDuration: 0.25,delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: { () -> Void in
-MagnifyingGlassView.sharedInstance.alpha = 1
+            UIView.animate(withDuration: 0.25,delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: { () -> Void in
+                MagnifyingGlassView.sharedInstance.alpha = 1
             }, completion: nil)
         }
     }
     
     class func dismiss(animated: Bool) {
         UIView.animate(withDuration: 0.25,delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: { () -> Void in
-    MagnifyingGlassView.sharedInstance.alpha = 0
+            MagnifyingGlassView.sharedInstance.alpha = 0
         }) { (completed) -> Void in
             MagnifyingGlassView.sharedInstance.removeFromSuperview()
         }

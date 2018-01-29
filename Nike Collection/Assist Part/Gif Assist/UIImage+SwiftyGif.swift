@@ -52,7 +52,7 @@ extension UIImage {
      Convenience initializer. Creates a gif with its backing data. Defaulted level of integrity.
      - Parameter gifData: The actual gif data
      */
-   convenience init(gifData:Data) {
+    convenience init(gifData:Data) {
         self.init()
         setGifFromData(gifData,levelOfIntegrity: defaultLevelOfIntegrity)
     }
@@ -62,7 +62,7 @@ extension UIImage {
      - Parameter gifData: The actual gif data
      - Parameter levelOfIntegrity: 0 to 1, 1 meaning no frame skipping
      */
-   convenience init(gifData:Data, levelOfIntegrity:Float) {
+    convenience init(gifData:Data, levelOfIntegrity:Float) {
         self.init()
         setGifFromData(gifData,levelOfIntegrity: levelOfIntegrity)
     }
@@ -71,7 +71,7 @@ extension UIImage {
      Convenience initializer. Creates a gif with its backing data. Defaulted level of integrity.
      - Parameter gifName: Filename
      */
-convenience init(gifName: String) {
+    convenience init(gifName: String) {
         self.init()
         setGif(gifName, levelOfIntegrity: defaultLevelOfIntegrity)
     }
@@ -81,7 +81,7 @@ convenience init(gifName: String) {
      - Parameter gifName: Filename
      - Parameter levelOfIntegrity: 0 to 1, 1 meaning no frame skipping
      */
-     convenience init(gifName: String, levelOfIntegrity: Float) {
+    convenience init(gifName: String, levelOfIntegrity: Float) {
         self.init()
         setGif(gifName, levelOfIntegrity: levelOfIntegrity)
     }
@@ -91,11 +91,11 @@ convenience init(gifName: String) {
      - Parameter data: The actual gif data
      - Parameter levelOfIntegrity: 0 to 1, 1 meaning no frame skipping
      */
-     func setGifFromData(_ data:Data,levelOfIntegrity:Float) {
+    func setGifFromData(_ data:Data,levelOfIntegrity:Float) {
         guard let imageSource = CGImageSourceCreateWithData(data as CFData, nil) else { return }
         self.imageSource = imageSource
         self.imageData = data
-
+        
         do {
             calculateFrameDelay(try delayTimes(imageSource), levelOfIntegrity: levelOfIntegrity)
         } catch {
@@ -109,7 +109,7 @@ convenience init(gifName: String) {
      Set backing data for this gif. Overwrites any existing data.
      - Parameter name: Filename
      */
-     func setGif(_ name: String) {
+    func setGif(_ name: String) {
         setGif(name, levelOfIntegrity: defaultLevelOfIntegrity)
     }
     
@@ -129,7 +129,7 @@ convenience init(gifName: String) {
      - Parameter name: Filename
      - Parameter levelOfIntegrity: 0 to 1, 1 meaning no frame skipping
      */
-   func setGif(_ name: String, levelOfIntegrity: Float) {
+    func setGif(_ name: String, levelOfIntegrity: Float) {
         if let url = Bundle.main.url(forResource: name,
                                      withExtension: name.getPathExtension() == "gif" ? "" : "gif") {
             if let data = try? Data(contentsOf: url) {
@@ -142,7 +142,7 @@ convenience init(gifName: String) {
         }
     }
     
-   func clear() {
+    func clear() {
         imageData = nil
         imageSource = nil
         displayOrder = nil
@@ -152,7 +152,7 @@ convenience init(gifName: String) {
     }
     
     // MARK: Logic
-
+    
     fileprivate func convertToDelay(_ pointer:UnsafeRawPointer?) -> Float? {
         if pointer == nil {
             return nil
@@ -160,7 +160,7 @@ convenience init(gifName: String) {
         let value = unsafeBitCast(pointer, to:AnyObject.self)
         return value.floatValue
     }
-
+    
     /**
      Get delay times for each frames
      - Parameter imageSource: reference to the gif image source
@@ -258,12 +258,12 @@ convenience init(gifName: String) {
                 var indexOfnew = 1
                 while indexOfnew <= imageCount
                     && indexOfold < displayPosition.count {
-                    if indexOfnew <= displayPosition[indexOfold] {
-                        displayOrder?.append(indexOfold)
-                        indexOfnew += 1
-                    } else {
-                        indexOfold += 1
-                    }
+                        if indexOfnew <= displayPosition[indexOfold] {
+                            displayOrder?.append(indexOfold)
+                            indexOfnew += 1
+                        } else {
+                            indexOfold += 1
+                        }
                 }
                 break
             }
@@ -302,7 +302,7 @@ convenience init(gifName: String) {
         }
     }
     
-   var displayRefreshFactor: Int?{
+    var displayRefreshFactor: Int?{
         get {
             return objc_getAssociatedObject(self, _displayRefreshFactorKey!) as? Int
         }
@@ -311,7 +311,7 @@ convenience init(gifName: String) {
         }
     }
     
-   var imageSize: Int?{
+    var imageSize: Int?{
         get {
             return objc_getAssociatedObject(self, _imageSizeKey!) as? Int
         }
@@ -329,7 +329,7 @@ convenience init(gifName: String) {
         }
     }
     
-  var displayOrder: [Int]?{
+    var displayOrder: [Int]?{
         get {
             return objc_getAssociatedObject(self, _displayOrderKey!) as? [Int]
         }
@@ -338,7 +338,7 @@ convenience init(gifName: String) {
         }
     }
     
-   var imageData:Data? {
+    var imageData:Data? {
         get {
             let result = objc_getAssociatedObject(self, _imageDataKey!)
             if result == nil {

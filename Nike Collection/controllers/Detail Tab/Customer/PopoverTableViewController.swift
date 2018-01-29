@@ -18,7 +18,7 @@ protocol PopInfoSelectionDelegate:class {
 }
 
 class PopoverTableViewController: UITableViewController {
-
+    
     var popInfoType:PopInfoType?
     var data = [String]()
     var sender:UIButton?
@@ -26,16 +26,16 @@ class PopoverTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //choose pop info type
-      choosepopInfoType()
+        choosepopInfoType()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 
 //custom functions
@@ -43,11 +43,11 @@ extension PopoverTableViewController{
     fileprivate func choosepopInfoType(){
         switch self.popInfoType! {
         case .exMonth:
-data = ["01","02","03","04","05","06","07","08","09","10","11","12"]
+            data = ["01","02","03","04","05","06","07","08","09","10","11","12"]
         case .exYear:
- let currentYear = Utility.currentYear()
- for year in currentYear...(currentYear + 10){
-    data.append("\(year)")
+            let currentYear = Utility.currentYear()
+            for year in currentYear...(currentYear + 10){
+                data.append("\(year)")
             }
         }
     }
@@ -58,7 +58,7 @@ data = ["01","02","03","04","05","06","07","08","09","10","11","12"]
 extension PopoverTableViewController{
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-      return 1
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +77,7 @@ extension PopoverTableViewController{
 //UITableViewDelegate
 extension PopoverTableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-delegate?.updateWithPopInfoSelection(value: data[indexPath.row], sender: self.sender!)
+        delegate?.updateWithPopInfoSelection(value: data[indexPath.row], sender: self.sender!)
         dismiss(animated: true, completion: nil)
     }
 }

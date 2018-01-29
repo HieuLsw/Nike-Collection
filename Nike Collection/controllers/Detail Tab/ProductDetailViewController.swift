@@ -13,24 +13,21 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
     @IBOutlet weak var productDescriptionImageView: UIImageView!
     @IBOutlet weak var productDescriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-{didSet{self.tableView.delegate = self
-self.tableView.dataSource = self}}
-    
-//@IBOutlet weak var shoppingCartButton: UIButton!
-//@IBOutlet weak var cartItemCountLabel: UILabel!
+        {didSet{self.tableView.delegate = self
+            self.tableView.dataSource = self}}
     
     @IBOutlet weak var shoppingCartButton: UIBarButtonItem!
     
-let cartButton = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 35, height: 30))
-let cartLabel = UILabel.init(frame: CGRect.init(x: 22, y: 2, width: 16, height: 16))
-let cartView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
+    let cartButton = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 35, height: 30))
+    let cartLabel = UILabel.init(frame: CGRect.init(x: 22, y: 2, width: 16, height: 16))
+    let cartView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 50, height: 50))
     var productTable = ProductsTableViewController()
-var quantity = 1
-var shoppingCart = ShoppingCart.sharedInstance
-var specifications = [ProductInfo]()
-var product:Product?{
+    var quantity = 1
+    var shoppingCart = ShoppingCart.sharedInstance
+    var specifications = [ProductInfo]()
+    var product:Product?{
         didSet{if let currentProduct = product{
-self.showDetail(forThe: currentProduct)}}}
+            self.showDetail(forThe: currentProduct)}}}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +37,7 @@ self.showDetail(forThe: currentProduct)}}}
         
         //set gradient navigation bar
         gradientNavigationBar()
-}
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -50,16 +47,16 @@ self.showDetail(forThe: currentProduct)}}}
     @IBAction func addToCart(_ sender: Any) {
         
         if let producct = product{
-   self.quantity = Int(detailSummaryView.quantityControl.value)
-  shoppingCart.add(product: producct, qty: self.quantity)
+            self.quantity = Int(detailSummaryView.quantityControl.value)
+            shoppingCart.add(product: producct, qty: self.quantity)
             
-UIView.animate(withDuration: 0.5, animations: {[weak self] in
- self?.cartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi, 0.0, 1.0, 0.0)})
-
-UIView.animate(withDuration: 0.5, animations: { [weak self] in
-self?.cartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi * 2, 0.0, 1.0, 0.0)}, completion: { (succes: Bool) in
-DispatchQueue.main.async { [unowned self] in
-self.cartLabel.text = "\(self.shoppingCart.totalItem())"}})
+            UIView.animate(withDuration: 0.5, animations: {[weak self] in
+                self?.cartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi, 0.0, 1.0, 0.0)})
+            
+            UIView.animate(withDuration: 0.5, animations: { [weak self] in
+                self?.cartButton.layer.transform = CATransform3DMakeRotation(CGFloat.pi * 2, 0.0, 1.0, 0.0)}, completion: { (succes: Bool) in
+                    DispatchQueue.main.async { [unowned self] in
+                        self.cartLabel.text = "\(self.shoppingCart.totalItem())"}})
         }
     }
     
@@ -69,7 +66,7 @@ self.cartLabel.text = "\(self.shoppingCart.totalItem())"}})
 extension ProductDetailViewController{
     
     private func gradientNavigationBar(){
-navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.4039215686, green: 0.6980392157, blue: 0.4352941176, alpha: 1),#colorLiteral(red: 0.2980392157, green: 0.6352941176, blue: 0.8039215686, alpha: 1)])
+        navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.4039215686, green: 0.6980392157, blue: 0.4352941176, alpha: 1),#colorLiteral(red: 0.2980392157, green: 0.6352941176, blue: 0.8039215686, alpha: 1)])
     }
     
     private func setCartView(){
@@ -86,18 +83,18 @@ navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral
         shoppingCartButton.customView = cartView
     }
     
-fileprivate func showDetail(forThe currentProduct:Product){
+    fileprivate func showDetail(forThe currentProduct:Product){
         if viewIfLoaded != nil {
-detailSummaryView.updateView(with: currentProduct)
-let productInfo = currentProduct.productInfo?.allObjects as! [ProductInfo]
-specifications = productInfo.filter{ $0.type == "specs"}
-var description = ""
-for currentInfo in productInfo{
-if let info = currentInfo.info, info.count > 0, currentInfo.type == "description"{
-description = description + info + "\n\n"}}
-productDescriptionLabel.text = description
-productDescriptionImageView.image = Utility.image(withName: currentProduct.mainimage, andType: "jpg")
-tableView.reloadData()}}
+            detailSummaryView.updateView(with: currentProduct)
+            let productInfo = currentProduct.productInfo?.allObjects as! [ProductInfo]
+            specifications = productInfo.filter{ $0.type == "specs"}
+            var description = ""
+            for currentInfo in productInfo{
+                if let info = currentInfo.info, info.count > 0, currentInfo.type == "description"{
+                    description = description + info + "\n\n"}}
+            productDescriptionLabel.text = description
+            productDescriptionImageView.image = Utility.image(withName: currentProduct.mainimage, andType: "jpg")
+            tableView.reloadData()}}
 }
 
 //custom functions selectors
@@ -119,7 +116,7 @@ extension ProductDetailViewController{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-let cell = tableView.dequeueReusableCell(withIdentifier: "cellProductInfo", for: indexPath) as! ProductInfoTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellProductInfo", for: indexPath) as! ProductInfoTableViewCell
         cell.productInfo = specifications[indexPath.row]
         return cell
     }

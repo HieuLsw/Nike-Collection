@@ -217,7 +217,7 @@
                  "modelNumber": "853336-123",
                  "quantity": 1,
                  "rating": 5,
-                "Brand": "Trophy Room",
+                 "Brand": "Trophy Room",
                  "summary": "Trophy Room celebrated its massive grand opening with appearance by Michael Jordan, friends and family, and of course, the release of the Air Jordan XX3 “Trophy Room”. The white edition, limited to just 523 pairs worldwide, was exclusively available at Trophy Room and is completely sold out. The black edition is limited to 5,000 pairs and will release again on Saturday, May 28th at select retailers worldwide. We have both pairs in hand and would like to take this opportunity to show you both versions in detail."
                  },
                  {
@@ -248,7 +248,7 @@
                  "Condition": "New",
                  "US Size(Men's)": "Regular",
                  "images": [
-                            "Jordan Cologne 1.jpg" ,"Jordan Cologne 2.jpg" ,"Jordan Cologne 3.jpg" ,"Jordan Cologne 4.jpg" ,"Jordan Cologne 5.jpg" 
+                            "Jordan Cologne 1.jpg" ,"Jordan Cologne 2.jpg" ,"Jordan Cologne 3.jpg" ,"Jordan Cologne 4.jpg" ,"Jordan Cologne 5.jpg"
                             ],
                  "manufacturerId": 3,
                  "manufacturerName": "Generic",

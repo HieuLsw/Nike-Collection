@@ -10,6 +10,7 @@ import UIKit
 
 class PaymentViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,UIPopoverPresentationControllerDelegate,PopInfoSelectionDelegate,CreditCardDelegate {
     
+    
     @IBOutlet weak var tableView: UITableView!
         {didSet{self.tableView.dataSource = self;self.tableView.delegate = self}}
     
@@ -168,7 +169,7 @@ extension PaymentViewController{
 
 //UIPopoverPresentationControllerDelegate
 extension PaymentViewController {
-    internal func showPopoverInfo(forSender sender: UIButton) {
+    func showPopoverInfo(forSender sender: UIButton) {
         let navController = storyboard?.instantiateViewController(withIdentifier: "navPopover") as! UINavigationController
         navController.modalPresentationStyle = .popover
         

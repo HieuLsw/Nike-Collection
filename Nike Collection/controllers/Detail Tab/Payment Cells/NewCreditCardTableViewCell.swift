@@ -21,7 +21,7 @@ protocol CreditCardDelegate: class{
 }
 
 class NewCreditCardTableViewCell: UITableViewCell{
-
+    
     @IBOutlet weak var nameOnCardTextField: UITextField!
     @IBOutlet weak var cardNumberTextField: UITextField!
     @IBOutlet weak var expMonthButton: UIButton!
@@ -34,35 +34,35 @@ class NewCreditCardTableViewCell: UITableViewCell{
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
-@IBAction func didTapAddCard(_ sender: Any) {
     
-    guard let nameOnCard = nameOnCardTextField.text else {
-        return
-    }
-    guard let cardNumber = cardNumberTextField.text else {
-        return
-    }
-    guard let expMonth = expMonthButton.titleLabel?.text else {
-        return
-    }
-    guard let expYear = expYearButton.titleLabel?.text else {
-        return
-    }
-    
-    let creditCard = CoreDataFetch.addCreditCard(forCustomer: self.customer!, nameOnCard: nameOnCard, cardNumber: cardNumber, expMonth: Int(expMonth)!, expYear: Int(expYear)!)
-    self.creditCardDelegate?.add(card: creditCard)
-    
-    nameOnCardTextField.text = ""
-    cardNumberTextField.text = ""
-    expMonthButton.setTitle("01", for: .normal)
-    expYearButton.setTitle("\(Utility.currentYear())", for: .normal)
+    @IBAction func didTapAddCard(_ sender: Any) {
+        
+        guard let nameOnCard = nameOnCardTextField.text else {
+            return
+        }
+        guard let cardNumber = cardNumberTextField.text else {
+            return
+        }
+        guard let expMonth = expMonthButton.titleLabel?.text else {
+            return
+        }
+        guard let expYear = expYearButton.titleLabel?.text else {
+            return
+        }
+        
+        let creditCard = CoreDataFetch.addCreditCard(forCustomer: self.customer!, nameOnCard: nameOnCard, cardNumber: cardNumber, expMonth: Int(expMonth)!, expYear: Int(expYear)!)
+        self.creditCardDelegate?.add(card: creditCard)
+        
+        nameOnCardTextField.text = ""
+        cardNumberTextField.text = ""
+        expMonthButton.setTitle("01", for: .normal)
+        expYearButton.setTitle("\(Utility.currentYear())", for: .normal)
     }
     
 }

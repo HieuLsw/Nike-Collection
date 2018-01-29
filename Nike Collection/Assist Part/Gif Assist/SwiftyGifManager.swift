@@ -6,22 +6,22 @@ import ImageIO
 import UIKit
 import Foundation
 
- class SwiftyGifManager {
+class SwiftyGifManager {
     
     // A convenient default manager if we only have one gif to display here and there
-     static var defaultManager = SwiftyGifManager(memoryLimit: 50)
+    static var defaultManager = SwiftyGifManager(memoryLimit: 50)
     
     fileprivate var timer: CADisplayLink?
     fileprivate var displayViews: [UIImageView] = []
     fileprivate var totalGifSize: Int
     fileprivate var memoryLimit: Int
-     var  haveCache: Bool
+    var  haveCache: Bool
     
     /**
      Initialize a manager
      - Parameter memoryLimit: The number of Mb max for this manager
      */
-     init(memoryLimit: Int) {
+    init(memoryLimit: Int) {
         self.memoryLimit = memoryLimit
         totalGifSize = 0
         haveCache = true
@@ -33,7 +33,7 @@ import Foundation
      Add a new imageView to this manager if it doesn't exist
      - Parameter imageView: The UIImageView we're adding to this manager
      */
-     func addImageView(_ imageView: UIImageView) -> Bool {
+    func addImageView(_ imageView: UIImageView) -> Bool {
         if containsImageView(imageView) {
             return false
         }
@@ -52,7 +52,7 @@ import Foundation
         return true
     }
     
-     func clear() {
+    func clear() {
         while !displayViews.isEmpty {
             displayViews.removeFirst().clear()
         }
@@ -62,18 +62,18 @@ import Foundation
      Delete an imageView from this manager if it exists
      - Parameter imageView: The UIImageView we want to delete
      */
-     func deleteImageView(_ imageView: UIImageView){
+    func deleteImageView(_ imageView: UIImageView){
         
         if let index = self.displayViews.index(of: imageView){
             if index >= 0 && index < self.displayViews.count {
                 displayViews.remove(at: index)
                 totalGifSize -= imageView.gifImage?.imageSize ?? 0
-    if totalGifSize < memoryLimit && !haveCache {
-            haveCache = true
-    
-        for imageView in displayViews {
-    DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).sync{
-        imageView.updateCache()
+                if totalGifSize < memoryLimit && !haveCache {
+                    haveCache = true
+                    
+                    for imageView in displayViews {
+                        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).sync{
+                            imageView.updateCache()
                         }
                     }
                 }
@@ -113,12 +113,12 @@ import Foundation
      */
     @objc func updateImageView(){
         for imageView in displayViews {
-
+            
             DispatchQueue.main.async{
                 imageView.image = imageView.currentImage
             }
             if imageView.isAnimatingGif() {
-    DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).sync{
+                DispatchQueue.global(qos: DispatchQoS.QoSClass.userInteractive).sync{
                     imageView.updateCurrentImage()
                 }
             }

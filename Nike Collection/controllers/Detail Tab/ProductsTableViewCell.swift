@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class ProductsTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var productImageView: UIImageView!
     
     @IBOutlet weak var productNameLabel: UILabel!
@@ -23,12 +23,11 @@ class ProductsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
- 
+        
         //configue section
-configueSection()
+        configueSection()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -42,10 +41,10 @@ extension ProductsTableViewCell{
         self.selectionStyle = .default
     }
     
-
+    
     internal func configureCell(with product: Product) {
         
-productImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
+        productImageView.image = Utility.image(withName: product.mainimage, andType: "jpg")
         productNameLabel.text = product.name
         manufacturerLabel.text = product.manufacturer?.name
         priceLabel.text = product.salePrice.currencyFormatter

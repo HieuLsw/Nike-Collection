@@ -16,7 +16,7 @@ class CoreDataStack {
         let container = NSPersistentContainer(name: "NikeCollectionMomd")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-fatalError("Unresolved error \(error), \(error.userInfo)")
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
@@ -31,7 +31,7 @@ fatalError("Unresolved error \(error), \(error.userInfo)")
                 try context.save()
             } catch {
                 let nserror = error as NSError
-fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }

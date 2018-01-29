@@ -24,15 +24,15 @@ class UserRating:UIView{
         super.init(coder: aDecoder)
         
         for _ in 0..<5 {
-        let tempButton = UIButton()
-        
-        tempButton.setImage(#imageLiteral(resourceName: "blackstar"), for: .normal)
-        tempButton.setImage(#imageLiteral(resourceName: "yellowstar"), for: .selected)
-        
-        tempButton.adjustsImageWhenHighlighted = false
-        
-        ratingButtons.append(contentsOf: [tempButton])
-        addSubview(tempButton)
+            let tempButton = UIButton()
+            
+            tempButton.setImage(#imageLiteral(resourceName: "blackstar"), for: .normal)
+            tempButton.setImage(#imageLiteral(resourceName: "yellowstar"), for: .selected)
+            
+            tempButton.adjustsImageWhenHighlighted = false
+            
+            ratingButtons.append(contentsOf: [tempButton])
+            addSubview(tempButton)
         }
         
     }
@@ -47,7 +47,7 @@ class UserRating:UIView{
         for button in ratingButtons {
             
             // O O O O O
-        buttonFrame.origin.x = CGFloat(x * (buttonSize + 5))
+            buttonFrame.origin.x = CGFloat(x * (buttonSize + 5))
             button.frame = buttonFrame
             x += 1
         }
@@ -55,7 +55,7 @@ class UserRating:UIView{
         updateButtonSelectionStates()
     }
     
-
+    
 }//UserRating class over line
 
 //custom functions

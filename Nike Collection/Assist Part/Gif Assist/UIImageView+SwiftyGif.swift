@@ -35,7 +35,7 @@ let _delegateKey = malloc(4)
     @objc optional func gifDidStop(sender: UIImageView)
 }
 
- extension UIImageView {
+extension UIImageView {
     
     // MARK: Inits
     
@@ -44,7 +44,7 @@ let _delegateKey = malloc(4)
      - Parameter gifImage: The UIImage containing the gif backing data
      - Parameter manager: The manager to handle the gif display
      */
-     convenience init(gifImage:UIImage, manager:SwiftyGifManager = SwiftyGifManager.defaultManager) {
+    convenience init(gifImage:UIImage, manager:SwiftyGifManager = SwiftyGifManager.defaultManager) {
         self.init()
         setGifImage(gifImage,manager: manager, loopCount: -1);
     }
@@ -55,7 +55,7 @@ let _delegateKey = malloc(4)
      - Parameter manager: The manager to handle the gif display
      - Parameter loopCount: The number of loops we want for this gif. -1 means infinite.
      */
-     convenience init(gifImage: UIImage, manager: SwiftyGifManager = SwiftyGifManager.defaultManager, loopCount:Int) {
+    convenience init(gifImage: UIImage, manager: SwiftyGifManager = SwiftyGifManager.defaultManager, loopCount:Int) {
         self.init()
         setGifImage(gifImage,manager: manager, loopCount: loopCount);
     }
@@ -66,7 +66,7 @@ let _delegateKey = malloc(4)
      - Parameter gifImage: The UIImage containing the gif backing data
      - Parameter manager: The manager to handle the gif display
      */
-     func setGifImage(_ gifImage: UIImage, manager:SwiftyGifManager = SwiftyGifManager.defaultManager) {
+    func setGifImage(_ gifImage: UIImage, manager:SwiftyGifManager = SwiftyGifManager.defaultManager) {
         setGifImage(gifImage, manager: manager, loopCount: -1)
     }
     
@@ -77,7 +77,7 @@ let _delegateKey = malloc(4)
      - Parameter manager: The manager to handle the gif display
      - Parameter loopCount: The number of loops we want for this gif. -1 means infinite.
      */
-     func setGifImage(_ gifImage: UIImage, manager: SwiftyGifManager = SwiftyGifManager.defaultManager, loopCount: Int) {
+    func setGifImage(_ gifImage: UIImage, manager: SwiftyGifManager = SwiftyGifManager.defaultManager, loopCount: Int) {
         if let imageData = gifImage.imageData, gifImage.imageCount < 1 {
             image = UIImage(data: imageData as Data)
             return
@@ -90,7 +90,7 @@ let _delegateKey = malloc(4)
         self.displayOrderIndex = 0
         self.cache = NSCache()
         self.haveCache = false
-
+        
         if let source = gifImage.imageSource,
             let cgImage = CGImageSourceCreateImageAtIndex(source, 0, nil) {
             self.currentImage = UIImage(cgImage: cgImage)
@@ -101,7 +101,7 @@ let _delegateKey = malloc(4)
             }
         }
     }
-
+    
     // MARK: Logic
     
     /**
@@ -124,14 +124,14 @@ let _delegateKey = malloc(4)
     /**
      Start displaying the gif for this UIImageView.
      */
-     func startAnimatingGif() {
+    func startAnimatingGif() {
         self.isPlaying = true
     }
     
     /**
      Stop displaying the gif for this UIImageView.
      */
-     func stopAnimatingGif() {
+    func stopAnimatingGif() {
         self.isPlaying = false
     }
     
@@ -139,7 +139,7 @@ let _delegateKey = malloc(4)
      Check if this imageView is currently playing a gif
      - Returns wether the gif is currently playing
      */
-     func isAnimatingGif() -> Bool{
+    func isAnimatingGif() -> Bool{
         return self.isPlaying
     }
     
@@ -147,7 +147,7 @@ let _delegateKey = malloc(4)
      Show a specific frame based on a delta from current frame
      - Parameter delta: The delsta from current frame we want
      */
-     func showFrameForIndexDelta(_ delta: Int) {
+    func showFrameForIndexDelta(_ delta: Int) {
         guard let gifImage = gifImage else { return }
         var nextIndex = self.displayOrderIndex + delta
         
@@ -166,7 +166,7 @@ let _delegateKey = malloc(4)
      Show a specific frame
      - Parameter index: The index of frame to show
      */
-     func showFrameAtIndex(_ index: Int) {
+    func showFrameAtIndex(_ index: Int) {
         displayOrderIndex = index
         updateFrame()
     }
@@ -174,7 +174,7 @@ let _delegateKey = malloc(4)
     /**
      Update cache for the current imageView.
      */
-     func updateCache() {
+    func updateCache() {
         guard let animationManager = animationManager else { return }
         if animationManager.hasCache(self) && !self.haveCache {
             prepareCache()
@@ -188,7 +188,7 @@ let _delegateKey = malloc(4)
     /**
      Update current image displayed. This method is called by the manager.
      */
-     func updateCurrentImage() {
+    func updateCurrentImage() {
         
         if displaying {
             updateFrame()
@@ -220,14 +220,14 @@ let _delegateKey = malloc(4)
     /**
      Get current frame index
      */
-     func currentFrameIndex() -> Int{
+    func currentFrameIndex() -> Int{
         return displayOrderIndex
     }
-
+    
     /**
      Get frame at specifi index
      */
-     func frameAtIndex(index: Int) -> UIImage {
+    func frameAtIndex(index: Int) -> UIImage {
         guard let gifImage = gifImage,
             let imageSource = gifImage.imageSource,
             let displayOrder = gifImage.displayOrder, index < displayOrder.count,
@@ -241,7 +241,7 @@ let _delegateKey = malloc(4)
      Check if the imageView has been discarded and is not in the view hierarchy anymore.
      - Returns : A boolean for weather the imageView was discarded
      */
-     func isDiscarded(_ imageView: UIView?) -> Bool{
+    func isDiscarded(_ imageView: UIView?) -> Bool{
         return imageView?.superview == nil
     }
     
@@ -250,7 +250,7 @@ let _delegateKey = malloc(4)
      - Returns : A boolean for weather the imageView is displayed
      */
     
-     func isDisplayedInScreen(_ imageView: UIView?) ->Bool{
+    func isDisplayedInScreen(_ imageView: UIView?) ->Bool{
         guard !self.isHidden, let imageView = imageView else  {
             return false
         }
@@ -265,7 +265,7 @@ let _delegateKey = malloc(4)
         return (self.window != nil)
     }
     
-     func clear() {
+    func clear() {
         if let gifImage = gifImage {
             gifImage.clear()
             
@@ -322,17 +322,17 @@ let _delegateKey = malloc(4)
     }
     
     // PRAGMA - get / set associated values
-
+    
     fileprivate func value<T>(_ key:UnsafeMutableRawPointer?, _ defaultValue:T) -> T {
         return (objc_getAssociatedObject(self, key!) as? T) ?? defaultValue
     }
-
+    
     fileprivate func possiblyNil<T>(_ key:UnsafeMutableRawPointer?) -> T? {
         let result = objc_getAssociatedObject(self, key!)
         return (result as? T)
     }
-
-     var gifImage: UIImage? {
+    
+    var gifImage: UIImage? {
         get {
             return possiblyNil(_gifImageKey)
         }
@@ -340,7 +340,7 @@ let _delegateKey = malloc(4)
             objc_setAssociatedObject(self, _gifImageKey!, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN);
         }
     }
-     var currentImage: UIImage? {
+    var currentImage: UIImage? {
         get {
             return possiblyNil(_currentImageKey)
         }
@@ -367,7 +367,7 @@ let _delegateKey = malloc(4)
         }
     }
     
-     var loopCount: Int {
+    var loopCount: Int {
         get {
             return value(_loopCountKey, 0)
         }
@@ -376,7 +376,7 @@ let _delegateKey = malloc(4)
         }
     }
     
-     var animationManager: SwiftyGifManager? {
+    var animationManager: SwiftyGifManager? {
         get {
             return (objc_getAssociatedObject(self, _animationManagerKey!) as? SwiftyGifManager)
         }
@@ -385,7 +385,7 @@ let _delegateKey = malloc(4)
         }
     }
     
-     var delegate: SwiftyGifDelegate? {
+    var delegate: SwiftyGifDelegate? {
         get {
             return (objc_getAssociatedObject(self, _delegateKey!) as? SwiftyGifDelegate)
         }
@@ -403,7 +403,7 @@ let _delegateKey = malloc(4)
         }
     }
     
-     var displaying: Bool {
+    var displaying: Bool {
         get {
             return value(_displayingKey, false)
         }

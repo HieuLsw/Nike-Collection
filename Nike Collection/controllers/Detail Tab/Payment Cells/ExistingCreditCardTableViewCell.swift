@@ -9,7 +9,7 @@
 import UIKit
 
 class ExistingCreditCardTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var cardTypeImageView: UIImageView!
     @IBOutlet weak var cardNumberLabel: UILabel!
     @IBOutlet weak var nameOnCardLabel: UILabel!
@@ -20,20 +20,20 @@ class ExistingCreditCardTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }//ExistingCreditCardTableViewCell class over line
 
 //custom functions
 extension ExistingCreditCardTableViewCell{
     
     func configueCell(withCreditCard creditCard: CreditCard){
-       noCreditCardLabel.isHidden = true
+        noCreditCardLabel.isHidden = true
         cardNumberLabel.text = creditCard.cardNumber
         cardTypeImageView.image = UIImage.init(named: creditCard.type!)
         nameOnCardLabel.text = creditCard.nameOnCard

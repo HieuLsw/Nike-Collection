@@ -10,22 +10,22 @@ import UIKit
 import CoreData
 
 class CoreDataDelete{
-
-  static func resetRequest(){
+    
+    static func resetRequest(){
         
         //get Core Data stack instance
-    let appDelegateDelete = UIApplication.shared.delegate as!
+        let appDelegateDelete = UIApplication.shared.delegate as!
         AppDelegate
-   let managedObjectContext = appDelegateDelete.coreDataStack.persistentContainer.viewContext
- 
-    let fetchResultArrs = [Product.self,Manufacturer.self,ProductInfo.self,ProductImage.self].map {$0.fetchRequest()}
-    
+        let managedObjectContext = appDelegateDelete.coreDataStack.persistentContainer.viewContext
+        
+        let fetchResultArrs = [Product.self,Manufacturer.self,ProductInfo.self,ProductImage.self].map {$0.fetchRequest()}
+        
         do{
             
-_ =  try fetchResultArrs.map{ (element) in
-    
-    let deleteRequest = NSBatchDeleteRequest(fetchRequest: element)
-     _ =  try managedObjectContext.execute(deleteRequest) as! NSBatchDeleteResult
+            _ =  try fetchResultArrs.map{ (element) in
+                
+                let deleteRequest = NSBatchDeleteRequest(fetchRequest: element)
+                _ =  try managedObjectContext.execute(deleteRequest) as! NSBatchDeleteResult
             }            
         }catch  {
         }

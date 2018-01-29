@@ -31,7 +31,7 @@ class DetailSummaryView: UIView{
         super.init(frame: frame)
         MagnifyingGlassView.setTargetView(targetView: self.productImageView)
         MagnifyingGlassView.setScale(scale: 5)
-    MagnifyingGlassView.setContentFrame(frame: CGRect.init(origin: self.productImageView.bounds.origin, size: CGSize.init(width: 200, height: 200)))
+        MagnifyingGlassView.setContentFrame(frame: CGRect.init(origin: self.productImageView.bounds.origin, size: CGSize.init(width: 200, height: 200)))
         MagnifyingGlassView.setIndicatorColor(color: UIColor.green)
         MagnifyingGlassView.setShadowColor(color: UIColor.black)
     }
@@ -51,28 +51,28 @@ extension DetailSummaryView{
     
     func updateView(with product: Product){
         
-// Make sure no previous view still exists in the current view
-buttonContainerView?.removeFromSuperview()
+        // Make sure no previous view still exists in the current view
+        buttonContainerView?.removeFromSuperview()
         
         //set default state
         qtyLeftLabel.isHidden = true
         addToCartButton.isEnabled = true
         addToCartButton.alpha = 1.0
-quantityControl.maximumValue = Double(product.quantity)
+        quantityControl.maximumValue = Double(product.quantity)
         
         //product info
-         manufacturer.text = product.manufacturer?.name
-         userRating.rating = Int(product.rating)
-         productNameLabel.text = product.name
+        manufacturer.text = product.manufacturer?.name
+        userRating.rating = Int(product.rating)
+        productNameLabel.text = product.name
         
-let listPricAttributeString = NSAttributedString.init(string: product.regularPrice.currencyFormatter, attributes: [NSAttributedStringKey.strikethroughStyle : 1])
-listPriceLabel.attributedText = listPricAttributeString
+        let listPricAttributeString = NSAttributedString.init(string: product.regularPrice.currencyFormatter, attributes: [NSAttributedStringKey.strikethroughStyle : 1])
+        listPriceLabel.attributedText = listPricAttributeString
         
-dealPriceLabel.text = product.salePrice.currencyFormatter
-priceSaveDollarLabel.text = (product.regularPrice - product.salePrice).currencyFormatter
+        dealPriceLabel.text = product.salePrice.currencyFormatter
+        priceSaveDollarLabel.text = (product.regularPrice - product.salePrice).currencyFormatter
         
-let percentSave = ((product.regularPrice - product.salePrice) / product.regularPrice).percentFormatter
-priceSavedPercentlabel.text = percentSave
+        let percentSave = ((product.regularPrice - product.salePrice) / product.regularPrice).percentFormatter
+        priceSavedPercentlabel.text = percentSave
         
         if product.quantity > 0{
             isInStock.textColor = UIColor.green
@@ -80,8 +80,8 @@ priceSavedPercentlabel.text = percentSave
             
             if product.quantity < 5{
                 qtyLeftLabel.isHidden = false
-let qtyLeftStr = product.quantity == 1 ? "item" : "items"
-qtyLeftLabel.text = "Only \(product.quantity) \(qtyLeftStr) left" }
+                let qtyLeftStr = product.quantity == 1 ? "item" : "items"
+                qtyLeftLabel.text = "Only \(product.quantity) \(qtyLeftStr) left" }
         }
         else{
             isInStock.textColor = UIColor.red
@@ -91,42 +91,42 @@ qtyLeftLabel.text = "Only \(product.quantity) \(qtyLeftStr) left" }
         }
         
         if let images = product.productImages{
-    let allImages = images.allObjects as! [ProductImage]
+            let allImages = images.allObjects as! [ProductImage]
             
             if let mainImage = allImages.first{
-productImageView.image = Utility.image(withName: mainImage.name, andType: "jpg")
-}
+                productImageView.image = Utility.image(withName: mainImage.name, andType: "jpg")
+            }
             let imageCount = allImages.count
             var arrButtons = [UIButton]()
             buttonContainerView = UIView()
             
-    for x in 0..<imageCount {
-let image = Utility.image(withName: allImages[x].name, andType: "jpg")
-let buttonImage = image;let button = UIButton()
-button.setTitle(allImages[x].name, for: UIControlState.normal)
-button.imageView?.contentMode = .scaleAspectFit
-button.setImage(buttonImage, for: UIControlState.normal)
-button.imageEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
+            for x in 0..<imageCount {
+                let image = Utility.image(withName: allImages[x].name, andType: "jpg")
+                let buttonImage = image;let button = UIButton()
+                button.setTitle(allImages[x].name, for: UIControlState.normal)
+                button.imageView?.contentMode = .scaleAspectFit
+                button.setImage(buttonImage, for: UIControlState.normal)
+                button.imageEdgeInsets = UIEdgeInsetsMake(5.0, 5.0, 5.0, 5.0)
                 button.contentMode = .center
                 button.layer.borderWidth = 1
-    button.layer.borderColor = UIColor.lightGray.cgColor
+                button.layer.borderColor = UIColor.lightGray.cgColor
                 button.layer.cornerRadius = 5
                 
-if x == 0 {
-button.frame = CGRect(x: self.productImageView.frame.origin.x, y: 0, width: 50.0, height: 50.0)
-}else {
+                if x == 0 {
+                    button.frame = CGRect(x: self.productImageView.frame.origin.x, y: 0, width: 50.0, height: 50.0)
+                }else {
                     
-    //  |0| |1|
-button.frame = CGRect(x: arrButtons[x-1].frame.maxX + 10, y: arrButtons[x-1].frame.minY, width: 50.0, height: 50.0)
-}
+                    //  |0| |1|
+                    button.frame = CGRect(x: arrButtons[x-1].frame.maxX + 10, y: arrButtons[x-1].frame.minY, width: 50.0, height: 50.0)
+                }
                 
-    arrButtons.append(button)
+                arrButtons.append(button)
                 
-button.addTarget(self, action: #selector(buttonAction(_:)), for: UIControlEvents.touchUpInside)
-buttonContainerView?.addSubview(button)}
+                button.addTarget(self, action: #selector(buttonAction(_:)), for: UIControlEvents.touchUpInside)
+                buttonContainerView?.addSubview(button)}
             
-let containerWidth = imageCount * 50 + (imageCount - 1) * 10
-buttonContainerView?.frame = CGRect(x: 20, y: Int(productImageView.frame.maxY + 10), width: containerWidth, height: 50)
+            let containerWidth = imageCount * 50 + (imageCount - 1) * 10
+            buttonContainerView?.frame = CGRect(x: 20, y: Int(productImageView.frame.maxY + 10), width: containerWidth, height: 50)
             self.addSubview(buttonContainerView!)
         }
     }

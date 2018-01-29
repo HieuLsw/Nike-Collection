@@ -27,16 +27,16 @@ class ProductInfoTableViewCell: UITableViewCell {
         
         infoTitleLabel.layer.borderWidth = 2
         infoTitleLabel.layer.borderColor = UIColor.white.cgColor
-productSpecLabel.layer.borderColor = UIColor.white.cgColor
-productSpecLabel.layer.borderWidth = 2
+        productSpecLabel.layer.borderColor = UIColor.white.cgColor
+        productSpecLabel.layer.borderWidth = 2
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }//ProductInfoTableViewCell class over line
 
 //custom functions

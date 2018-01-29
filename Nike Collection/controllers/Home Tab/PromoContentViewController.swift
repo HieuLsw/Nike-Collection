@@ -9,7 +9,7 @@
 import UIKit
 
 class PromoContentViewController: UIViewController {
-
+    
     @IBOutlet weak var promoImageView: UIImageView!
     
     var pageIndex = 0
@@ -18,13 +18,13 @@ class PromoContentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
-       //set .gif file into image view
-       setPromoImageViewContent()
+        //set .gif file into image view
+        setPromoImageViewContent()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,8 +34,7 @@ class PromoContentViewController: UIViewController {
 //custom functions:
 extension PromoContentViewController{
     
-//set .gif file into image view
- 
+    //set .gif file into image view
     fileprivate func setPromoImageViewContent(){
         if let currentImage = imageName{
             let gifImage = UIImage(gifName: currentImage)
