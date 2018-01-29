@@ -24,6 +24,7 @@
 		A549341E201F02B000E64DB1 /* ReviewOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A549341D201F02B000E64DB1 /* ReviewOrderTableViewController.swift */; };
 		A5493421201F045C00E64DB1 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5493420201F045C00E64DB1 /* PaymentTableViewCell.swift */; };
 		A5493423201F048400E64DB1 /* ShippingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5493422201F048400E64DB1 /* ShippingTableViewCell.swift */; };
+		A5493425201F2E7900E64DB1 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5493424201F2E7900E64DB1 /* OrderConfirmationViewController.swift */; };
 		A57B28451FAC7C2C00F2F88A /* Fuck.gif in Resources */ = {isa = PBXBuildFile; fileRef = A58EAC251FA6EEA6005DE595 /* Fuck.gif */; };
 		A57B28461FAC7C2C00F2F88A /* Lebron.gif in Resources */ = {isa = PBXBuildFile; fileRef = A5844C9D1FA80C31005E7DFE /* Lebron.gif */; };
 		A57B28471FAC7C2C00F2F88A /* Jordan.gif in Resources */ = {isa = PBXBuildFile; fileRef = A58EAC231FA6EA4B005DE595 /* Jordan.gif */; };
@@ -191,6 +192,7 @@
 		A549341D201F02B000E64DB1 /* ReviewOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewOrderTableViewController.swift; sourceTree = "<group>"; };
 		A5493420201F045C00E64DB1 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		A5493422201F048400E64DB1 /* ShippingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingTableViewCell.swift; sourceTree = "<group>"; };
+		A5493424201F2E7900E64DB1 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		A57B28481FAC7CE500F2F88A /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A57B28491FAC7CE600F2F88A /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A57B284A1FAC7CE600F2F88A /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				A53036571FB772F900820D2F /* ProductsTableViewCell.swift */,
 				A5E546801FBEC4C70047AE62 /* ProductDetailViewController.swift */,
 				A5E546821FBEC61C0047AE62 /* DetailSummaryView.swift */,
+				A5493424201F2E7900E64DB1 /* OrderConfirmationViewController.swift */,
 				A549341F201F042000E64DB1 /* OrderSummary */,
 				A5FC098A2016547F00238DF8 /* Customer */,
 				A5FC09872015F85700238DF8 /* Login */,
@@ -1304,6 +1307,7 @@
 				A57B284D1FAC7CE600F2F88A /* SwiftyGifManager.swift in Sources */,
 				A54934182018923000E64DB1 /* ExistingCreditCardTableViewCell.swift in Sources */,
 				A5493421201F045C00E64DB1 /* PaymentTableViewCell.swift in Sources */,
+				A5493425201F2E7900E64DB1 /* OrderConfirmationViewController.swift in Sources */,
 				A5E546751FBD8F190047AE62 /* Bubble.swift in Sources */,
 				A53036201FB46EF600820D2F /* ProductsTableViewController.swift in Sources */,
 				A57B284B1FAC7CE600F2F88A /* UIImageView+SwiftyGif.swift in Sources */,

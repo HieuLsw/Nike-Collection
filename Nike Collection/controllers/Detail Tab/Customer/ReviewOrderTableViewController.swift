@@ -9,16 +9,16 @@
 import UIKit
 
 class ReviewOrderTableViewController: UITableViewController,ShoppingCartDelegate {
-
+    
     var shoppingCart = ShoppingCart.sharedInstance
     weak var delegate: ShoppingCartDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-tableView.register(UINib.init(nibName: "ItemInCartTableViewCell", bundle: nil), forCellReuseIdentifier: "cellItemInCart")
-tableView.tableFooterView = UIView()
+        tableView.register(UINib.init(nibName: "ItemInCartTableViewCell", bundle: nil), forCellReuseIdentifier: "cellItemInCart")
+        tableView.tableFooterView = UIView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

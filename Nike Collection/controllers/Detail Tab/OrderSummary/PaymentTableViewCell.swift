@@ -39,8 +39,6 @@ extension PaymentTableViewCell{
             cardNumberLaber.text = creditCard.cardNumber?.maskedPlusLast4()
             nameOnCardLabel.text = creditCard.nameOnCard
             expirationLabel.text = "\(creditCard.expMonth)/\(creditCard.expYear)"
-        
-        
         }
     }
 }

@@ -1311,10 +1311,10 @@
             </objects>
             <point key="canvasLocation" x="-3159" y="4255"/>
         </scene>
-        <!--Review Order Table View Controller-->
+        <!--Review Order-->
         <scene sceneID="aX9-da-bBC">
             <objects>
-                <tableViewController id="vCj-c3-UnL" customClass="ReviewOrderTableViewController" customModule="Nike_Collection" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Review Order" id="vCj-c3-UnL" customClass="ReviewOrderTableViewController" customModule="Nike_Collection" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5uE-dc-hco">
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1338,6 +1338,9 @@
                                             <state key="normal" title="Place your order">
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <segue destination="3qh-lt-RVb" kind="show" id="gQt-nF-IxM"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -1556,6 +1559,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PYG-BW-zzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2382.421875" y="4243.75"/>
+        </scene>
+        <!--Order Confirmation-->
+        <scene sceneID="CY5-bI-fPN">
+            <objects>
+                <viewController title="Order Confirmation" id="3qh-lt-RVb" customClass="OrderConfirmationViewController" customModule="Nike_Collection" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L6b-Xg-c2F">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for your order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJq-PJ-g4e">
+                                <rect key="frame" x="30" y="104" width="241.5" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="T8B-Kz-8ai">
+                                <rect key="frame" x="158.5" y="225" width="224.5" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order #:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FJ-pR-1Ht">
+                                        <rect key="frame" x="0.0" y="0.0" width="224.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="orderConfirmationNumber" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XkO-ne-1L1">
+                                        <rect key="frame" x="0.0" y="43" width="224.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3U4-uY-Af5">
+                                <rect key="frame" x="70" y="372" width="400" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2dp-bZ-w3s"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="kCr-Nf-XUJ"/>
+                                </constraints>
+                                <state key="normal" title="Continue Shopping">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapContinueShopping:" destination="3qh-lt-RVb" eventType="touchUpInside" id="c41-dz-LG8"/>
+                                    <segue destination="NXG-y7-6aV" kind="unwind" unwindAction="unwindFromOrderConfirmationWithSegue:" id="1Gt-ug-Mq0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3U4-uY-Af5" firstAttribute="centerX" secondItem="L6b-Xg-c2F" secondAttribute="centerX" id="66x-GO-J7p"/>
+                            <constraint firstItem="3U4-uY-Af5" firstAttribute="top" secondItem="XkO-ne-1L1" secondAttribute="bottom" constant="81" id="FvI-dT-Tcc"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CJq-PJ-g4e" secondAttribute="trailing" constant="20" symbolic="YES" id="ft4-UV-nGJ"/>
+                            <constraint firstItem="T8B-Kz-8ai" firstAttribute="top" secondItem="CJq-PJ-g4e" secondAttribute="bottom" constant="93.5" id="gDl-NW-I14"/>
+                            <constraint firstItem="CJq-PJ-g4e" firstAttribute="top" secondItem="Y0T-x6-Qt2" secondAttribute="top" constant="60" id="mdg-VB-BVU"/>
+                            <constraint firstItem="T8B-Kz-8ai" firstAttribute="centerX" secondItem="L6b-Xg-c2F" secondAttribute="centerX" id="pw4-Mb-q3T"/>
+                            <constraint firstItem="CJq-PJ-g4e" firstAttribute="leading" secondItem="Y0T-x6-Qt2" secondAttribute="leading" constant="30" id="tlS-6S-wvF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Y0T-x6-Qt2"/>
+                    </view>
+                    <connections>
+                        <outlet property="orderConfirmationNumberLabel" destination="XkO-ne-1L1" id="pT8-N9-4La"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sfr-wt-A2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NXG-y7-6aV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1742" y="4244"/>
         </scene>
         <!--Exiration-->
         <scene sceneID="95O-13-77q">

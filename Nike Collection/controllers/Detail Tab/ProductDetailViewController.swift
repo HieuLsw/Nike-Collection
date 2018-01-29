@@ -39,6 +39,13 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
         gradientNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //update cart
+        updateCart()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -64,6 +71,10 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
 
 // custom functions
 extension ProductDetailViewController{
+    
+    private func updateCart(){
+        cartLabel.text = "\(self.shoppingCart.totalItem())"
+    }
     
     private func gradientNavigationBar(){
         navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.4039215686, green: 0.6980392157, blue: 0.4352941176, alpha: 1),#colorLiteral(red: 0.2980392157, green: 0.6352941176, blue: 0.8039215686, alpha: 1)])
