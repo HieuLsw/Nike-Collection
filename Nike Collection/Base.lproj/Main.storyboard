@@ -1329,14 +1329,14 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIi-BY-GGS">
                                             <rect key="frame" x="70" y="9" width="400" height="40"/>
-                                            <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Wfj-zx-fk3"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="XuG-Ig-hXm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="20"/>
                                             <state key="normal" title="Place your order">
-                                                <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
                                     </subviews>
@@ -1464,6 +1464,15 @@
                                         <constraint firstItem="b57-Ot-RDl" firstAttribute="leading" secondItem="e2d-Lg-XPe" secondAttribute="leading" id="yTu-MR-rfb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addAddress1Label" destination="ndA-OS-py8" id="wM5-ey-Owv"/>
+                                    <outlet property="address2Label" destination="5Q5-gg-rEl" id="ZnO-Q7-DuY"/>
+                                    <outlet property="cityLabel" destination="Zyg-RM-A5R" id="fJd-vh-VTM"/>
+                                    <outlet property="customNameLabel" destination="hWi-PG-36b" id="ofw-f8-IBP"/>
+                                    <outlet property="phoneLabel" destination="TYB-a8-AUs" id="wKl-Qw-gCU"/>
+                                    <outlet property="stateLabel" destination="AEd-bI-9oK" id="GM5-xD-DLT"/>
+                                    <outlet property="zipLabel" destination="zsr-st-Fww" id="Yt2-BQ-5RM"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellPayment" rowHeight="70" id="EdL-tr-wkJ" customClass="PaymentTableViewCell" customModule="Nike_Collection" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="363" width="540" height="70"/>
@@ -1522,6 +1531,12 @@
                                         <constraint firstItem="3Ej-Tm-GtC" firstAttribute="leading" secondItem="CsY-vb-PZz" secondAttribute="leadingMargin" constant="12" id="vMK-Yc-BtY"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cardImageView" destination="KmB-Dc-gTq" id="Ehd-mi-tzZ"/>
+                                    <outlet property="cardNumberLaber" destination="G0R-LH-CqE" id="lux-3n-QNQ"/>
+                                    <outlet property="expirationLabel" destination="G3W-f0-Ckx" id="WyI-3J-Mhn"/>
+                                    <outlet property="nameOnCardLabel" destination="13w-cX-taV" id="KiO-ef-Nzr"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="xxxc" rowHeight="60" id="UaL-aB-CGA">
                                 <rect key="frame" x="0.0" y="433" width="540" height="60"/>
