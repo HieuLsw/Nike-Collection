@@ -62,7 +62,7 @@ extension PaymentViewController{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0,1,2:
+        case 0,2,3:
             return 1
         case 1:
             let rowCount = creditCards.count > 0 ? creditCards.count : 1

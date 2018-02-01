@@ -113,6 +113,7 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gku-Pz-PlD" customClass="Bubble" customModule="Nike_Collection" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="22.5" width="125" height="125"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="fEQ-o4-e7J"/>
                                                             <constraint firstAttribute="width" constant="125" id="lyo-yk-BzW"/>
@@ -120,6 +121,7 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8qN-qb-Mo8" customClass="Bubble" customModule="Nike_Collection" customModuleProvider="target">
                                                         <rect key="frame" x="211" y="22.5" width="125" height="125"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="125" id="EOm-2e-aaV"/>
                                                             <constraint firstAttribute="width" constant="125" id="sSB-2r-obm"/>
@@ -127,6 +129,7 @@
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="65B-is-eHx" customClass="Bubble" customModule="Nike_Collection" customModuleProvider="target">
                                                         <rect key="frame" x="108.5" y="22.5" width="125" height="125"/>
+                                                        <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="125" id="pMv-bX-1NV"/>
                                                             <constraint firstAttribute="height" constant="125" id="ysy-dT-Fco"/>

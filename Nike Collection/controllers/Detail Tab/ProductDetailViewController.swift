@@ -8,14 +8,13 @@
 
 import UIKit
 
-class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource{
+class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,ShoppingCartDelegate{
     @IBOutlet weak var detailSummaryView: DetailSummaryView!
     @IBOutlet weak var productDescriptionImageView: UIImageView!
     @IBOutlet weak var productDescriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
         {didSet{self.tableView.delegate = self
             self.tableView.dataSource = self}}
-    
     @IBOutlet weak var shoppingCartButton: UIBarButtonItem!
     
     let cartButton = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 35, height: 30))
@@ -44,6 +43,16 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
         
         //update cart
         updateCart()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier,identifier == "segueToViewCart" {
+           
+            let navController = segue.destination as! UINavigationController
+            let cartTVC = navController.topViewController as! CartTableViewController
+            cartTVC.cartDelegate = self
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,14 +86,14 @@ extension ProductDetailViewController{
     }
     
     private func gradientNavigationBar(){
-        navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 0.4039215686, green: 0.6980392157, blue: 0.4352941176, alpha: 1),#colorLiteral(red: 0.2980392157, green: 0.6352941176, blue: 0.8039215686, alpha: 1)])
+        navigationController?.navigationBar.setGradientBackground(colors: [#colorLiteral(red: 1, green: 0.2527923882, blue: 1, alpha: 1),#colorLiteral(red: 0, green: 0.9914394021, blue: 1, alpha: 1)])
     }
     
     private func setCartView(){
         cartButton.setBackgroundImage(#imageLiteral(resourceName: "shopping-cart"), for: .normal)
         cartButton.addTarget(self, action: #selector(viewCart(sender:)), for: .touchUpInside)
         cartLabel.text = "0"
-        cartLabel.textColor = UIColor.black
+        cartLabel.textColor = .black
         cartLabel.textAlignment = .center
         cartLabel.font = UIFont.init(name: "System", size: 14.0)
         cartLabel.numberOfLines = 1
@@ -145,6 +154,12 @@ extension ProductDetailViewController{
     }
 }
 
+//ShoppingCartDelegate
+extension ProductDetailViewController {
+    func updateTotalCartItem() {
+        cartLabel.text = "\(shoppingCart.totalItem())"
+    }
+}
 
 
 

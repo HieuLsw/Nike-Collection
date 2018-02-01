@@ -29,7 +29,7 @@ class DetailSummaryView: UIView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        MagnifyingGlassView.setTargetView(targetView: self.productImageView)
+        MagnifyingGlassView.setTargetView(targetView: self.productImageView.superview!)
         MagnifyingGlassView.setScale(scale: 5)
         MagnifyingGlassView.setContentFrame(frame: CGRect.init(origin: self.productImageView.bounds.origin, size: CGSize.init(width: 200, height: 200)))
         MagnifyingGlassView.setIndicatorColor(color: UIColor.green)

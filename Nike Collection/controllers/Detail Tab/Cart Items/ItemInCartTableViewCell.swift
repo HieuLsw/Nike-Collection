@@ -53,7 +53,7 @@ extension ItemInCartTableViewCell{
         productImageView.image = Utility.image(withName: currentItem.product.mainimage, andType: "jpg")
         productNameLabel.text = currentItem.product.name
         qtyTextField.text = "\(currentItem.qty)"
-        priceLabel.text = currentItem.product.salePrice.currencyFormatter
+priceLabel.text = currentItem.product.salePrice.currencyFormatter
     }
 }
 

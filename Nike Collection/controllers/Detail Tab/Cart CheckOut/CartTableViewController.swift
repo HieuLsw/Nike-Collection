@@ -114,13 +114,13 @@ extension CartTableViewController{
         let removeAction = UIAlertAction(title: "Remove", style: UIAlertActionStyle.destructive) { [weak self] (action: UIAlertAction) in
             self?.shoppingCart.delete(product: product)
             self?.tableView.deleteRows(at: [itemIndexPath], with: UITableViewRowAnimation.fade)
-            self?.tableView.reloadData();self?.updateTotalCartItem()
+self?.tableView.reloadData();self?.updateTotalCartItem()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         alertController.addAction(removeAction)
         alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+present(alertController, animated: true, completion: nil)
     }
     
 }
