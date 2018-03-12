@@ -49,7 +49,6 @@ extension ShippingTableViewCell{
             cityLabel.text = "\(shippingAddress.city!),"
             stateLabel.text = shippingAddress.state
             zipLabel.text = shippingAddress.zip
-            
         }
     }
     
