@@ -11,129 +11,108 @@ import CoreData
 
 class ProductsTableViewController: UITableViewController{
     
-    //home products
-    var products: [Product]?
+    struct sectionStructure {
+        var isExpanded: Bool
+        let products: [Product]
+    }
     
-    //just a num as section tag
-    private let kHeaderSectionTag = 6900
-    
-    //also just a header num
-    private var expandedSectionHeaderNumber = 0
-    
-    //section view
-    private var expandedSectionHeader: UITableViewHeaderFooterView!
-    
-    //as section title
-    private var sectionNames = [String]()
-    
-    //as section cells
-    private var sectionItems = [[Product]]()
+    var sectionItems = [sectionStructure]()
+    var sectionNames = ["Jackets", "Shoes", "Souvenirs", "Shorts"]
     
     //selected cell
     var selectedProduct: Product?
+    
+    var sceneViewIsHidden: Bool?
     
     //share class
     weak var delegate: ProductDetailViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //create foot view
         setFootView()
-        //tableView.reloadData()
+        
+        //create observers
+        createObservers()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        //delete observers
+        deleteObservers()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 }
 
 // custom functions
 extension ProductsTableViewController{
     
-    //can't show foot view
     private func setFootView(){
-        tableView.tableFooterView = UIView()
+        let footView = UIView.init()
+        footView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        tableView.tableFooterView = footView
     }
     
-    //fetch cells data from CoreData
-    private func fetchData(){
-        sectionNames = ["Jackets","Shoes","Souvenirs","Shorts"]
-        sectionItems = sectionNames.map{ (element) -> [Product] in
-            return CoreDataFetch.productsServe(category: element)}
-        
-        // init the selectedProduct
-        selectedProduct = CoreDataFetch.productsServe(category: "Jackets").first
-    }
-    
-    @objc func sectionHeaderWasTouched(_ sender: UITapGestureRecognizer) {
-        let headerView = sender.view as! UITableViewHeaderFooterView
-        let section = headerView.tag
-        let eImageView = headerView.viewWithTag(kHeaderSectionTag + section) as? UIImageView
-        
-        if (self.expandedSectionHeaderNumber == -1) {
-            self.expandedSectionHeaderNumber = section
-            tableViewExpandSection(section, imageView: eImageView!)
-        } else {
-            if (self.expandedSectionHeaderNumber == section) {
-                tableViewCollapeSection(section, imageView: eImageView!)
-            } else {
-                let cImageView = self.view.viewWithTag(kHeaderSectionTag + self.expandedSectionHeaderNumber) as? UIImageView
-                tableViewCollapeSection(self.expandedSectionHeaderNumber, imageView: cImageView!)
-                tableViewExpandSection(section, imageView: eImageView!)
-            }
+    private func fetchData() {
+        sectionItems = sectionNames.map{ (type) -> sectionStructure in
+            let returnItem = sectionStructure.init(isExpanded: false, products: CoreDataFetch.productsServe(category: type))
+            return returnItem
         }
     }
     
-    func tableViewCollapeSection(_ section: Int, imageView: UIImageView) {
+    @objc func handleExpandClose(button: UIButton) {
         
-        let sectionData = self.sectionItems[section] as NSArray
-        self.expandedSectionHeaderNumber = -1
-        if (sectionData.count == 0) {return} else {
-            
+                let section = button.tag
+                var indexPaths = [IndexPath]()
+        for row in sectionItems[section].products.indices {
+            let indexPath = IndexPath.init(row: row, section: section)
+            indexPaths.append(indexPath)
+        }
+        let isExpanded = sectionItems[section].isExpanded
+        sectionItems[section].isExpanded = !isExpanded
+        if isExpanded {
+       UIView.animate(withDuration: 0.4, animations: {
+                button.imageView?.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat.pi) / 180.0)})
+        tableView.deleteRows(at: indexPaths, with: .fade)
+        }
+        else {
             UIView.animate(withDuration: 0.4, animations: {
-                imageView.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat(Double.pi)) / 180.0)})
-            
-            var indexesPath = [IndexPath]()
-            
-            for i in 0 ..< sectionData.count {
-                let index = IndexPath(row: i, section: section)
-                indexesPath.append(index)
-            }
-            
-            self.tableView!.beginUpdates()
-            self.tableView!.deleteRows(at: indexesPath, with: UITableViewRowAnimation.fade)
-            self.tableView!.endUpdates()
+                button.imageView?.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat.pi) / 180.0)})
+        tableView.insertRows(at: indexPaths, with: .fade)
         }
     }
+}
+
+//observers
+extension ProductsTableViewController {
+    fileprivate func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeToHidden(_:)), name: NSNotification.Name.init("knowIsHidden"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeToNotHidden(_:)), name: NSNotification.Name.init("knowIsNotHidden"), object: nil)
+    }
+    fileprivate func deleteObservers() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+//observers selectors
+extension ProductsTableViewController {
+    @objc fileprivate func changeToHidden(_: Notification) {
+        self.sceneViewIsHidden = true
+    }
     
-    func tableViewExpandSection(_ section: Int, imageView: UIImageView) {
-        let sectionData = self.sectionItems[section] as NSArray
-        if (sectionData.count == 0) {
-            self.expandedSectionHeaderNumber = -1;return
-        } else {
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                imageView.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat(Double.pi)) / 180.0)})
-            
-            var indexesPath = [IndexPath]()
-            for i in 0 ..< sectionData.count {
-                let index = IndexPath(row: i, section: section)
-                self.tableView.deselectRow(at: index, animated: true)
-                indexesPath.append(index)}
-            self.expandedSectionHeaderNumber = section
-            self.tableView!.beginUpdates()
-            self.tableView!.insertRows(at: indexesPath, with: UITableViewRowAnimation.fade)
-            self.tableView!.endUpdates()
-        }
-        
+    @objc fileprivate func changeToNotHidden(_: Notification) {
+        self.sceneViewIsHidden = false
     }
 }
 
@@ -145,19 +124,15 @@ extension ProductsTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if (self.expandedSectionHeaderNumber == section) {
-            let arrayOfItems = self.sectionItems[section] as NSArray
-            return arrayOfItems.count
-        } else {return 0}
+        if !sectionItems[section].isExpanded {
+            return 0
+        }
+        return sectionItems[section].products.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellProduct", for: indexPath) as! ProductsTableViewCell
-        let section = self.sectionItems[indexPath.section]
-        let currentProduct = section[indexPath.row]
-        
+        let currentProduct = sectionItems[indexPath.section].products[indexPath.row]
         if selectedProduct?.id == currentProduct.id{
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             delegate?.product = selectedProduct }else{
@@ -167,17 +142,8 @@ extension ProductsTableViewController{
         cell.productImageView.layer.borderWidth = 2
         cell.productImageView.layer.cornerRadius = 10
         cell.productImageView.layer.borderColor = UIColor.red.cgColor
-        cell.configureCell(with: section[indexPath.row])
-        
+        cell.configureCell(with: currentProduct)
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        if (self.sectionNames.count != 0) {
-            return self.sectionNames[section]
-        }
-        return ""
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -185,42 +151,42 @@ extension ProductsTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat{
-        return 0
+        return 4
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let button = ButtonWithImage()
+        button.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        button.titleLabel?.font = UIFont.init(name: "ZiGzAgEo", size: 28)
+        button.setImage(#imageLiteral(resourceName: "DownArrow"), for: .normal)
+        button.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+        button.setTitle(sectionNames[section], for: .normal)
+        button.addTarget(self, action: #selector(handleExpandClose(button:)), for: .touchUpInside)
+        button.tag = section
+        return button
     }
 }
 
 //UITableViewDelegate
 extension ProductsTableViewController{
     
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        
-        //recast view as a UITableViewHeaderFooterView
-        let header = view as! UITableViewHeaderFooterView
-        header.contentView.backgroundColor = UIColor(hex: "408000")
-        header.textLabel?.textColor = UIColor.white
-        
-        let font = UIFont(name: "ZiGzAgEo", size: 20)!
-        let fontMetrics = UIFontMetrics(forTextStyle: .body)
-        header.textLabel?.font = fontMetrics.scaledFont(for: font)
-        
-        if let viewWithTag = self.view.viewWithTag(kHeaderSectionTag + section) {viewWithTag.removeFromSuperview()}
-        let headerFrame = self.view.frame.size
-        let theImageView = UIImageView(frame: CGRect(x: headerFrame.width - 32, y: 13, width: 18, height: 18))
-        
-        theImageView.image = #imageLiteral(resourceName: "DownArrow")
-        theImageView.tag = kHeaderSectionTag + section
-        header.addSubview(theImageView)
-        
-        // make headers touchable
-        header.tag = section
-        let headerTapGesture = UITapGestureRecognizer()
-        headerTapGesture.addTarget(self, action: #selector(ProductsTableViewController.sectionHeaderWasTouched(_:)))
-        header.addGestureRecognizer(headerTapGesture)
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let previewCells = tableView.cellForRow(at: indexPath)
+        if (previewCells?.isSelected)! {
+             tableView.deselectRow(at: indexPath, animated: true)
+           NotificationCenter.default.post(name: NSNotification.Name.init("showBasketballSceneView"), object: nil)
+        }else {
+            NotificationCenter.default.post(name: NSNotification.Name.init("hideBasketballSceneView"), object: nil)
+        }
+        return indexPath
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedProduct = sectionItems[indexPath.section][indexPath.row]
+        selectedProduct = sectionItems[indexPath.section].products[indexPath.row]
         delegate?.product = selectedProduct
+        
+        if !sceneViewIsHidden! {
+             tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
-    
 }

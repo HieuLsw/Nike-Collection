@@ -13,9 +13,11 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
     @IBOutlet weak var productDescriptionImageView: UIImageView!
     @IBOutlet weak var productDescriptionLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-        {didSet{self.tableView.delegate = self
+    {didSet{self.tableView.delegate = self
             self.tableView.dataSource = self}}
     @IBOutlet weak var shoppingCartButton: UIBarButtonItem!
+    @IBOutlet var basketballSceneView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let cartButton = UIButton.init(frame: CGRect.init(x: 10, y: 10, width: 35, height: 30))
     let cartLabel = UILabel.init(frame: CGRect.init(x: 22, y: 2, width: 16, height: 16))
@@ -36,22 +38,34 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
         
         //set gradient navigation bar
         gradientNavigationBar()
+        
+        //init basketball scene view
+        initBasketballSceneView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        //create observers
+        createObservers()
+        
         //update cart
         updateCart()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        //delete observers
+         removeObservers()
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier,identifier == "segueToViewCart" {
-           
             let navController = segue.destination as! UINavigationController
             let cartTVC = navController.topViewController as! CartTableViewController
             cartTVC.cartDelegate = self
-            
         }
     }
     
@@ -80,6 +94,15 @@ class ProductDetailViewController: UIViewController,UITableViewDelegate,UITableV
 
 // custom functions
 extension ProductDetailViewController{
+    
+    private func initBasketballSceneView() {
+        scrollView.addSubview(basketballSceneView)
+        basketballSceneView.translatesAutoresizingMaskIntoConstraints = false
+        basketballSceneView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        basketballSceneView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        basketballSceneView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        basketballSceneView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+    }
     
     private func updateCart(){
         cartLabel.text = "\(self.shoppingCart.totalItem())"
@@ -118,12 +141,38 @@ extension ProductDetailViewController{
 }
 
 //custom functions selectors
-extension ProductDetailViewController{
+extension ProductDetailViewController {
     @objc fileprivate func viewCart(sender:UIButton){
         performSegue(withIdentifier: "segueToViewCart", sender: self)
     }
 }
 
+//observers
+extension ProductDetailViewController {
+    fileprivate func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(hideBasketballSceneView(_:)), name: NSNotification.Name.init("hideBasketballSceneView"), object: nil)
+         NotificationCenter.default.addObserver(self, selector: #selector(showBasketballSceneView(_:)), name: NSNotification.Name.init("showBasketballSceneView"), object: nil)
+    }
+    
+    fileprivate func removeObservers() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+//observers selectors
+extension ProductDetailViewController {
+ 
+  @objc fileprivate func hideBasketballSceneView(_: Notification) {
+        basketballSceneView.isHidden = true
+        NotificationCenter.default.post(name: NSNotification.Name.init("knowIsHidden"), object: nil)
+    }
+    
+   @objc fileprivate func showBasketballSceneView(_: Notification) {
+        basketballSceneView.isHidden = false
+      NotificationCenter.default.post(name: NSNotification.Name.init("knowIsNotHidden"), object: nil)
+    }
+}
+    
 //UITableViewDataSource
 extension ProductDetailViewController{
     

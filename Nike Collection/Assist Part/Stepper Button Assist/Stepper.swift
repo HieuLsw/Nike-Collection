@@ -90,7 +90,7 @@ class Stepper: UIControl {
     }
     
     // Font of the buttons. Defaults to AvenirNext-Bold, 20.0 points in size.
-    @objc var buttonsFont = UIFont(name: "AvenirNext-Bold", size: 20.0)! {
+    @objc var buttonsFont = UIFont(name: "AvenirNext-Bold", size: 30.0)! {
         didSet {
             for button in [leftButton, rightButton] {
                 button.titleLabel?.font = buttonsFont

@@ -259,7 +259,7 @@ extension HomeViewController{
             print("Nothing is picked")
         }
         
-        self.productNB?.products = productsInSelectedCategory
+        //self.productNB?.sectionItems = productsInSelectedCategory!
         self.productNB?.selectedProduct = selectedProduct
         
         self.parent?.tabBarController?.selectedIndex = 1

@@ -56,7 +56,6 @@ class MagnifyingGlassView: UIView {
         }
         return nil
     }
-    
 }//MagnifyingGlassView class over line
 
 //custom functions
@@ -216,8 +215,8 @@ extension MagnifyingGlassView{
     }
     
     class func show(animated: Bool) {
-        MagnifyingGlassView.sharedInstance.layoutSubviews(animated: false)
-        MagnifyingGlassView.sharedInstance.targetView.addSubview(MagnifyingGlassView.sharedInstance)
+MagnifyingGlassView.sharedInstance.layoutSubviews(animated: false)
+MagnifyingGlassView.sharedInstance.targetView.addSubview(MagnifyingGlassView.sharedInstance)
         if(animated) {
             MagnifyingGlassView.sharedInstance.alpha = 0
             UIView.animate(withDuration: 0.25,delay: 0,options: UIViewAnimationOptions.curveEaseInOut,animations: { () -> Void in

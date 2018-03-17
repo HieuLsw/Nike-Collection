@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A51383D3205A829200773738 /* Jordan XX8 Ray Alien 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A51383CF205A829100773738 /* Jordan XX8 Ray Alien 2.jpg */; };
+		A51383D4205A829200773738 /* Jordan XX8 Ray Alien 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A51383D0205A829200773738 /* Jordan XX8 Ray Alien 3.jpg */; };
+		A51383D5205A829200773738 /* Jordan XX8 Ray Alien 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A51383D1205A829200773738 /* Jordan XX8 Ray Alien 1.jpg */; };
+		A51383D6205A829200773738 /* Jordan XX8 Ray Alien 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A51383D2205A829200773738 /* Jordan XX8 Ray Alien 4.jpg */; };
 		A530361E1FB444A300820D2F /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A530361D1FB444A300820D2F /* Double+Extension.swift */; };
 		A53036201FB46EF600820D2F /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A530361F1FB46EF600820D2F /* ProductsTableViewController.swift */; };
 		A53036581FB772F900820D2F /* ProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53036571FB772F900820D2F /* ProductsTableViewCell.swift */; };
@@ -25,6 +29,7 @@
 		A5493421201F045C00E64DB1 /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5493420201F045C00E64DB1 /* PaymentTableViewCell.swift */; };
 		A5493423201F048400E64DB1 /* ShippingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5493422201F048400E64DB1 /* ShippingTableViewCell.swift */; };
 		A5493425201F2E7900E64DB1 /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5493424201F2E7900E64DB1 /* OrderConfirmationViewController.swift */; };
+		A5794A1E205BF321003A0424 /* ButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5794A1D205BF321003A0424 /* ButtonWithImage.swift */; };
 		A57B28451FAC7C2C00F2F88A /* Fuck.gif in Resources */ = {isa = PBXBuildFile; fileRef = A58EAC251FA6EEA6005DE595 /* Fuck.gif */; };
 		A57B28461FAC7C2C00F2F88A /* Lebron.gif in Resources */ = {isa = PBXBuildFile; fileRef = A5844C9D1FA80C31005E7DFE /* Lebron.gif */; };
 		A57B28471FAC7C2C00F2F88A /* Jordan.gif in Resources */ = {isa = PBXBuildFile; fileRef = A58EAC231FA6EA4B005DE595 /* Jordan.gif */; };
@@ -89,10 +94,6 @@
 		A57B29B61FAC924400F2F88A /* Jordan XXXI RW 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B295A1FAC924300F2F88A /* Jordan XXXI RW 1.jpg */; };
 		A57B29B71FAC924400F2F88A /* Jordan XXXI RW 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B295B1FAC924300F2F88A /* Jordan XXXI RW 4.jpg */; };
 		A57B29B81FAC924400F2F88A /* Jordan XXXI RW 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B295C1FAC924300F2F88A /* Jordan XXXI RW 5.jpg */; };
-		A57B29B91FAC924400F2F88A /* Jordan XX8 Bamboo 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B295E1FAC924300F2F88A /* Jordan XX8 Bamboo 1.jpg */; };
-		A57B29BA1FAC924400F2F88A /* Jordan XX8 Bamboo 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B295F1FAC924300F2F88A /* Jordan XX8 Bamboo 2.jpg */; };
-		A57B29BB1FAC924400F2F88A /* Jordan XX8 Bamboo 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B29601FAC924300F2F88A /* Jordan XX8 Bamboo 3.jpg */; };
-		A57B29BC1FAC924400F2F88A /* Jordan XX8 Bamboo 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B29611FAC924300F2F88A /* Jordan XX8 Bamboo 4.jpg */; };
 		A57B29BD1FAC924400F2F88A /* Jordan XXIII Trophy Room White 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B29631FAC924300F2F88A /* Jordan XXIII Trophy Room White 3.jpg */; };
 		A57B29BE1FAC924400F2F88A /* Jordan XXIII Trophy Room White 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B29641FAC924300F2F88A /* Jordan XXIII Trophy Room White 2.jpg */; };
 		A57B29BF1FAC924400F2F88A /* Jordan XXIII Trophy Room White 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A57B29651FAC924300F2F88A /* Jordan XXIII Trophy Room White 1.jpg */; };
@@ -175,6 +176,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A51383CF205A829100773738 /* Jordan XX8 Ray Alien 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Ray Alien 2.jpg"; sourceTree = "<group>"; };
+		A51383D0205A829200773738 /* Jordan XX8 Ray Alien 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Ray Alien 3.jpg"; sourceTree = "<group>"; };
+		A51383D1205A829200773738 /* Jordan XX8 Ray Alien 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Ray Alien 1.jpg"; sourceTree = "<group>"; };
+		A51383D2205A829200773738 /* Jordan XX8 Ray Alien 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Ray Alien 4.jpg"; sourceTree = "<group>"; };
 		A530361D1FB444A300820D2F /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		A530361F1FB46EF600820D2F /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 		A53036571FB772F900820D2F /* ProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewCell.swift; sourceTree = "<group>"; };
@@ -193,6 +198,7 @@
 		A5493420201F045C00E64DB1 /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		A5493422201F048400E64DB1 /* ShippingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingTableViewCell.swift; sourceTree = "<group>"; };
 		A5493424201F2E7900E64DB1 /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
+		A5794A1D205BF321003A0424 /* ButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImage.swift; sourceTree = "<group>"; };
 		A57B28481FAC7CE500F2F88A /* UIImageView+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A57B28491FAC7CE600F2F88A /* UIImage+SwiftyGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SwiftyGif.swift"; sourceTree = "<group>"; };
 		A57B284A1FAC7CE600F2F88A /* SwiftyGifManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyGifManager.swift; sourceTree = "<group>"; };
@@ -254,10 +260,6 @@
 		A57B295A1FAC924300F2F88A /* Jordan XXXI RW 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XXXI RW 1.jpg"; sourceTree = "<group>"; };
 		A57B295B1FAC924300F2F88A /* Jordan XXXI RW 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XXXI RW 4.jpg"; sourceTree = "<group>"; };
 		A57B295C1FAC924300F2F88A /* Jordan XXXI RW 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XXXI RW 5.jpg"; sourceTree = "<group>"; };
-		A57B295E1FAC924300F2F88A /* Jordan XX8 Bamboo 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Bamboo 1.jpg"; sourceTree = "<group>"; };
-		A57B295F1FAC924300F2F88A /* Jordan XX8 Bamboo 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Bamboo 2.jpg"; sourceTree = "<group>"; };
-		A57B29601FAC924300F2F88A /* Jordan XX8 Bamboo 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Bamboo 3.jpg"; sourceTree = "<group>"; };
-		A57B29611FAC924300F2F88A /* Jordan XX8 Bamboo 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XX8 Bamboo 4.jpg"; sourceTree = "<group>"; };
 		A57B29631FAC924300F2F88A /* Jordan XXIII Trophy Room White 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XXIII Trophy Room White 3.jpg"; sourceTree = "<group>"; };
 		A57B29641FAC924300F2F88A /* Jordan XXIII Trophy Room White 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XXIII Trophy Room White 2.jpg"; sourceTree = "<group>"; };
 		A57B29651FAC924300F2F88A /* Jordan XXIII Trophy Room White 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Jordan XXIII Trophy Room White 1.jpg"; sourceTree = "<group>"; };
@@ -411,6 +413,14 @@
 			path = OrderSummary;
 			sourceTree = "<group>";
 		};
+		A5794A1C205BF30F003A0424 /* UIButton Assist */ = {
+			isa = PBXGroup;
+			children = (
+				A5794A1D205BF321003A0424 /* ButtonWithImage.swift */,
+			);
+			path = "UIButton Assist";
+			sourceTree = "<group>";
+		};
 		A57B28501FAC8ACA00F2F88A /* Json */ = {
 			isa = PBXGroup;
 			children = (
@@ -555,7 +565,7 @@
 				A57B294C1FAC924300F2F88A /* Lebron X CHROME PE  */,
 				A57B29511FAC924300F2F88A /* Jordan XXIII Trophy Room Black  */,
 				A57B29571FAC924300F2F88A /* Jordan XXXI RW  */,
-				A57B295D1FAC924300F2F88A /* Jordan XX8 Bamboo  */,
+				A57B295D1FAC924300F2F88A /* Jordan XX8 PE Ray Alien Final Aways  */,
 				A57B29621FAC924300F2F88A /* Jordan XXIII Trophy Room White  */,
 				A57B29681FAC924300F2F88A /* LeBron 20-5-5 Horsemen */,
 			);
@@ -609,15 +619,15 @@
 			path = "Jordan XXXI RW ";
 			sourceTree = "<group>";
 		};
-		A57B295D1FAC924300F2F88A /* Jordan XX8 Bamboo  */ = {
+		A57B295D1FAC924300F2F88A /* Jordan XX8 PE Ray Alien Final Aways  */ = {
 			isa = PBXGroup;
 			children = (
-				A57B295E1FAC924300F2F88A /* Jordan XX8 Bamboo 1.jpg */,
-				A57B295F1FAC924300F2F88A /* Jordan XX8 Bamboo 2.jpg */,
-				A57B29601FAC924300F2F88A /* Jordan XX8 Bamboo 3.jpg */,
-				A57B29611FAC924300F2F88A /* Jordan XX8 Bamboo 4.jpg */,
+				A51383D1205A829200773738 /* Jordan XX8 Ray Alien 1.jpg */,
+				A51383CF205A829100773738 /* Jordan XX8 Ray Alien 2.jpg */,
+				A51383D0205A829200773738 /* Jordan XX8 Ray Alien 3.jpg */,
+				A51383D2205A829200773738 /* Jordan XX8 Ray Alien 4.jpg */,
 			);
-			path = "Jordan XX8 Bamboo ";
+			path = "Jordan XX8 PE Ray Alien Final Aways ";
 			sourceTree = "<group>";
 		};
 		A57B29621FAC924300F2F88A /* Jordan XXIII Trophy Room White  */ = {
@@ -702,6 +712,7 @@
 		A58EAC271FA6F7C6005DE595 /* Assist Part */ = {
 			isa = PBXGroup;
 			children = (
+				A5794A1C205BF30F003A0424 /* UIButton Assist */,
 				A5FC09822015D52A00238DF8 /* Magnify Glass */,
 				A5FC096020110B5E00238DF8 /* UIImage_Extension */,
 				A5E5468C1FBF02B40047AE62 /* Rating Assist */,
@@ -1068,6 +1079,7 @@
 				A57B29911FAC924400F2F88A /* Jordan Cologne 2.jpg in Resources */,
 				A57B299E1FAC924400F2F88A /* Jordan New Orleans 3.jpg in Resources */,
 				A57B29AC1FAC924400F2F88A /* Lebron X CHROME PE 3.jpg in Resources */,
+				A51383D3205A829200773738 /* Jordan XX8 Ray Alien 2.jpg in Resources */,
 				A57B299D1FAC924400F2F88A /* Jordan New Orleans 2.jpg in Resources */,
 				A57B28451FAC7C2C00F2F88A /* Fuck.gif in Resources */,
 				A57B29A51FAC924400F2F88A /* Jordan 96-97 Short 5.jpg in Resources */,
@@ -1078,6 +1090,7 @@
 				A57B298F1FAC924400F2F88A /* Jordan Cologne 1.jpg in Resources */,
 				A57B29AF1FAC924400F2F88A /* Jordan XXIII Trophy Room Black 4.jpg in Resources */,
 				A57B29D01FAC924400F2F88A /* Jordan Achievement 4.jpg in Resources */,
+				A51383D5205A829200773738 /* Jordan XX8 Ray Alien 1.jpg in Resources */,
 				A57B29D21FAC924400F2F88A /* Jordan II Jacket 1.jpg in Resources */,
 				A57B29861FAC924400F2F88A /* Jordan Wings UD 2.jpg in Resources */,
 				A57B29C51FAC924400F2F88A /* Jordan Westbrook 1.jpg in Resources */,
@@ -1092,6 +1105,7 @@
 				A57B28521FAC8AE500F2F88A /* Products.json in Resources */,
 				A57B29A81FAC924400F2F88A /* Jordan XX9 MTM 3.jpg in Resources */,
 				A57B298D1FAC924400F2F88A /* Jordan Cologne 5.jpg in Resources */,
+				A51383D4205A829200773738 /* Jordan XX8 Ray Alien 3.jpg in Resources */,
 				A57B29921FAC924400F2F88A /* Jordan XXiii Basketball 2.jpg in Resources */,
 				A57B29A71FAC924400F2F88A /* Jordan XX9 MTM 2.jpg in Resources */,
 				A57B29C81FAC924400F2F88A /* Jordan Lamb 1.jpg in Resources */,
@@ -1126,21 +1140,19 @@
 				A57B29BE1FAC924400F2F88A /* Jordan XXIII Trophy Room White 2.jpg in Resources */,
 				A57B298E1FAC924400F2F88A /* Jordan Cologne 4.jpg in Resources */,
 				A5D6325D1F84B66100B80078 /* Assets.xcassets in Resources */,
-				A57B29BA1FAC924400F2F88A /* Jordan XX8 Bamboo 2.jpg in Resources */,
 				A57B29C91FAC924400F2F88A /* Jordan Lamb 2.jpg in Resources */,
 				A5D6325B1F84B66100B80078 /* Main.storyboard in Resources */,
 				A5FC096D20124F4C00238DF8 /* shopping-cart.pdf in Resources */,
+				A51383D6205A829200773738 /* Jordan XX8 Ray Alien 4.jpg in Resources */,
 				A57B29CC1FAC924400F2F88A /* Jordan Lamb 5.jpg in Resources */,
 				A57B299C1FAC924400F2F88A /* Jordan New Orleans 1.jpg in Resources */,
 				A57B29A01FAC924400F2F88A /* Jordan New Orleans 5.jpg in Resources */,
-				A57B29BB1FAC924400F2F88A /* Jordan XX8 Bamboo 3.jpg in Resources */,
 				A57B299B1FAC924400F2F88A /* Jordan 97-98 Short 3.jpg in Resources */,
 				A57B298A1FAC924400F2F88A /* For The Love Of The Game 3.jpg in Resources */,
 				A57B29841FAC924400F2F88A /* Jordan Wings UD 5.jpg in Resources */,
 				A57B29A21FAC924400F2F88A /* Jordan 96-97 Short 2.jpg in Resources */,
 				A57B29CB1FAC924400F2F88A /* Jordan Lamb 4.jpg in Resources */,
 				A57B29D61FAC924400F2F88A /* Jordan II Jacket 4.jpg in Resources */,
-				A57B29BC1FAC924400F2F88A /* Jordan XX8 Bamboo 4.jpg in Resources */,
 				A57B29C01FAC924400F2F88A /* Jordan XXIII Trophy Room White 5.jpg in Resources */,
 				A57B298C1FAC924400F2F88A /* For The Love Of The Game 1.jpg in Resources */,
 				A57B29961FAC924400F2F88A /* Jordan XXiii Basketball 5.jpg in Resources */,
@@ -1148,7 +1160,6 @@
 				A57B29CD1FAC924400F2F88A /* Jordan Achievement 1.jpg in Resources */,
 				A57B29A41FAC924400F2F88A /* Jordan 96-97 Short 4.jpg in Resources */,
 				A57B29891FAC924400F2F88A /* For The Love Of The Game 4.jpg in Resources */,
-				A57B29B91FAC924400F2F88A /* Jordan XX8 Bamboo 1.jpg in Resources */,
 				A57B29C41FAC924400F2F88A /* Jordan Westbrook 2.jpg in Resources */,
 				A57B29B11FAC924400F2F88A /* Jordan XXIII Trophy Room Black 1.jpg in Resources */,
 				A57B298B1FAC924400F2F88A /* For The Love Of The Game 2.jpg in Resources */,
@@ -1275,6 +1286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5794A1E205BF321003A0424 /* ButtonWithImage.swift in Sources */,
 				A5D632881F84F51200B80078 /* PromoContentViewController.swift in Sources */,
 				A5493423201F048400E64DB1 /* ShippingTableViewCell.swift in Sources */,
 				A53036581FB772F900820D2F /* ProductsTableViewCell.swift in Sources */,

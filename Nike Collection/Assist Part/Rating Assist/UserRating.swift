@@ -22,19 +22,14 @@ class UserRating:UIView{
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
         for _ in 0..<5 {
             let tempButton = UIButton()
-            
             tempButton.setImage(#imageLiteral(resourceName: "blackstar"), for: .normal)
             tempButton.setImage(#imageLiteral(resourceName: "yellowstar"), for: .selected)
-            
             tempButton.adjustsImageWhenHighlighted = false
-            
             ratingButtons.append(contentsOf: [tempButton])
             addSubview(tempButton)
         }
-        
     }
     
     override func layoutSubviews() {
@@ -43,19 +38,14 @@ class UserRating:UIView{
         let buttonSize = Int(frame.size.height)
         var buttonFrame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
         var x = 0
-        
         for button in ratingButtons {
-            
             // O O O O O
             buttonFrame.origin.x = CGFloat(x * (buttonSize + 5))
             button.frame = buttonFrame
             x += 1
         }
-        
         updateButtonSelectionStates()
     }
-    
-    
 }//UserRating class over line
 
 //custom functions
