@@ -22,18 +22,15 @@ class DetailSummaryView: UIView{
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var userRating: UserRating!
+    @IBOutlet weak var assistView: UIView!
+    @IBOutlet weak var croppingImageView: InitalHiddenImageView!
+    @IBOutlet weak var resultImageView: InitalHiddenImageView!
     
     //assist view
     var buttonContainerView: UIView?
-    var magnifyingGlassView: MagnifyingGlassView?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        MagnifyingGlassView.setTargetView(targetView: self.productImageView.superview!)
-        MagnifyingGlassView.setScale(scale: 5)
-        MagnifyingGlassView.setContentFrame(frame: CGRect.init(origin: self.productImageView.bounds.origin, size: CGSize.init(width: 200, height: 200)))
-        MagnifyingGlassView.setIndicatorColor(color: UIColor.green)
-        MagnifyingGlassView.setShadowColor(color: UIColor.black)
+    override func layoutSubviews() {
+        layoutCroppingImageView()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,10 +41,57 @@ class DetailSummaryView: UIView{
         showAction(sender: sender)
     }
     
+    @IBAction func setPanAttributes(_ sender: UIPanGestureRecognizer) {
+        let transition = sender.translation(in: self.assistView)
+        let changeX = (sender.view?.center.x)! + transition.x
+        let changeY = (sender.view?.center.y)! + transition.y
+        var limitCenter = CGPoint.init(x: changeX, y: changeY)
+        limitCenter.y = max((sender.view?.frame.size.height)! / 2, limitCenter.y)
+        limitCenter.y = min(self.assistView.frame.size.height - (sender.view?.frame.size.height)! / 2, limitCenter.y)
+        limitCenter.x = max((sender.view?.frame.size.width)! / 2, limitCenter.x)
+        limitCenter.x = min(self.assistView.frame.size.width - (sender.view?.frame.size.width)! / 2, limitCenter.x)
+        sender.view?.center = limitCenter
+        sender.setTranslation(CGPoint.zero, in: self.assistView)
+        let iamges = snapshotTargetView(view: self.productImageView, inRect: sender.view?.frame)
+        resultImageView.image = resizeImage(image: iamges!, toNewSize: resultImageView.frame.size)
+    }
+    
 }//DetailSummaryView class over line
 
 //custom functions
 extension DetailSummaryView{
+    
+    private func layoutCroppingImageView() {
+        croppingImageView.layer.cornerRadius = 0
+        croppingImageView.layer.borderWidth = 3
+        croppingImageView.layer.borderColor = UIColor.black.cgColor
+        let iamges = snapshotTargetView(view: self.productImageView, inRect: croppingImageView.frame)
+        resultImageView.image = resizeImage(image: iamges!, toNewSize: resultImageView.frame.size)
+    }
+    
+    private func snapshotTargetView(view: UIView!, inRect rect: CGRect!) -> UIImage! {
+        let scale = UIScreen.main.scale
+        
+        //Snapshot of view
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, scale)
+        UIGraphicsGetCurrentContext()?.translateBy(x: -rect.origin.x, y: -rect.origin.y)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        //Need this to stop screen flashing, but it's slower
+        let snapshotImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return snapshotImage
+    }
+    
+    private func resizeImage(image: UIImage, toNewSize newSize:CGSize) -> UIImage {
+        let scale = UIScreen.main.scale
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, scale)
+        image.draw(in: CGRect(x:0, y:0, width:newSize.width, height:newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
     
     func updateView(with product: Product){
         
@@ -99,7 +143,6 @@ extension DetailSummaryView{
             let imageCount = allImages.count
             var arrButtons = [UIButton]()
             buttonContainerView = UIView()
-            
             for x in 0..<imageCount {
                 let image = Utility.image(withName: allImages[x].name, andType: "jpg")
                 let buttonImage = image;let button = UIButton()
@@ -144,15 +187,17 @@ extension DetailSummaryView{
     }
     
     @objc func showAction(sender: UIButton) {
-        MagnifyingGlassView.show(animated: true)
         sender.setTitle("👁", for: .normal)
+        croppingImageView.isHidden = false
+        resultImageView.isHidden = false
         sender.removeTarget(self, action: #selector(showAction(sender:)), for: .touchUpInside)
         sender.addTarget(self, action: #selector(hideAction(sender:)), for: .touchUpInside)
     }
     
     @objc func hideAction(sender: UIButton) {
-        MagnifyingGlassView.dismiss(animated: true)
         sender.setTitle("🔍", for: .normal)
+        croppingImageView.isHidden = true
+        resultImageView.isHidden = true
         sender.removeTarget(self, action: #selector(hideAction(sender:)), for: .touchUpInside)
         sender.addTarget(self, action: #selector(showAction(sender:)), for: .touchUpInside)
     }

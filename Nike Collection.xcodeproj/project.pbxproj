@@ -124,6 +124,7 @@
 		A57B29DA1FAC997A00F2F88A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57B29D91FAC997A00F2F88A /* Utility.swift */; };
 		A57B29DC1FAC99B500F2F88A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57B29DB1FAC99B500F2F88A /* String+Extension.swift */; };
 		A58EAC201FA6DA9D005DE595 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EAC1F1FA6DA9D005DE595 /* UIColor+Extension.swift */; };
+		A5AF4031205E280E00015E89 /* InitalHiddenImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF4030205E280E00015E89 /* InitalHiddenImageView.swift */; };
 		A5B326F21FB1CA74000852F7 /* UINavigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B326F11FB1CA74000852F7 /* UINavigation+Extension.swift */; };
 		A5D632561F84B66100B80078 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D632551F84B66100B80078 /* AppDelegate.swift */; };
 		A5D6325B1F84B66100B80078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5D632591F84B66100B80078 /* Main.storyboard */; };
@@ -293,6 +294,7 @@
 		A58EAC1F1FA6DA9D005DE595 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		A58EAC231FA6EA4B005DE595 /* Jordan.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Jordan.gif; sourceTree = "<group>"; };
 		A58EAC251FA6EEA6005DE595 /* Fuck.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Fuck.gif; sourceTree = "<group>"; };
+		A5AF4030205E280E00015E89 /* InitalHiddenImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalHiddenImageView.swift; sourceTree = "<group>"; };
 		A5B326F11FB1CA74000852F7 /* UINavigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigation+Extension.swift"; sourceTree = "<group>"; };
 		A5D632521F84B66100B80078 /* Nike Collection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nike Collection.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5D632551F84B66100B80078 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -878,6 +880,7 @@
 			isa = PBXGroup;
 			children = (
 				A5FC096120110BA000238DF8 /* UIImage_Extension.swift */,
+				A5AF4030205E280E00015E89 /* InitalHiddenImageView.swift */,
 			);
 			path = UIImage_Extension;
 			sourceTree = "<group>";
@@ -1295,6 +1298,7 @@
 				A5D799D11FB0D50100AE05B2 /* ProductCollectionViewCell.swift in Sources */,
 				A57B284F1FAC827800F2F88A /* UIView+Extension.swift in Sources */,
 				A530366F1FBB0A0900820D2F /* UserRating.swift in Sources */,
+				A5AF4031205E280E00015E89 /* InitalHiddenImageView.swift in Sources */,
 				A549341520187A1B00E64DB1 /* PaymentViewController.swift in Sources */,
 				A5E546851FBEF0E10047AE62 /* Stepper.swift in Sources */,
 				A5D799CC1FAF680900AE05B2 /* CoreDataDelete.swift in Sources */,

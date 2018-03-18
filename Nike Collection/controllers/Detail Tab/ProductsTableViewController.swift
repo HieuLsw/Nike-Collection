@@ -27,8 +27,11 @@ class ProductsTableViewController: UITableViewController{
     //share class
     weak var delegate: ProductDetailViewController?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // fetch all data
         fetchData()
     }
     
@@ -158,7 +161,7 @@ extension ProductsTableViewController{
         let button = ButtonWithImage()
         button.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
         button.titleLabel?.font = UIFont.init(name: "ZiGzAgEo", size: 28)
-        button.setImage(#imageLiteral(resourceName: "DownArrow"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "DownGear"), for: .normal)
         button.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
         button.setTitle(sectionNames[section], for: .normal)
         button.addTarget(self, action: #selector(handleExpandClose(button:)), for: .touchUpInside)
@@ -184,7 +187,6 @@ extension ProductsTableViewController{
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedProduct = sectionItems[indexPath.section].products[indexPath.row]
         delegate?.product = selectedProduct
-        
         if !sceneViewIsHidden! {
              tableView.deselectRow(at: indexPath, animated: true)
         }
