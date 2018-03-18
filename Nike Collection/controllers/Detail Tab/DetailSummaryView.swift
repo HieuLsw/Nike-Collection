@@ -65,8 +65,8 @@ extension DetailSummaryView{
         croppingImageView.layer.cornerRadius = 0
         croppingImageView.layer.borderWidth = 3
         croppingImageView.layer.borderColor = UIColor.black.cgColor
-        let iamges = snapshotTargetView(view: self.productImageView, inRect: croppingImageView.frame)
-        resultImageView.image = resizeImage(image: iamges!, toNewSize: resultImageView.frame.size)
+        let imgaes = snapshotTargetView(view: self.productImageView, inRect: croppingImageView.frame)
+        resultImageView.image = resizeImage(image: imgaes!, toNewSize: resultImageView.frame.size)
     }
     
     private func snapshotTargetView(view: UIView!, inRect rect: CGRect!) -> UIImage! {

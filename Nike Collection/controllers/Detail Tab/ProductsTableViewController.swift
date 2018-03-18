@@ -13,7 +13,7 @@ class ProductsTableViewController: UITableViewController{
     
     struct sectionStructure {
         var isExpanded: Bool
-        let products: [Product]
+        var products: [Product]
     }
     
     var sectionItems = [sectionStructure]()

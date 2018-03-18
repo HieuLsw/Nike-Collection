@@ -34,8 +34,8 @@ extension ExistingCreditCardTableViewCell{
     
     func configueCell(withCreditCard creditCard: CreditCard){
         noCreditCardLabel.isHidden = true
-        cardNumberLabel.text = creditCard.cardNumber
-        cardTypeImageView.image = UIImage.init(named: creditCard.type!)
+        cardNumberLabel.text = creditCard.cardNumber?.maskedPlusLast4()
+        cardTypeImageView.image = #imageLiteral(resourceName: "amex")
         nameOnCardLabel.text = creditCard.nameOnCard
         expirationLabel.text = "\(creditCard.expMonth)/\(creditCard.expYear)"
     }

@@ -13,16 +13,16 @@ enum PopInfoType: String{
     case exYear = "Expiration Year"
 }
 
-protocol PopInfoSelectionDelegate:class {
-    func updateWithPopInfoSelection(value: String,sender: UIButton)
+protocol PopInfoSelectionDelegate: class {
+    func updateWithPopInfoSelection(value: String, sender: UIButton)
 }
 
 class PopoverTableViewController: UITableViewController {
     
-    var popInfoType:PopInfoType?
+    var popInfoType: PopInfoType?
     var data = [String]()
-    var sender:UIButton?
-    weak var delegate:PopInfoSelectionDelegate?
+    var sender: UIButton?
+    weak var delegate: PopInfoSelectionDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

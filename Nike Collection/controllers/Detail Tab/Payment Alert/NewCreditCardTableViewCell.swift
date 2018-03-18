@@ -27,8 +27,9 @@ class NewCreditCardTableViewCell: UITableViewCell{
     @IBOutlet weak var expMonthButton: UIButton!
     @IBOutlet weak var expYearButton: UIButton!
     
+    
     var customer:Customer?
-    weak var creditCardDelegate:CreditCardDelegate?
+    weak var creditCardDelegate: CreditCardDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +42,7 @@ class NewCreditCardTableViewCell: UITableViewCell{
         // Configure the view for the selected state
     }
     
-    @IBAction func didTapAddCard(_ sender: Any) {
+    @IBAction func didTapAddCard(_ sender: UIButton) {
         
         guard let nameOnCard = nameOnCardTextField.text else {
             return
