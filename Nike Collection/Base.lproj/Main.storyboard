@@ -355,18 +355,18 @@
                                                         <color key="textColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jordan XXIII Trophy Room White" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DU-nB-dzs">
-                                                        <rect key="frame" x="405.5" y="52" width="336.5" height="48"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike Charles Barkley USA Uniform" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4DU-nB-dzs">
+                                                        <rect key="frame" x="405.5" y="52" width="336.5" height="60"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="eXl-1S-1Cs"/>
+                                                            <constraint firstAttribute="height" constant="60" id="eXl-1S-1Cs"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="MosaicCaps" family="MosaicCaps" pointSize="23"/>
+                                                        <fontDescription key="fontDescription" name="MosaicCaps" family="MosaicCaps" pointSize="22"/>
                                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                         <size key="shadowOffset" width="0.0" height="3"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="06c-GC-RsF">
-                                                        <rect key="frame" x="404.5" y="142.5" width="176" height="95.5"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="06c-GC-RsF">
+                                                        <rect key="frame" x="404.5" y="149" width="223" height="95.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="bottom" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ha-bH-WgG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="79" height="95.5"/>
@@ -392,22 +392,22 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="T1W-Mk-8rR">
-                                                                <rect key="frame" x="99" y="0.0" width="77" height="95.5"/>
+                                                                <rect key="frame" x="94" y="0.0" width="129" height="95.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$999,999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hg-JA-M1S">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="20.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="$999999,99999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hg-JA-M1S">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="129" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$999,999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fd-pH-98A">
-                                                                        <rect key="frame" x="0.0" y="37.5" width="77" height="20.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$999999,99999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fd-pH-98A">
+                                                                        <rect key="frame" x="0.0" y="37.5" width="129" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$999,999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZU-YQ-i1S">
-                                                                        <rect key="frame" x="0.0" y="75" width="77" height="20.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$999999,99999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZU-YQ-i1S">
+                                                                        <rect key="frame" x="0.0" y="75" width="129" height="20.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -417,14 +417,14 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1l-C9-dM1" customClass="UserRating" customModule="Nike_Collection" customModuleProvider="target">
-                                                        <rect key="frame" x="405.5" y="112.5" width="114" height="20"/>
+                                                        <rect key="frame" x="405.5" y="119" width="114" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="p1l-C9-dM1" secondAttribute="height" multiplier="57:10" id="gFL-ol-5aa"/>
                                                             <constraint firstAttribute="height" constant="20" id="pAB-Wf-P66"/>
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgj-R7-Xcj">
-                                                        <rect key="frame" x="404.5" y="259.5" width="62" height="21"/>
+                                                        <rect key="frame" x="404.5" y="266" width="62" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="vpM-WP-gNu"/>
                                                         </constraints>
@@ -433,7 +433,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdk-v9-S21">
-                                                        <rect key="frame" x="600.5" y="217.5" width="35" height="21"/>
+                                                        <rect key="frame" x="644.5" y="224" width="35" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="kIq-Le-xq2"/>
                                                         </constraints>
@@ -442,7 +442,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qtyLeft!!!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-sx-Cqd">
-                                                        <rect key="frame" x="404.5" y="293.5" width="325" height="21"/>
+                                                        <rect key="frame" x="404.5" y="300" width="325" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="xok-Lf-ilY"/>
                                                         </constraints>
@@ -490,7 +490,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ULJ-dG-ybs">
-                                                        <rect key="frame" x="688.5" y="142" width="53" height="53"/>
+                                                        <rect key="frame" x="688.5" y="148.5" width="53" height="53"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="53" id="ezN-Zw-Ax3"/>
                                                             <constraint firstAttribute="width" constant="53" id="nCN-Kn-1Ri"/>
@@ -546,12 +546,12 @@
                                                     <constraint firstItem="06c-GC-RsF" firstAttribute="bottom" secondItem="Fdk-v9-S21" secondAttribute="bottom" id="JNz-uG-Tlf"/>
                                                     <constraint firstItem="YbZ-KN-zBy" firstAttribute="top" secondItem="dlR-al-YNk" secondAttribute="top" id="Kii-EA-LZz"/>
                                                     <constraint firstItem="fgj-R7-Xcj" firstAttribute="top" secondItem="06c-GC-RsF" secondAttribute="bottom" constant="21.5" id="LXP-Sj-xbu"/>
-                                                    <constraint firstItem="p1l-C9-dM1" firstAttribute="top" secondItem="4DU-nB-dzs" secondAttribute="bottom" constant="12.5" id="LsU-Kb-R5a"/>
+                                                    <constraint firstItem="p1l-C9-dM1" firstAttribute="top" secondItem="4DU-nB-dzs" secondAttribute="bottom" constant="7" id="LsU-Kb-R5a"/>
                                                     <constraint firstItem="p1l-C9-dM1" firstAttribute="leading" secondItem="4DU-nB-dzs" secondAttribute="leading" id="Mqj-7v-jWx"/>
                                                     <constraint firstItem="06c-GC-RsF" firstAttribute="leading" secondItem="dlR-al-YNk" secondAttribute="trailing" constant="9.5" id="NoG-Vs-R6c"/>
                                                     <constraint firstItem="fgj-R7-Xcj" firstAttribute="leading" secondItem="06c-GC-RsF" secondAttribute="leading" id="Qgc-gU-IvQ"/>
                                                     <constraint firstItem="jfc-T9-Ifz" firstAttribute="bottom" secondItem="dlR-al-YNk" secondAttribute="bottom" id="RLZ-rP-kJa"/>
-                                                    <constraint firstItem="Fdk-v9-S21" firstAttribute="leading" secondItem="06c-GC-RsF" secondAttribute="trailing" constant="20" id="S6b-C5-9yC"/>
+                                                    <constraint firstItem="Fdk-v9-S21" firstAttribute="leading" secondItem="06c-GC-RsF" secondAttribute="trailing" constant="17" id="S6b-C5-9yC"/>
                                                     <constraint firstItem="yCl-zz-OOu" firstAttribute="top" secondItem="qMT-fL-DKe" secondAttribute="bottom" constant="16" id="SX6-Sc-FWX"/>
                                                     <constraint firstAttribute="height" constant="450" id="aOD-Me-xUj"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="ULJ-dG-ybs" secondAttribute="trailing" id="bKB-Co-znS"/>
@@ -568,7 +568,7 @@
                                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="tz5-sx-Cqd" secondAttribute="trailing" constant="20" symbolic="YES" id="qbA-pb-zkp"/>
                                                     <constraint firstItem="yCl-zz-OOu" firstAttribute="width" secondItem="qMT-fL-DKe" secondAttribute="width" id="rHH-3R-FER"/>
                                                     <constraint firstItem="YbZ-KN-zBy" firstAttribute="leading" secondItem="dlR-al-YNk" secondAttribute="trailing" constant="9.5" id="rN5-Ct-2RH"/>
-                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fdk-v9-S21" secondAttribute="trailing" constant="100" id="sK1-9h-Uof"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Fdk-v9-S21" secondAttribute="trailing" constant="70" id="sK1-9h-Uof"/>
                                                     <constraint firstItem="yCl-zz-OOu" firstAttribute="centerX" secondItem="qMT-fL-DKe" secondAttribute="centerX" id="t1J-6A-G17"/>
                                                     <constraint firstItem="dlR-al-YNk" firstAttribute="leading" secondItem="8aH-L7-gh0" secondAttribute="leading" constant="20" id="txb-1T-ObB"/>
                                                     <constraint firstItem="jfc-T9-Ifz" firstAttribute="top" secondItem="dlR-al-YNk" secondAttribute="top" id="zd7-M5-i5y"/>
@@ -759,7 +759,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="682" height="699"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIke Collections aims to collect Nike rare and nice items and sell them to customers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L09-tT-ngz">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nike Collections aims to collect Nike rare and nice items and sell them to customers." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L09-tT-ngz">
                             <rect key="frame" x="0.0" y="120" width="682" height="291.5"/>
                             <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="50"/>
                             <color key="textColor" red="0.71372549019607845" green="0.65490196078431373" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

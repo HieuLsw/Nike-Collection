@@ -17,7 +17,7 @@ class ProductsTableViewController: UITableViewController{
     }
     
     var sectionItems = [sectionStructure]()
-    var sectionNames = ["Jackets", "Shoes", "Souvenirs", "Shorts"]
+    var sectionNames = ["Tops&T-Shirts", "Jackets", "Shoes", "Souvenirs", "Shorts", "Pants"]
     
     //selected cell
     var selectedProduct: Product?

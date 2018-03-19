@@ -81,8 +81,6 @@ class CoreDataSave{
             
             product.setValue(manufacturer, forKey: "manufacturer")
             
-            
-            
             //ProductImage part
             let productImages = product.productImages?.mutableCopy() as! NSMutableSet
             
