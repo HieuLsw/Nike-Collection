@@ -19,7 +19,6 @@ class CoreDataFetch {
         request.predicate = NSPredicate(format: "type == %@", type)
         
         do {
-            
             let products = try managedObjectContexts.fetch(request)
             return products
         }

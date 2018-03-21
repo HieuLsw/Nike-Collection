@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ProductsTableViewController: UITableViewController{
+class ProductsTableViewController: UITableViewController, MenuViewDelegate{
     
     struct sectionStructure {
         var isExpanded: Bool
@@ -17,22 +17,28 @@ class ProductsTableViewController: UITableViewController{
     }
     
     var sectionItems = [sectionStructure]()
-    var sectionNames = ["Tops&T-Shirts", "Jackets", "Shoes", "Souvenirs", "Shorts", "Pants"]
+    var sectionItems1 = [sectionStructure]()
+   fileprivate var sectionNames = ["Tops&T-Shirts", "Jackets", "Shoes", "Souvenirs", "Shorts", "Pants"]
+   fileprivate var sectionNames1 = ["Jackets", "Sleeves", "Glove", "Shoes"]
     
     //selected cell
     var selectedProduct: Product?
-    
-    var sceneViewIsHidden: Bool?
+    fileprivate var currentIndex = 0
+    fileprivate var sceneViewIsHidden: Bool?
+    fileprivate var menu: MenuView!
+    fileprivate let items = [MenuItem.init(image: #imageLiteral(resourceName: "Basketball Index")), MenuItem.init(image: #imageLiteral(resourceName: "USF Index"))]
     
     //share class
     weak var delegate: ProductDetailViewController?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // fetch all data
         fetchData()
+        
+        // load menu
+        loadMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,10 +62,25 @@ class ProductsTableViewController: UITableViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func switchMenu(_ sender: Any) {
+        menu.setRevealed(!menu.revealed, animated: true)
+    }
 }
 
 // custom functions
 extension ProductsTableViewController{
+    
+    fileprivate func loadMenu() {
+        menu = {
+            let menu = MenuView()
+            menu.delegate = self
+            menu.items = items
+            return menu
+        }()
+        
+        tableView.addSubview(menu)
+    }
     
     private func setFootView(){
         let footView = UIView.init()
@@ -72,28 +93,48 @@ extension ProductsTableViewController{
             let returnItem = sectionStructure.init(isExpanded: false, products: CoreDataFetch.productsServe(category: type))
             return returnItem
         }
+        sectionItems1 = sectionNames1.map{ (type) -> sectionStructure in
+            let returnItem = sectionStructure.init(isExpanded: false, products: CoreDataFetch.productsServe(category: type + "UF"))
+            return returnItem
+        }
+    }
+    
+    fileprivate func isExpand(isExpanded : Bool, button: UIButton, indexPaths: [IndexPath]) {
+        if isExpanded {
+            UIView.animate(withDuration: 0.4, animations: {
+                button.imageView?.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat.pi) / 180.0)})
+            tableView.deleteRows(at: indexPaths, with: .fade)
+        }
+        else {
+            UIView.animate(withDuration: 0.4, animations: {
+                button.imageView?.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat.pi) / 180.0)})
+            tableView.insertRows(at: indexPaths, with: .fade)
+        }
     }
     
     @objc func handleExpandClose(button: UIButton) {
         
                 let section = button.tag
                 var indexPaths = [IndexPath]()
+        
+        if currentIndex == 0 {
         for row in sectionItems[section].products.indices {
             let indexPath = IndexPath.init(row: row, section: section)
             indexPaths.append(indexPath)
         }
         let isExpanded = sectionItems[section].isExpanded
-        sectionItems[section].isExpanded = !isExpanded
-        if isExpanded {
-       UIView.animate(withDuration: 0.4, animations: {
-                button.imageView?.transform = CGAffineTransform(rotationAngle: (0.0 * CGFloat.pi) / 180.0)})
-        tableView.deleteRows(at: indexPaths, with: .fade)
+            sectionItems[section].isExpanded = !isExpanded
+            isExpand(isExpanded: isExpanded, button: button, indexPaths: indexPaths)
         }
-        else {
-            UIView.animate(withDuration: 0.4, animations: {
-                button.imageView?.transform = CGAffineTransform(rotationAngle: (180.0 * CGFloat.pi) / 180.0)})
-        tableView.insertRows(at: indexPaths, with: .fade)
-        }
+        else if currentIndex == 1 {
+            for row in sectionItems1[section].products.indices {
+                let indexPath = IndexPath.init(row: row, section: section)
+                indexPaths.append(indexPath)
+            }
+            let isExpanded = sectionItems1[section].isExpanded
+            sectionItems1[section].isExpanded = !isExpanded
+            isExpand(isExpanded: isExpanded, button: button, indexPaths: indexPaths)
+     }
     }
 }
 
@@ -102,6 +143,7 @@ extension ProductsTableViewController {
     fileprivate func createObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeToHidden(_:)), name: NSNotification.Name.init("knowIsHidden"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changeToNotHidden(_:)), name: NSNotification.Name.init("knowIsNotHidden"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeIndex(_:)), name: NSNotification.Name.init("indexChanged"), object: nil)
     }
     fileprivate func deleteObservers() {
         NotificationCenter.default.removeObserver(self)
@@ -117,25 +159,46 @@ extension ProductsTableViewController {
     @objc fileprivate func changeToNotHidden(_: Notification) {
         self.sceneViewIsHidden = false
     }
+    @objc fileprivate func changeIndex(_: Notification) {
+        tableView.reloadData()
+    }
 }
 
 //UITableViewDataSource
 extension ProductsTableViewController{
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionNames.count
+        if currentIndex == 0 {
+            return sectionNames.count }
+        else if currentIndex == 1 {
+            return sectionNames1.count
+        }
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if currentIndex == 0 {
         if !sectionItems[section].isExpanded {
             return 0
         }
-        return sectionItems[section].products.count
+            return sectionItems[section].products.count }
+        else if currentIndex == 1 {
+            if !sectionItems1[section].isExpanded {
+                return 0
+            }
+            return sectionItems1[section].products.count
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellProduct", for: indexPath) as! ProductsTableViewCell
-        let currentProduct = sectionItems[indexPath.section].products[indexPath.row]
+        var currentProduct = Product.init()
+        if currentIndex == 0 {
+           currentProduct = sectionItems[indexPath.section].products[indexPath.row]}
+        else if currentIndex == 1 {
+           currentProduct = sectionItems1[indexPath.section].products[indexPath.row]}
         if selectedProduct?.id == currentProduct.id{
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             delegate?.product = selectedProduct }else{
@@ -146,7 +209,7 @@ extension ProductsTableViewController{
         cell.productImageView.layer.cornerRadius = 10
         cell.productImageView.layer.borderColor = UIColor.red.cgColor
         cell.configureCell(with: currentProduct)
-        return cell
+            return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -163,7 +226,11 @@ extension ProductsTableViewController{
         button.titleLabel?.font = UIFont.init(name: "ZiGzAgEo", size: 28)
         button.setImage(#imageLiteral(resourceName: "DownGear"), for: .normal)
         button.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+        if currentIndex == 0 {
         button.setTitle(sectionNames[section], for: .normal)
+        } else if currentIndex == 1 {
+        button.setTitle(sectionNames1[section], for: .normal)
+        }
         button.addTarget(self, action: #selector(handleExpandClose(button:)), for: .touchUpInside)
         button.tag = section
         return button
@@ -185,10 +252,22 @@ extension ProductsTableViewController{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if currentIndex == 0 {
         selectedProduct = sectionItems[indexPath.section].products[indexPath.row]
         delegate?.product = selectedProduct
-        if !sceneViewIsHidden! {
-             tableView.deselectRow(at: indexPath, animated: true)
+        } else if currentIndex == 1 {
+selectedProduct = sectionItems1[indexPath.section].products[indexPath.row]
+delegate?.product = selectedProduct
         }
+        if !sceneViewIsHidden! {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+}
+
+extension ProductsTableViewController {
+    func menu(_ menu: MenuView, didSelectItemAt index: Int) {
+        currentIndex = index
+        NotificationCenter.default.post(name: NSNotification.Name.init("indexChanged"), object: nil)
     }
 }

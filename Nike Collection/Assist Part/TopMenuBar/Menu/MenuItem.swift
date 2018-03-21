@@ -13,10 +13,9 @@ public struct MenuItem {
     public var image: UIImage
     public var highlightedImage: UIImage?
     
-    public var backgroundColor = UIColor(red: 50.0 / 255.0, green: 49.0 / 255.0, blue: 73.0 / 255.0, alpha: 1.0)
-    public var highlightedBackgroundColor = UIColor(red: 1.0, green: 61.0 / 255.0, blue: 130.0 / 255.0, alpha: 1.0)
-    
-    public var shadowColor = UIColor(white: 0.1, alpha: 0.3)
+    public var backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+    public var highlightedBackgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    public var shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     
     // MARK: - Init
     public init(image: UIImage, highlightedImage: UIImage? = nil) {
