@@ -200,7 +200,6 @@ extension ProductsTableViewController{
         else if currentIndex == 1 {
            currentProduct = sectionItems1[indexPath.section].products[indexPath.row]}
         if selectedProduct?.id == currentProduct.id{
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             delegate?.product = selectedProduct }else{
             cell.contentView.layer.borderWidth = 0
             cell.contentView.layer.borderColor = UIColor.clear.cgColor
