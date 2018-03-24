@@ -13,7 +13,7 @@ A native app without server side. You must run it on iPad with landscape directi
 <br />
 <h2>Instrcution</h2>
 <img src="https://github.com/Imputes/Nike-Collection/blob/master/gifs/home%20tab.gif">
-
+<img src="https://github.com/Imputes/Nike-Collection/blob/master/gifs/detail%20tab%20left%20table.gif">
 
 
 
