@@ -16,6 +16,7 @@ A native app without server side. You must run it on iPad with landscape directi
 <img src="https://github.com/Imputes/Nike-Collection/blob/master/gifs/detail%20tab%20left%20table.gif">
 <img src="https://github.com/Imputes/Nike-Collection/blob/master/gifs/detail%20tab%20detail%20view.gif">
 <img src="https://github.com/Imputes/Nike-Collection/blob/master/gifs/detia%20view%20cart.gif">
+<img src="https://github.com/Imputes/Nike-Collection/blob/master/gifs/customer%20part.gif">
 
 
  
