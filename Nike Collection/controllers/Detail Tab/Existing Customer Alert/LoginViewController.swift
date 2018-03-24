@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
     
     var customer: Customer?
     
@@ -46,8 +47,18 @@ class LoginViewController: UIViewController {
         
         customer = CoreDataFetch.verify(username: email, password: password)
         
-        if customer != nil {
-            performSegue(withIdentifier: "segueShipAddress", sender: self)}
+        
+        if (emailTextField.text?.isEmpty)! || (passwordTextField.text?.isEmpty)! {
+            let alertController = UIAlertController.init(title: "Something wrong", message: "Textfiled can't be nil", preferredStyle: .alert)
+            let nilAction = UIAlertAction.init(title: "I know", style: .cancel, handler: nil)
+            alertController.addAction(nilAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        if customer != nil{
+            performSegue(withIdentifier: "segueShipAddress", sender: self)
+        }
         else{
             let alertController = UIAlertController(title: "Login Failed", message: "We do not recognize your email and/or password.  \nPlease try again.", preferredStyle: UIAlertControllerStyle.alert)
             
@@ -67,3 +78,5 @@ class LoginViewController: UIViewController {
     }
     
 }
+
+

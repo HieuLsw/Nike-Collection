@@ -14,6 +14,7 @@ class CustomerViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +48,7 @@ class CustomerViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 }//CustomerViewController class over line
 
 //custom functions
@@ -55,6 +57,5 @@ extension CustomerViewController{
     fileprivate func setNavigationBar(){
         let navBack = UIBarButtonItem.init(title: "", style: .plain, target: navigationController, action: nil)
         self.navigationItem.leftBarButtonItem = navBack
-        
     }
 }

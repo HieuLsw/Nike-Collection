@@ -55,6 +55,24 @@ extension PaymentViewController{
      }
 }
 
+//create observers
+extension PaymentViewController {
+    
+    fileprivate func createObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(emptyFieldsAlert(_:)), name: NSNotification.Name.init("newCradEmpty"), object: nil)
+    }
+}
+
+//observers selectors
+extension PaymentViewController {
+    @objc private func emptyFieldsAlert(_: Notification) {
+        let alertController = UIAlertController.init(title: "Something wrong", message: "must fill all", preferredStyle: .alert)
+        let cardAction = UIAlertAction.init(title: "I know", style: .cancel, handler: nil)
+        alertController.addAction(cardAction)
+             present(alertController, animated: true, completion: nil)
+    }
+}
+
 //UITableViewDataSource
 extension PaymentViewController{
     func numberOfSections(in tableView: UITableView) -> Int {

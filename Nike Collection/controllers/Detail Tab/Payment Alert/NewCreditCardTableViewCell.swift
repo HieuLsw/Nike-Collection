@@ -44,6 +44,10 @@ class NewCreditCardTableViewCell: UITableViewCell{
     
     @IBAction func didTapAddCard(_ sender: UIButton) {
         
+if (nameOnCardTextField.text?.isEmpty)! || (cardNumberTextField.text?.isEmpty)! {
+           NotificationCenter.default.post(name: NSNotification.Name.init("newCradEmpty"), object: nil)
+        }
+        
         guard let nameOnCard = nameOnCardTextField.text else {
             return
         }
