@@ -17,7 +17,7 @@ This app use Core Data save users info and products.<br />
 When into this Core Data first, it will delete all products and save all products from JSON file.(If not do this, the data will be superimposed, get wrong result.)<br />
 In sign in and sign up case, use Core Data save users info.
 But this app will not change JSON, because there is no server-side. This will cause if users bought some products, those products count will not change.<br />
-The more details see source code.
+To see more details in source code.
 </h2>
 <br />
 <h1>Screenshot</h2>
