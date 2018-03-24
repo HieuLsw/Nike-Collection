@@ -46,11 +46,20 @@ class AddressViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
         //remove notifications
         removeNotifications()
     }
-    
+  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier{
             switch identifier{
             case "segueToPayment":
+                
+                if (textFields[0].text?.isEmpty)! || (textFields[1].text?.isEmpty)! || (textFields[3].text?.isEmpty)! || (textFields[4].text?.isEmpty)! || (textFields[5].text?.isEmpty)! || (textFields[6].text?.isEmpty)!
+                {
+                    let alertController = UIAlertController.init(title: "Something wrong", message: "must fill all", preferredStyle: .alert)
+                    let allNilAction = UIAlertAction.init(title: "I know", style: .cancel, handler: nil)
+                    alertController.addAction(allNilAction)
+                    present(alertController, animated: true, completion: nil)
+                }
+                
                 if let customer = customer{
                     shoppingCart.assignCart(toCustomer: customer)
                     var address:Address
@@ -71,7 +80,7 @@ class AddressViewController: UIViewController,UIPickerViewDataSource,UIPickerVie
             }
         }
     }
-    
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
