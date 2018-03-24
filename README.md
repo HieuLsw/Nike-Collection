@@ -11,8 +11,8 @@ A native app without server side. You must run it on iPad with landscape directi
 ## It supports iPad 9.7 at least.
 ## The app is still in development.
 <br />
-## Instruction
-![image](https://github.com/Imputes/Nike-Collection/blob/master/gifs/home%20tab.gif)
+<h2>Instrcution</h2>
+<img src="https://github.com/Imputes/Nike-Collection/blob/master/gifs/home%20tab.gif">
 
 
 
