@@ -14,7 +14,7 @@ A native app without server side. You must run it on iPad with landscape directi
 <h1>Instruction</h1>
 <h2>
 This app use Core Data save users info and products.<br />
-When into this Core Data first, it will delete all products and save all products from JSON file.(If not do this, the data will be superimposed, get wrong result.)<br />
+When into this app first, its Core Data will delete all products and save all products from JSON file.(If not do this, the data will be superimposed, get wrong result.)<br />
 In sign in and sign up case, use Core Data save users info.
 But this app will not change JSON, because there is no server-side. This will cause if users bought some products, those products count will not change.<br />
 To see more details in source code.
